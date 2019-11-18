@@ -17,6 +17,9 @@
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="input barang" href="<?php echo base_url('admin/barang') ?>"> <span class="mini-sub-pro">Input Barang</span></a></li>
                             </ul>
+                            <ul class="submenu-angle" aria-expanded="true">
+                                <li><a title="input baner" href="<?php echo base_url('admin/baner') ?>"> <span class="mini-sub-pro">Input Baner</span></a></li>
+                            </ul>
                         </li>
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span class="mini-click-non">Laporan</span></a>
