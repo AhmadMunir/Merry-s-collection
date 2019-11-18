@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit ('No direct script access allowed');
 /**
- * 
+ *
  */
 class Barang_model extends CI_Model
 {
@@ -13,7 +13,7 @@ class Barang_model extends CI_Model
 	public $gambar;
 	public $harga;
 	public $stok;
-	
+
 
 	public function rules()
 	{
@@ -38,34 +38,64 @@ class Barang_model extends CI_Model
 		return $this->db->get_where($this->_view, ["id_barang" => $id])->row();
 	}
 
-	
+public function save_batch_size(){
+	return $this->db->insert_batch('tabel_detail_stok', $data);
+}
+
+
 public function uploadGambar()
 	{
-		$config['upload_path']		= './upload/barang/';
+		$config['upload_path']		= './img/barang/';
 		$config['allowed_types']	= 'gif|jpg|png';
 		$config['file_name']			= uniqid();
 		$config['overwrite']		= true;
 		$config['max_size']			= 5000;
 
-		
+
        $this->load->library('upload', $config);
-       
+
 		if($this->upload->do_upload('gambar')) {
 			return $this->upload->data("file_name");
 		}
+		// cek error
+		// print_r($this->upload->display_errors());
 
 		return "default.jpg";
 	}
 	public function save()
 	{
 		$post = $this->input->post();
-		
+
+		$this->load->helper('string');
+		// echo random_string('alnum',5);
+		$this->id_barang = random_string('alnum',7);
 		$this->nama_barang = $post["nama_barang"];
 		$this->id_kategori = $post["id_kategori"];
 		$this->gambar = $this->uploadGambar();
 		$this->harga = $post["harga"];
-		$this->stok = $post["stok"];
+		// $this->stok = $post["stok"];
+
+		// Stok
+		$size = $_POST['size'];
+		$desk = $_POST['desk'];
+		$stok = $_POST['stok'];
+
+		$data = array();
+
+		$index = 0;
+
+		foreach ($size as $siz) {
+			array_push($data, array(
+				'id_barang' => $this->id_barang,
+				'jumlah_stok' => $stok[$index],
+				'size' => $size[$index],
+				'deskripsi' => $desk[$index],
+			));
+			$index++;
+		}
+
 		$this->db->insert($this->_table,$this);
+		$this->db->insert_batch('tabel_detail_stok', $data);
 	}
 
 	public function update()
@@ -74,7 +104,7 @@ public function uploadGambar()
 		$this->id_barang = $post["id"];
 		$this->nama_barang = $post["nama_barang"];
 		$this->id_kategori = $post["id_kategori"];
-		
+
 		if(!empty($_FILES["gambar"]["name"])) {
 			$this->gambar = $this->uploadGambar();
 		}else{
@@ -83,8 +113,8 @@ public function uploadGambar()
 
 		$this->harga = $post["harga"];
 		$this->stok = $post["stok"];
-		
-		
+
+
 		$this->db->update($this->_table, $this, array('id_barang' => $post['id']));
 	}
 
@@ -95,7 +125,7 @@ public function uploadGambar()
 		return $this->db->delete($this->_table, array("id_barang" => $id));
 	}
 
-	
+
 
 	private function _deleteImage($id)
 	{

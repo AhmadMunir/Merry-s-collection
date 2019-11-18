@@ -21,7 +21,7 @@
                <?php if
               ($this->session->flashdata('success')): ?>
               <div class="alert alert-success" role="alert">
-                <?php echo 
+                <?php echo
                 $this->session->flashdata('success'); ?>
               </div>
             <?php endif;?>
@@ -39,13 +39,13 @@
                  <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
 
-                      
-                        
-                        
+
+
+
                           <br>
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
-                          
+
                           <div class="table-responsive">
                             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                               <thead>
@@ -73,29 +73,29 @@
                                       <?php echo $barang->nama_kategori; ?>
                                     </td>
                                     <td width="150">
-                                      <img src="<?php echo base_url('upload/barang/'.$barang->gambar) ?>" style="width: 70px;height: 70px;" />
+                                      <img src="<?php echo base_url('img/barang/'.$barang->gambar) ?>" style="width: 70px;height: 70px;" />
                                     </td>
                                     <td width="150">
                                       <?php echo $barang->harga ?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $barang->stok ?>                                     
+                                      <?php echo $barang->stok ?>
                                     </td>
 
                                     <td width="150">
                                     <a href="<?php echo site_url('admin/barang/edit/'.$barang->id_barang)?>" class="btn btn-info">Edit</a>
                                     <a onclick="deleteConfirm('<?php echo site_url('admin/barang/delete/'.$barang->id_barang)?>')"
-                                    href="#!" class="btn btn-primary">Hapus</a>      
+                                    href="#!" class="btn btn-primary">Hapus</a>
                                     </td>
                                   </tr>
                                 <?php endforeach; ?>
                               </tbody>
                             </table>
                           </div>
-                        
-                     
-                      
-                    
+
+
+
+
                     </div>
                   </div>
                 </div>
@@ -103,7 +103,7 @@
               </div>
               </div>
 
-        
+
     </div>
 
     <!-- jquery
