@@ -2,46 +2,42 @@
 /**
  * 
  */
-class Barang_model extends CI_Model
+class Baner_model extends CI_Model
 {
-	private $_table = "tabel_barang";
-	private $_view  = "view_barang";
+	private $_table = "tabel_baner";
 
-	public $id_barang;
-	public $nama_barang;
-	public $id_kategori;
-	public $gambar;
-	public $harga;
-	public $stok;
+	public $id_baner;
+	public $nama_baner;
+	public $baner;
+	public $tulisan_sedang;
+	public $tulisan_kecil;
+	
 	
 
 	public function rules()
 	{
 		return [
-			['field'=>'nama_barang',
+			['field'=>'nama_baner',
 			'label'=>'Name',
 			'rules'=>'required'],
 		];
 	}
 
-	public function getKat(){
-		return $this->db->get('tabel_kategori')->result();
-	}
 	public function getAll()
 	{
-		$this->db->order_by('nama_barang', 'ASC');
-		return $this->db->get($this->_view)->result();
+		$this->db->order_by('nama_baner', 'ASC');
+		return $this->db->get($this->_table)->result();
 	}
 
 	public function getById($id)
 	{
-		return $this->db->get_where($this->_view, ["id_barang" => $id])->row();
+		return $this->db->get_where($this->_table, ["id_baner" => $id])->row();
 	}
 
 	
-public function uploadGambar()
+public function uploadbaner()
 	{
-		$config['upload_path']		= './upload/barang/';
+		$config['upload_path']		= './img/banner/';
 		$config['allowed_types']	= 'gif|jpg|png';
 		$config['file_name']			= uniqid();
 		$config['overwrite']		= true;
@@ -50,7 +46,7 @@ public function uploadGambar()
 		
        $this->load->library('upload', $config);
        
-		if($this->upload->do_upload('gambar')) {
+		if($this->upload->do_upload('baner')) {
 			return $this->upload->data("file_name");
 		}
 
@@ -59,50 +55,48 @@ public function uploadGambar()
 	public function save()
 	{
 		$post = $this->input->post();
-		
-		$this->nama_barang = $post["nama_barang"];
-		$this->id_kategori = $post["id_kategori"];
-		$this->gambar = $this->uploadGambar();
-		$this->harga = $post["harga"];
-		$this->stok = $post["stok"];
+		// $this->id_baner = 1;
+		$this->nama_baner = $post["nama_baner"];
+		$this->baner = $this->uploadbaner();
+		$this->tulisan_sedang = $post["tulisan_sedang"];
+		$this->tulisan_kecil = $post["tulisan_kecil"];
 		$this->db->insert($this->_table,$this);
 	}
 
 	public function update()
 	{
 		$post = $this->input->post();
-		$this->id_barang = $post["id"];
-		$this->nama_barang = $post["nama_barang"];
-		$this->id_kategori = $post["id_kategori"];
+		$this->id_baner = $post["id"];
+		$this->nama_baner = $post["nama_baner"];
 		
-		if(!empty($_FILES["gambar"]["name"])) {
-			$this->gambar = $this->uploadGambar();
+		if(!empty($_FILES["baner"]["name"])) {
+			$this->baner = $this->uploadbaner();
 		}else{
-			$this->gambar = $post["old_image"];
+			$this->baner = $post["old_image"];
 		}
 
-		$this->harga = $post["harga"];
-		$this->stok = $post["stok"];
+		$this->tulisan_sedang = $post["tulisan_sedang"];
+		$this->tulisan_kecil = $post["tulisan_kecil"];
 		
 		
-		$this->db->update($this->_table, $this, array('id_barang' => $post['id']));
+		$this->db->update($this->_table, $this, array('id_baner' => $post['id']));
 	}
 
 
 	public function delete($id)
 	{
 		$this-> _deleteImage($id);
-		return $this->db->delete($this->_table, array("id_barang" => $id));
+		return $this->db->delete($this->_table, array("id_baner" => $id));
 	}
 
 	
 
 	private function _deleteImage($id)
 	{
-		$barang = $this->getById($id);
-		if($barang->gambar != "default.jpg"){
-			$filename = explode(".", $barang->gambar)[0];
-			return array_map('unink',glob(FCPATH."upload/barang/$filename.*"));
+		$baner = $this->getById($id);
+		if($baner->baner != "default.jpg"){
+			$filename = explode(".", $baner->baner)[0];
+			return array_map('unink',glob(FCPATH."upload/baner/$filename.*"));
 		}
 	}
 

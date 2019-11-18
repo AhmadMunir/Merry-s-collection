@@ -26,62 +26,45 @@
                           <br>
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
-                          
-                      
-                      <form action="<?php base_url('admin/barang/edit') ?>" method="post" enctype="multipart/form-data">
+    
+                      <form action="<?php base_url('admin/baner/edit') ?>" method="post" enctype="multipart/form-data">
                         <br>
-                            <input type="hidden" name="id" value="<?php echo $tabel_barang->id_barang?>"/>
+                            <input type="hidden" name="id" value="<?php echo $tabel_baner->id_baner?>"/>
 
                             <div class="form-group">
-                              <label for="nama_barang">Nama Barang</label>
+                              <label for="nama_baner">Tulisan Besar</label>
 
-                              <input class="form-control <?php echo form_error('nama_barang') ? 'is-invalid':'' ?>" type="text" name="nama_barang" value="<?php echo $tabel_barang->nama_barang?>" />
+                              <input class="form-control <?php echo form_error('nama_baner') ? 'is-invalid':'' ?>" type="text" name="nama_baner" value="<?php echo $tabel_baner->nama_baner?>" />
                               <div class="invalid-feedback">
-                                <?php echo form_error('nama_barang')?>
+                                <?php echo form_error('nama_baner')?>
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="id_kategori">Nama Kategori</label>
-
-                              <select class="form-control <?php form_error('nama_kategori')? 'is-invalid':'' ?>"
-                                name="id_kategori" onchange="cek_kategori()" id="id_kategori">
-                                  
-                                  <option class="form-control" value='<?php echo $tabel_barang->id_kategori?>' selected=""><?php echo $tabel_barang->nama_kategori?>
-                                  </option> 
-                                  <?php
-                                  foreach ($tabel_kategori as $kei) {?>
-                                     <option class="form-control" value='<?php echo $kei->id_kategori ?>'><?php echo $kei->id_kategori?>
-                                  </option>
-                                 <?php }
-                                ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                              <label for="name">Gambar</label>
-                              <input class="form-control-file <?php echo form_error('gambar') ? 'is-invalid' :'' ?>" type="file" name="gambar" />
-                              <input type="hidden" name="old_image" value="<?php echo $tabel_barang->gambar ?>"/>
+                              <label for="name">Baner (1920 x 700)</label>
+                              <input class="form-control-file <?php echo form_error('baner') ? 'is-invalid' :'' ?>" type="file" name="baner" />
+                              <input type="hidden" name="old_image" value="<?php echo $tabel_baner->baner ?>"/>
                               <div class="invalid-feedback">
-                                <?php echo form_error('gambar'); ?>
+                                <?php echo form_error('baner'); ?>
                               </div>
                             </div>
                              <div class="form-group">
-                              <label for="nama_barang">Harga Barang</label>
+                              <label for="nama_baner">tulisan_sedang</label>
 
-                              <input class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>" type="number" name="harga" value="<?php echo $tabel_barang->harga?>" />
+                              <input class="form-control <?php echo form_error('tulisan_sedang') ? 'is-invalid':'' ?>" type="text" name="tulisan_sedang" value="<?php echo $tabel_baner->tulisan_sedang?>" />
                               <div class="invalid-feedback">
-                                <?php echo form_error('harga')?>
+                                <?php echo form_error('tulisan_sedang')?>
                               </div>
                             </div>
                             <div class="form-group">
-                              <label for="nama_barang">Stok</label>
+                              <label for="nama_baner">tulisan_kecil</label>
 
-                              <input class="form-control <?php echo form_error('stok') ? 'is-invalid':'' ?>" type="number" name="stok" value="<?php echo $tabel_barang->stok?>" />
+                              <input class="form-control <?php echo form_error('tulisan_kecil') ? 'is-invalid':'' ?>" type="text" name="tulisan_kecil" value="<?php echo $tabel_baner->tulisan_kecil?>" />
                               <div class="invalid-feedback">
-                                <?php echo form_error('harga')?>
+                                <?php echo form_error('tulisan_kecil')?>
                               </div>
                             </div>
                             <input class="btn btn-success" type="submit" name="btn"value="Simpan">
-                             <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-primary">Back</a>
+                             <a href="<?php echo site_url('admin/baner') ?>" class="btn btn-primary">Back</a>
                           </form>
 
                     </div>

@@ -17,10 +17,6 @@
 
         <div class="content">
             <div class="container-fluid">
-
-             
-            
-           
                 <div class="row">
                      <br>
                   <br>
@@ -30,60 +26,44 @@
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
                       
-                      <form action="<?php base_url('admin/barang/add') ?>" method="post" enctype="multipart/form-data">
+                      <form action="<?php base_url('admin/baner/add') ?>" method="post" enctype="multipart/form-data">
                                        
                             <div class="form-group">
-                              <label for="nama_barang">Masukkan Barang</label>
+                              <label for="nama_baner">Masukkan baner</label>
 
-                              <input class="form-control <?php echo form_error('nama_barang') ? 'is-invalid':'' ?>" type="text" name="nama_barang" placeholder="Nama barang" />
+                              <input class="form-control <?php echo form_error('nama_baner') ? 'is-invalid':'' ?>" type="text" name="nama_baner" placeholder="Nama baner" />
                               <div class="invalid-feedback">
-                                <?php echo form_error('nama_barang')?>
+                                <?php echo form_error('nama_baner')?>
                               </div>
-
-                              <label for="id_kategori">Pilih Kategori</label>
-                              <select class="form-control <?php form_error('nama_kategori')? 'is-invalid':'' ?>"
-                                name="id_kategori" onchange="cek_kategori()" id="id_kategori">
-                                  
-                                  <option class="form-control" value='' selected="">
-                                  ----------Pilih Kategori----------</option> 
-                                  <?php
-                                  include "koneksi.php";
-                                  $barang = mysqli_query($koneksi,"SELECT * FROM tabel_kategori");
-                                  while ($row = mysqli_fetch_array($barang)) 
-                                {
-                                    echo "<option value = '$row[id_kategori]'>$row[nama_kategori]</option>";
-                                }
-                                ?>
-                                </select>
                             </div>
 
                             <div class="form-group">
-                              <label for="harga">Gambar</label>
+                              <label for="baner">Baner (1920 x 700)</label>
 
                               
-                              <input class="form-control <?php echo form_error('gambar') ? 'is-invalid':'' ?>" type="file" name="gambar">
+                              <input class="form-control <?php echo form_error('baner') ? 'is-invalid':'' ?>" type="file" name="baner">
                               <div class="invalid-feedback">
-                                <?php echo form_error('gambar')?>
+                                <?php echo form_error('banner')?>
                               </div>
                              <div class="form-group">
-                              <label for="harga">Harga</label>
+                              <label for="tulisan_sedang">Tulisan Sedang</label>
 
-                              <input class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>" type="number" name="harga" placeholder="Harga" />
+                              <input class="form-control <?php echo form_error('tulisan_sedang') ? 'is-invalid':'' ?>" type="text" name="tulisan_sedang" placeholder="tulisan_sedang" />
                               <div class="invalid-feedback">
-                                <?php echo form_error('harga')?>
+                                <?php echo form_error('tulisan_sedang')?>
                               </div>
 
                              <div class="form-group">
-                              <label for="stok">Stok</label>
+                              <label for="tulisan_kecil">Tulisan Kecil</label>
 
-                              <input class="form-control <?php echo form_error('stok') ? 'is-invalid':'' ?>" type="number" name="stok" placeholder="stok" />
+                              <input class="form-control <?php echo form_error('tulisan_kecil') ? 'is-invalid':'' ?>" type="text" name="tulisan_kecil" placeholder="tulisan_kecil" />
                               <div class="invalid-feedback">
-                                <?php echo form_error('stok')?>
+                                <?php echo form_error('tulisan_kecil')?>
                               </div>
                               <br>
 
                             <input class="btn btn-success" type="submit" name="btn"value="Simpan">
-                            <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-primary">Back</a>
+                            <a href="<?php echo site_url('admin/baner') ?>" class="btn btn-primary">Back</a>
                           </form>
                           
                           

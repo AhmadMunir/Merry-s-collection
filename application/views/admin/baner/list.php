@@ -32,16 +32,13 @@
                  <br>
                           <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
                             <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
-                          <a href="<?php echo site_url('admin/barang/add') ?>" class="btn btn-warning"> Add New </a>
+                          <a href="<?php echo site_url('admin/baner/add') ?>" class="btn btn-warning"> Add New </a>
                         </div>
                         </div>
                   <br>
                  <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
 
-                      
-                        
-                        
                           <br>
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
@@ -51,40 +48,36 @@
                               <thead>
                                 <tr>
                                   <th>No</th>
-                                  <th>Nama Barang</th>
-                                  <th>Nama Kategori</th>
-                                  <th>Gambar</th>
-                                  <th>Harga</th>
-                                  <th>Stok</th>
-                                  <th>Action</th>
+                                  <th>Tulisan Besar</th>
+                                  <th>Baner</th>
+                                  <th>Tulisan Sedang</th>
+                                  <th>Tulisan Sedang</th>
+                                  <th>Tindakan</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <?php $i=1?>
-                                <?php foreach ($tabel_barang as $barang): ?>
+                                <?php foreach ($tabel_baner as $baner): ?>
                                   <tr>
                                     <td width="10">
                                       <?php echo $i++?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $barang->nama_barang ?>
+                                      <?php echo $baner->nama_baner ?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $barang->nama_kategori; ?>
+                                      <img src="<?php echo base_url('img/banner/'.$baner->baner) ?>" style="width: 100px;height: 70px;" />
                                     </td>
                                     <td width="150">
-                                      <img src="<?php echo base_url('upload/barang/'.$barang->gambar) ?>" style="width: 70px;height: 70px;" />
+                                      <?php echo $baner->tulisan_sedang ?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $barang->harga ?>
-                                    </td>
-                                    <td width="150">
-                                      <?php echo $barang->stok ?>                                     
+                                      <?php echo $baner->tulisan_kecil ?>                                     
                                     </td>
 
                                     <td width="150">
-                                    <a href="<?php echo site_url('admin/barang/edit/'.$barang->id_barang)?>" class="btn btn-info">Edit</a>
-                                    <a onclick="deleteConfirm('<?php echo site_url('admin/barang/delete/'.$barang->id_barang)?>')"
+                                    <a href="<?php echo site_url('admin/baner/edit/'.$baner->id_baner)?>" class="btn btn-info">Edit</a>
+                                    <a onclick="deleteConfirm('<?php echo site_url('admin/baner/delete/'.$baner->id_baner)?>')"
                                     href="#!" class="btn btn-primary">Hapus</a>      
                                     </td>
                                   </tr>
