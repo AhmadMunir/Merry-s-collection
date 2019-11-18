@@ -157,7 +157,7 @@
                             <nav id="primary-menu">
                                 <ul class="main-menu text-center">
                                     <li><a href="<?php echo base_url('home') ?>">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="<?php echo base_url('user/About') ?>">About</a></li>
                                     <li><a href="shop-full.html">men</a></li>
                                     <li><a href="blog.html">Blog</a>
                                         <ul class="dropdown header-top-hover ptb-10">
@@ -170,7 +170,7 @@
                                     <?php }else { ?>
                                       <li><a href="<?php echo base_url('user/login'); ?>">Login or Register</a></li>
                                     <?php }?>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="<?php echo base_url('user/Contact') ?>">Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
