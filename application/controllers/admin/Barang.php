@@ -17,8 +17,6 @@
 
   	}
 
-
-
   	public function add()
   	{
   		$barang = $this->barang_model;
