@@ -17,8 +17,6 @@
 
   	}
 
-
-
   	public function add()
   	{
   		$barang = $this->barang_model;
@@ -30,8 +28,9 @@
   			$this->session->set_flashdata('success','Berhasil Disimpan');
         redirect(site_url("admin/barang"));
   		}
+      $data["tabel_kategori"] =$barang->getKat();
 
-  		$this->load->view("admin/barang/new_form");
+  		$this->load->view("admin/barang/new_form", $data);
 
   	}
   	public function edit($id = null)

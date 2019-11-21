@@ -1,4 +1,5 @@
 <?php
+
   class Login extends CI_Controller{
     public function __construct(){
       parent::__construct();
@@ -32,11 +33,7 @@
           'id' => $id
         );
         $this->session->set_userdata($data_session);
-        // redirect(base_url('admin/home'));
-        echo $data_session['nama'];
-        echo $data_session['jabatan'];
-        echo $data_session['status'];
-        echo $data_session['id'];
+        redirect(base_url('admin/home'));
       } elseif($cekuser > 0){
           foreach ($cekuser2 as $key) {
             $id_us = $key->id_user;
@@ -82,11 +79,7 @@
           'id' => $id
         );
         $this->session->set_userdata($data_session);
-        // redirect(base_url('admin/home'));
-        echo $data_session['nama'];
-        echo $data_session['jabatan'];
-        echo $data_session['status'];
-        echo $data_session['id'];
+        redirect(base_url('admin/home'));
       } elseif($cekuser > 0){
           foreach ($cekuser2 as $key) {
             $id_us = $key->id_user;
@@ -105,13 +98,7 @@
           }else {
             redirect($_SERVER['HTTP_REFERER']);
           }
-          // echo $data_session['nama'];
-          // echo $data_session['jabatan'];
-          // echo $data_session['status'];
-          // echo $data_session['id'];
     }else {
-      // $this->session->set_flashdata('gagal', 'Password dan Username Salah!');
-      // redirect('Login');
       echo "gagal";
       }
   	}

@@ -147,287 +147,61 @@
                     <div class="row">
                         <div class="product-list tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="arrival">
-                                <div class="col-md-3 col-sm-4">
-                                    <div class="single-product mb-40">
-                                        <div class="product-img-content mb-20">
-                                            <div class="product-img">
-                                                <a href="product-details.html">
-                                                    <img src="<?php echo base_url('img/user/')?>product/1.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <span class="new-label text-uppercase">-30%</span>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                    <i class="zmdi zmdi-eye"></i>
-                                                </a>
-                                                <a href="#" title="Add to cart">
-                                                    <i class="zmdi zmdi-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Add to Wishlist">
-                                                    <i class="zmdi zmdi-favorite"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-center text-uppercase">
-                                            <a href="product-details.html" title="Ripcurl Furry Fleece">Ripcurl Furry Fleece</a>
-                                            <div class="rating-icon">
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                            </div>
-                                            <div class="product-price">
-                                                <span class="new-price">£ 185.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-product">
-                                        <div class="product-img-content mb-20">
-                                            <div class="product-img">
-                                                <a href="product-details.html">
-                                                    <img src="<?php echo base_url('img/user/')?>product/5.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                    <i class="zmdi zmdi-eye"></i>
-                                                </a>
-                                                <a href="#" title="Add to cart">
-                                                    <i class="zmdi zmdi-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Add to Wishlist">
-                                                    <i class="zmdi zmdi-favorite"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-center text-uppercase">
-                                            <a href="product-details.html" title="Twill Oversized ">Twill Oversized </a>
-                                            <div class="rating-icon">
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                            </div>
-                                            <div class="product-price">
-                                                <span class="new-price">£ 150.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-4">
-                                    <div class="single-product mb-40">
-                                        <div class="product-img-content mb-20">
-                                            <div class="product-img">
-                                                <a href="product-details.html">
-                                                    <img src="<?php echo base_url('img/user/')?>product/2.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <span class="new-label red-color text-uppercase">sale</span>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                    <i class="zmdi zmdi-eye"></i>
-                                                </a>
-                                                <a href="#" title="Add to cart">
-                                                    <i class="zmdi zmdi-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Add to Wishlist">
-                                                    <i class="zmdi zmdi-favorite"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-center text-uppercase">
-                                            <a href="product-details.html" title="Slim Shirt With Stretch">Slim Shirt With Stretch</a>
-                                            <div class="rating-icon">
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                            </div>
-                                            <div class="product-price">
-                                                <span class="new-price">£ 177.00</span>
-                                                <span class="old-price">£ 200.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-product">
-                                        <div class="product-img-content mb-20">
-                                            <div class="product-img">
-                                                <a href="product-details.html">
-                                                    <img src="<?php echo base_url('img/user/')?>product/6.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                    <i class="zmdi zmdi-eye"></i>
-                                                </a>
-                                                <a href="#" title="Add to cart">
-                                                    <i class="zmdi zmdi-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Add to Wishlist">
-                                                    <i class="zmdi zmdi-favorite"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-center text-uppercase">
-                                            <a href="product-details.html" title="Tomas Box Logo T-Shirt">Tomas Box Logo T-Shirt</a>
-                                            <div class="rating-icon">
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                            </div>
-                                            <div class="product-price">
-                                                <span class="new-price">£ 21.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-4">
-                                    <div class="single-product mb-40">
-                                        <div class="product-img-content mb-20">
-                                            <div class="product-img">
-                                                <a href="product-details.html">
-                                                    <img src="<?php echo base_url('img/user/')?>product/3.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <span class="new-label text-uppercase">New</span>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                    <i class="zmdi zmdi-eye"></i>
-                                                </a>
-                                                <a href="#" title="Add to cart">
-                                                    <i class="zmdi zmdi-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Add to Wishlist">
-                                                    <i class="zmdi zmdi-favorite"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-center text-uppercase">
-                                            <a href="product-details.html" title="Ripcurl Furry Fleece">Ripcurl Furry Fleece</a>
-                                            <div class="rating-icon">
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                            </div>
-                                            <div class="product-price">
-                                                <span class="new-price">£ 38.00</span>
-                                                <span class="old-price">£ 45.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-product">
-                                        <div class="product-img-content mb-20">
-                                            <div class="product-img">
-                                                <a href="product-details.html">
-                                                    <img src="<?php echo base_url('img/user/')?>product/7.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <span class="new-label red-color text-uppercase">sale</span>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                    <i class="zmdi zmdi-eye"></i>
-                                                </a>
-                                                <a href="#" title="Add to cart">
-                                                    <i class="zmdi zmdi-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Add to Wishlist">
-                                                    <i class="zmdi zmdi-favorite"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-center text-uppercase">
-                                            <a href="product-details.html" title="Shirt in Bee Print">Shirt in Bee Print</a>
-                                            <div class="rating-icon">
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                            </div>
-                                            <div class="product-price">
-                                                <span class="new-price">£ 21.65</span>
-                                                <span class="old-price">£ 24.60</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 hidden-sm">
-                                    <div class="single-product mb-40">
-                                        <div class="product-img-content mb-20">
-                                            <div class="product-img">
-                                                <a href="product-details.html">
-                                                    <img src="<?php echo base_url('img/user/')?>product/4.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                    <i class="zmdi zmdi-eye"></i>
-                                                </a>
-                                                <a href="#" title="Add to cart">
-                                                    <i class="zmdi zmdi-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Add to Wishlist">
-                                                    <i class="zmdi zmdi-favorite"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-center text-uppercase">
-                                            <a href="product-details.html" title="Skinny In Charcoal">Skinny In Charcoal</a>
-                                            <div class="rating-icon">
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                            </div>
-                                            <div class="product-price">
-                                                <span class="new-price">£ 38.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-product">
-                                        <div class="product-img-content mb-20">
-                                            <div class="product-img">
-                                                <a href="product-details.html">
-                                                    <img src="<?php echo base_url('img/user/')?>product/8.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <span class="new-label text-uppercase">New</span>
-                                            <div class="product-action text-center">
-                                                <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                    <i class="zmdi zmdi-eye"></i>
-                                                </a>
-                                                <a href="#" title="Add to cart">
-                                                    <i class="zmdi zmdi-shopping-cart"></i>
-                                                </a>
-                                                <a href="#" title="Add to Wishlist">
-                                                    <i class="zmdi zmdi-favorite"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content text-center text-uppercase">
-                                            <a href="product-details.html" title="Shirt in Bee Print">Shirt in Bee Print</a>
-                                            <div class="rating-icon">
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                                <i class="zmdi zmdi-star-half"></i>
-                                            </div>
-                                            <div class="product-price">
-                                                <span class="new-price">£ 21.65</span>
-                                                <span class="old-price">£ 24.60</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php foreach ($new_arrival as $new): ?>
+                                  <script type="text/javascript">
+                                    var user = '<?=$this->session->userdata('id')?>'
+                                    var url = '<?=base_url();?>'
+                                  </script>
+                                  <div class="col-md-3 col-sm-4">
+                                      <div class="single-product mb-40">
+                                          <div class="product-img-content mb-20">
+                                              <div class="product-img">
+                                                  <a href="product-details.html">
+                                                      <style>
+                                                      .imga{
+                                                        object-fit: none;
+                                                        object-position: center;
+
+                                                        width: 270px;
+                                                        height: 330px;
+                                                      }
+                                                      </style>
+                                                      <img class="imga" src="<?php echo base_url('img/barang/'.$new->gambar)?>" alt="">
+                                                  </a>
+                                              </div>
+                                              <!-- diskon -->
+                                              <!-- <span class="new-label text-uppercase">-30%</span> -->
+                                              <input  value="<?php echo $new->id_barang ?>" type="hidden" readonly disabled>
+                                              <div class="product-action text-center">
+                                                  <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
+                                                      <i class="zmdi zmdi-eye"></i>
+                                                  </a>
+                                                  <a href="javascript:tes('<?php
+                                                                          echo encrypt_url($new->id_barang);
+                                                                          ?>')" title="Add to cart" class="add_cart">
+                                                      <i class="zmdi zmdi-shopping-cart"></i>
+                                                  </a>
+                                                  <a href="#" title="Add to Wishlist">
+                                                      <i class="zmdi zmdi-favorite"></i>
+                                                  </a>
+                                              </div>
+                                          </div>
+                                          <div class="product-content text-center text-uppercase">
+                                              <a href="product-details.html" title="Ripcurl Furry Fleece"><?php echo $new->nama_barang; ?></a>
+                                              <div class="rating-icon">
+                                                  <i class="zmdi zmdi-star"></i>
+                                                  <i class="zmdi zmdi-star"></i>
+                                                  <i class="zmdi zmdi-star"></i>
+                                                  <i class="zmdi zmdi-star-half"></i>
+                                                  <i class="zmdi zmdi-star-half"></i>
+                                              </div>
+                                              <div class="product-price">
+                                                  <span class="new-price">IDR <?php echo $new->harga;?></span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                <?php endforeach; ?>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="sale">
                                 <div class="col-md-3 col-sm-4">
@@ -1767,6 +1541,22 @@
     <!-- Placed js at the end of the document so the pages load faster -->
 
     <?php $this->load->view('home/partial/jquery') ?>
+    <script>
+      var status;
+      status = <?=$this->session->userdata('status')?>;
+      function tes(ids){
+        if ( status == 'login') {
+          alert(ids);
+        }else {
+          $.ajax({
+            type : "POST",
+            url : url + "user/cart/add_cart",
+            data : {id_barang : ids},
+            dataType : "json"
+          });
+        }
+      };
+    </script>
 
 </body>
 
