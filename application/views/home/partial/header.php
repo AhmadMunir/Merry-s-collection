@@ -1,4 +1,4 @@
-<header>
+<!-- <header> -->
     <div class="header-top-bar white-bg ptb-20">
         <div class="container">
             <div class="row">
@@ -159,14 +159,9 @@
                                     <li><a href="<?php echo base_url('home') ?>">Home</a></li>
                                     <li><a href="<?php echo base_url('user/About') ?>">About</a></li>
                                     <li><a href="shop-full.html">men</a></li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul class="dropdown header-top-hover ptb-10">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="<?php echo base_url('user/custom') ?>">CUSTOM</a></li>
                                     <?php if ($this->session->userdata('status') =="login"){ ?>
-                                      <li><a href="<?php echo base_url('user/profile'); ?>">my Acoount</a></li>
+                                      <li><a href="<?php echo base_url('user/profile'); ?>">My Acoount</a></li>
                                     <?php }else { ?>
                                       <li><a href="<?php echo base_url('user/login'); ?>">Login or Register</a></li>
                                     <?php }?>

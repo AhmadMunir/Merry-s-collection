@@ -1,3 +1,4 @@
+<?php // TODO: PANAH ke atas di pojok kanan atas?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 <!-- <button id="basicSuccess" class="btn btn-default">Default</button> -->
@@ -480,7 +481,7 @@
                                         <img src="images/brand/2.png" alt="">
                                     </a>
                                 </div>
-                            </div>
+                            </div>scroll
                             <div class="col-md-12">
                                 <div class="single-brand text-center">
                                     <a href="#">
