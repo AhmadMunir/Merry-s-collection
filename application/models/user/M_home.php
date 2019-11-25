@@ -9,5 +9,9 @@ class M_home extends CI_Model
     $this->db->limit(4);
     return $this->db->get('tabel_barang')->result();
   }
+
+  public function load_banner(){
+    return $this->db->get('tabel_baner')->result();
+  }
 }
 ?>

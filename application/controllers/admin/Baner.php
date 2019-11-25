@@ -16,9 +16,7 @@
   		$this->load->view("admin/baner/list",$data);
 
   	}
-
-
-
+    
   	public function add()
   	{
   		$baner = $this->baner_model;

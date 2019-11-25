@@ -53,9 +53,10 @@
 
                             <div class="form-group">
                               <label for="harga">Gambar</label>
-
-
-                              <input class="form-control <?php echo form_error('gambar') ? 'is-invalid':'' ?>" type="file" name="gambar">
+                              <!-- <input class="form-control <?php echo form_error('gambar') ? 'is-invalid':'' ?>" type="file" name="gambar"> -->
+                              <?php for ($i=1; $i <=5 ; $i++) :?>
+                                <input type="file" name="filefoto<?php echo $i;?>"><br/>
+                                  <?php endfor;?>
                               <div class="invalid-feedback">
                                 <?php echo form_error('gambar')?>
                               </div>
@@ -146,6 +147,7 @@
               });
             });
             </script>
+            <script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
 </body>
 
 </html>

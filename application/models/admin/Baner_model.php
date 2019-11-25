@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit ('No direct script access allowed');
 /**
- * 
+ *
  */
 class Baner_model extends CI_Model
 {
@@ -11,8 +11,8 @@ class Baner_model extends CI_Model
 	public $baner;
 	public $tulisan_sedang;
 	public $tulisan_kecil;
-	
-	
+
+
 
 	public function rules()
 	{
@@ -34,7 +34,7 @@ class Baner_model extends CI_Model
 		return $this->db->get_where($this->_table, ["id_baner" => $id])->row();
 	}
 
-	
+
 public function uploadbaner()
 	{
 		$config['upload_path']		= './img/banner/';
@@ -43,9 +43,9 @@ public function uploadbaner()
 		$config['overwrite']		= true;
 		$config['max_size']			= 5000;
 
-		
+
        $this->load->library('upload', $config);
-       
+
 		if($this->upload->do_upload('baner')) {
 			return $this->upload->data("file_name");
 		}
@@ -68,7 +68,7 @@ public function uploadbaner()
 		$post = $this->input->post();
 		$this->id_baner = $post["id"];
 		$this->nama_baner = $post["nama_baner"];
-		
+
 		if(!empty($_FILES["baner"]["name"])) {
 			$this->baner = $this->uploadbaner();
 		}else{
@@ -77,8 +77,8 @@ public function uploadbaner()
 
 		$this->tulisan_sedang = $post["tulisan_sedang"];
 		$this->tulisan_kecil = $post["tulisan_kecil"];
-		
-		
+
+
 		$this->db->update($this->_table, $this, array('id_baner' => $post['id']));
 	}
 
@@ -89,7 +89,7 @@ public function uploadbaner()
 		return $this->db->delete($this->_table, array("id_baner" => $id));
 	}
 
-	
+
 
 	private function _deleteImage($id)
 	{
