@@ -2,19 +2,13 @@
   class Home extends CI_Controller{
     public function __construct(){
       parent::__construct();
-      // if($this->session->userdata('status') != "login"){
-             
-      //        redirect(base_url("login"));
-      //    }else{
-      //         if($this->session->userdata('tabel_admin') != "username"){
-      //            echo"anda bukan admin";
-      //            redirect(base_url("login"));
-      //        }
-      //    }
+      $this->load->model('user/m_home');
     }
 
     public function index(){
-      $this->load->view('home/home');
+      $data['banner'] = $this->m_home->load_banner();
+      $data['new_arrival'] = $this->m_home->load_newarrival();
+      $this->load->view('home/home',$data);
     }
   }
 
