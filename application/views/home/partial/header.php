@@ -1,3 +1,6 @@
+<script
+    src="https://www.paypal.com/sdk/js?client-id=AS6yMkPP1YEQ_1RPmSItB_hnP8uthx2dEREmoMSg9MMLiKebZ4VFRYbiOnKhR4nFoBYlr25YKcEiWgXl"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+  </script>
 <!-- <header> -->
     <div class="header-top-bar white-bg ptb-20">
         <div class="container">
@@ -162,10 +165,11 @@
                                     <li><a href="<?php echo base_url('user/custom') ?>">CUSTOM</a></li>
                                     <?php if ($this->session->userdata('status') =="login"){ ?>
                                       <li><a href="<?php echo base_url('user/profile'); ?>">My Acoount</a></li>
+                                      <li><a href="<?php echo base_url('user/cart') ?>">My Cart</a></li>
                                     <?php }else { ?>
                                       <li><a href="<?php echo base_url('user/login'); ?>">Login or Register</a></li>
+                                      <li><a href="<?php echo base_url('user/Contact') ?>">Contact Us</a></li>
                                     <?php }?>
-                                    <li><a href="<?php echo base_url('user/Contact') ?>">Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>

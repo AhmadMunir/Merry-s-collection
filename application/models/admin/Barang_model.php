@@ -45,32 +45,15 @@ public function save_batch_size(){
 
 public function uploadGambar()
 	{
-	// 	$config['upload_path']		= './img/barang/';
-	// 	$config['allowed_types']	= 'gif|jpg|png';
-	// 	$config['file_name']			= uniqid();
-	// 	$config['overwrite']		= true;
-	// 	$config['max_size']			= 5000;
-
-
- //       $this->load->library('upload', $config);
-
-	// 	if($this->upload->do_upload('gambar')) {
-	// 		return $this->upload->data("file_name");
-	// 	}
-	// 	// cek error
-	// 	// print_r($this->upload->display_errors());
-
-	// 	return "default.jpg";
-	// }
 		$config['upload_path'] = './img/barang/'; //path folder
         $config['allowed_types'] = 'gif|jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
         $config['file_name']	= uniqid(); //nama yang terupload nantinya
- 
+
         $this->load->library('upload',$config);
-        for ($i=1; $i <=5 ; $i++) { 
+        for ($i=1; $i <=5 ; $i++) {
             if(!empty($_FILES['filefoto'.$i]['name'])){
                 if(!$this->upload->do_upload('filefoto'.$i))
-                    $this->upload->display_errors();  
+                    $this->upload->display_errors();
                 else{
                 	return $this->upload->data("file_name");
                     echo "Foto berhasil di upload";
@@ -78,7 +61,7 @@ public function uploadGambar()
 
             }
         }
-                 
+
     }
 	public function save()
 	{
