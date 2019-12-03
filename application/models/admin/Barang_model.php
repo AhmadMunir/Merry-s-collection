@@ -91,7 +91,7 @@ public function uploadGambar()
 		$this->id_kategori = $post["id_kategori"];
 		$this->gambar = $this->uploadGambar();
 		$this->harga = $post["harga"];
-		// $this->stok = $post["stok"];
+	    $this->stok = $post["stok"];
 
 		// Stok
 		$size = $_POST['size'];
@@ -114,6 +114,7 @@ public function uploadGambar()
 
 		$this->db->insert($this->_table,$this);
 		$this->db->insert_batch('tabel_detail_stok', $data);
+
 	}
 
 	public function update()
