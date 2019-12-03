@@ -16,6 +16,8 @@
         <!-- Start of header area -->
         <?php $this->load->view('home/partial/header') ?>
         <!-- End of header area -->
+        <?php //echo $this->session->flashdata('status');?>
+        <
         <!-- Start Breadcrumbs Area -->
         
         <!-- End Of Breadcrumbs Area -->
@@ -36,12 +38,12 @@
                                     <div class="title text-uppercase mb-15">
                                         <h4><strong>get in touch</strong></h4>
                                     </div>
-                                    <form id="contact-form" action="mail.php" method="post">
+                                    <form id="contact-form" action="<?php echo base_url('contact/kirim_masukan')?>" method="post">
                                         <input type="text" name="name" placeholder="Name*">
                                         <input type="email" name="email" placeholder="E-mail*">
                                         <input type="text" name="subject" placeholder="Subject">
                                         <textarea name="message" placeholder="Message"></textarea>
-                                        <button class="submit-btn mt-20" type="submit">submit message</button>
+                                        <button id="km" class="submit-btn mt-20" type="submit">submit message</button>
                                     </form>
                                     <p class="form-messege"></p>
                                 </div>
@@ -309,6 +311,17 @@
     </script>
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+        $("#km").on("click", function(){
+                alert("cek");
+            if ("<?php $this->session->flashdata('status');?>" = "Sukses") {
+                alert("test");
+            }
+        })
+        })
+    </script>
 
 </body>
 
