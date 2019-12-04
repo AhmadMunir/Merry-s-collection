@@ -16,8 +16,6 @@
         <!-- Start of header area -->
         <?php $this->load->view('home/partial/header') ?>
         <!-- End of header area -->
-        <?php //echo $this->session->flashdata('status');?>
-        <
         <!-- Start Breadcrumbs Area -->
         
         <!-- End Of Breadcrumbs Area -->

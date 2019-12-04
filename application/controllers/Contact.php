@@ -62,10 +62,10 @@
 
           // echo "<b>".."</b><br />";
           if ($send['status'] == "Sukses") {
-          $this->session->set_flashdata('status', $send['status']);
+          // $this->session->set_flashdata('status', $send['status']);
+          echo "<script>alert('Sukses mengirim email')</script>";
               $this->load->view('home/contact');
           } else {
-            $this->session->set_flashdata('status', $send['status']);
               echo "gagal kirim email";
           }
       }
