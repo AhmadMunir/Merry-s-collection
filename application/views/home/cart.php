@@ -57,13 +57,80 @@
                                                     <th class="product-thumbnail"></th>
                                                     <th class="product-name"><span class="nobr">Product</span></th>
                                                     <th class="product-prices"><span class="nobr"> Price </span></th>
-                                                    <th class="product-stock-stauts"><span class="nobr"> stock status </span></th>
                                                     <th class="product-add-to-cart"><span class="nobr">Add to Cart </span></th>
+                                                    <th class="product-stock-stauts"><span class="nobr"> Subtotal </span></th>
                                                     <th class="product-remove"><span class="nobr">Remove</span></th>
                                                 </tr>
                                             </thead>
                                             <div class="view" id="view">
-                                            <?php $this->load->view('home/tabel_cart', array('cirt'=>$cart)) ?>
+                                            <!-- <?php// $this->load->view('home/tabel_cart', array('cirt'=>$cart)) ?> -->
+                                            <tbody>
+                                              <?php
+                                              $no = 1;
+                                              foreach ($cart as $kay):
+                                                ?>
+                                                <script>
+                                                  var id_trans = '<?=$kay->id_transaksi?>'
+                                                  var total = '<?=$kay->total?>'
+                                                  var alamat = 'sda'
+                                                </script>
+                                                <tr>
+                                                    <td class="product-thumbnail"><a href="#" title="men’s black t-shirt"><img class="product-thumbnail" src="<?php echo base_url('img/barang/').$kay->gambar ?>" alt="" /></a></td>
+                                                    <td class="product-name pull-left mt-20">
+                                                        <a href="#" title="men’s black t-shirt"><?php echo $kay->nama_barang ?></a>
+                                                        <p class="w-color m-0">
+                                                            <label> Color :</label>
+                                                            black
+                                                        </p>
+                                                        <p class="w-size m-0">
+                                                            <label> size :</label>
+                                                            sl
+                                                        </p>
+                                                    </td>
+                                                    <td class="product-prices price-<?php echo $no++;?>"><span class="amount"><?php echo $kay->subtotal ?></span></td>
+                                                    <td class="product-value">
+                                                        <input type="number" value="<?php echo $kay->qty ?>">
+                                                    </td>
+                                                    <td class="product-stock-status"><span class="wishlist-in-stock"><?php echo $kay->subtotal; ?></span></td>
+                                                    <td class="product-remove">
+                                                      <a href="javascript:tas('<?php
+                                                                              echo encrypt_url($kay->id_detail_temp_transaksi);
+                                                                              ?>')" title="Add to cart" class="add_cart">
+                                                          <i class="zmdi zmdi-delete"></i>
+                                                      </a>
+                                                    </td>
+                                                  </tr>
+                                              <?php endforeach; ?>
+                                            </tbody>
+                                            <script type="text/javascript">
+                                                    var status;
+                                                    status = <?=$this->session->userdata('status')?>;
+                                                    function tas(ids){
+                                                      if ( status == 'login') {
+                                                        alert(ids);
+                                                      }else {
+                                                        $.ajax({
+                                                          type : "POST",
+                                                          url : url + "user/cart/delete",
+                                                          data : {id_temp_transaksi : ids},
+                                                          dataType : "json",
+                                                          beforeSend : function(e){
+                                                            if (e && e.overrideMimeType) {
+                                                              e.overrideMimeType("application/json;charset=UTF-8");
+                                                            }
+                                                          },
+                                                          success : function(response){
+                                                            $("#view").html(response.hasil);
+                                                          },
+                                                          error: function(xhr, ajaxOptions, thrownError){
+                                                            alert(xhr.response);
+                                                          }
+                                                        });
+                                                      }
+                                                    };
+
+                                            </script>
+
                                           </div>
                                         </table>
                                     </div>
@@ -315,8 +382,21 @@
           // This function captures the funds from the transaction.
           return actions.order.capture().then(function(details) {
             // This function shows a transaction success message to your buyer.
-          // alert('Transaction completed by ' + details.payer.name.given_name);
-          
+          // var status;
+
+          return fetch('transaksi/add_trans_cart', {
+            method: 'post',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+              id: id_trans,
+              alamat: 'asds'
+            })
+          })
+        ;
+          alert('Transaction completed by ' + details.payer.name.given_name);
+
           });
         }
         }).render('#paypal-button-container');

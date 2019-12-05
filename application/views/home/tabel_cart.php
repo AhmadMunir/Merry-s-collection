@@ -3,6 +3,13 @@
   $no = 1;
   foreach ($cirt as $kay):
     ?>
+    <script type="text/javascript">
+      var user = '<?=$this->session->userdata('id')?>'
+      var url = '<?=base_url();?>'
+      var id_trans = '<?=$kay->id_transaksi?>'
+      var total = '<?=$kay->total?>'
+      var alamat = 'sda'
+    </script>
     <tr>
         <td class="product-thumbnail"><a href="#" title="men’s black t-shirt"><img class="product-thumbnail" src="<?php echo base_url('img/barang/').$kay->gambar ?>" alt="" /></a></td>
         <td class="product-name pull-left mt-20">
@@ -17,10 +24,10 @@
             </p>
         </td>
         <td class="product-prices price-<?php echo $no++;?>"><span class="amount"><?php echo $kay->subtotal ?></span></td>
-        <td class="product-stock-status"><span class="wishlist-in-stock">In Stock</span></td>
         <td class="product-value">
             <input type="number" value="<?php echo $kay->qty ?>">
         </td>
+        <td class="product-stock-status"><span class="wishlist-in-stock"><?php echo $kay->subtotal; ?></span></td>
         <td class="product-remove">
           <a href="javascript:tas('<?php
                                   echo encrypt_url($kay->id_detail_temp_transaksi);
