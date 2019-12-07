@@ -27,7 +27,7 @@
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span class="mini-click-non">Laporan</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="laporan bulanan" href="mailbox.html"><span class="mini-sub-pro">Laporan Bulanan</span></a></li>
+                                <li><a title="laporan bulanan" href="<?php echo base_url('admin/laporan') ?>"><span class="mini-sub-pro">Laporan Bulanan</span></a></li>
                             </ul>
                         </li>
                         <li>

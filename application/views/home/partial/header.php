@@ -163,6 +163,7 @@
                                     <li><a href="<?php echo base_url('user/About') ?>">About</a></li>
                                     <li><a href="shop-full.html">men</a></li>
                                     <li><a href="<?php echo base_url('user/custom') ?>">CUSTOM</a></li>
+                                    <li><a href="<?php echo base_url('user/galeri') ?>">GALLERY</a></li>
                                     <?php if ($this->session->userdata('status') =="login"){ ?>
                                       <li><a href="<?php echo base_url('user/profile'); ?>">My Acoount</a></li>
                                       <li><a href="<?php echo base_url('user/cart') ?>">My Cart</a></li>

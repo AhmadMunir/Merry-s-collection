@@ -45,22 +45,56 @@ public function save_batch_size(){
 
 public function uploadGambar()
 	{
-		$config['upload_path'] = './img/barang/'; //path folder
-        $config['allowed_types'] = 'gif|jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
-        $config['file_name']	= uniqid(); //nama yang terupload nantinya
+		// $config['upload_path'] = './img/barang/'; //path folder
+  //       $config['allowed_types'] = 'gif|jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
+  //       $config['file_name']	= uniqid(); //nama yang terupload nantinya
 
-        $this->load->library('upload',$config);
-        for ($i=1; $i <=5 ; $i++) {
-            if(!empty($_FILES['filefoto'.$i]['name'])){
-                if(!$this->upload->do_upload('filefoto'.$i))
-                    $this->upload->display_errors();
-                else{
-                	return $this->upload->data("file_name");
-                    echo "Foto berhasil di upload";
-                }
+  //       $this->load->library('upload',$config);
+  //       for ($i=1; $i <=5 ; $i++) {
+  //           if(!empty($_FILES['filefoto'.$i]['name'])){
+  //               if(!$this->upload->do_upload('filefoto'.$i))
+  //                   $this->upload->display_errors();
+  //               else{
+  //               	return $this->upload->data("file_name");
+  //                   echo "Foto berhasil di upload";
+  //               }
 
-            }
-        }
+  //           }
+  //       }
+
+     $config['upload_path'] = './resources/images/products/';
+     $config['allowed_types']        = 'gif|jpg|png';
+     $config['max_size']             = 1000;
+     $config['max_width']            = 1024;
+     $config['max_height']           = 768;
+     $this->load->library('upload', $config);
+     $this->upload->do_upload('userfile');
+        $data = array('prod_image' => $this->upload->data(), 
+            'gambar1' => $this->upload->data(),
+            'gambar2' => $this->upload->data(),
+        	'gambar3' => $this->upload->data(),
+            'gambar4' => $this->upload->data(),
+			'gambar5' => $this->upload->data());
+            
+    	$gambar1=$data['gambar1']['file_name']; 
+   		$gambar2=$data['gambar2']['file_name'];
+    	$gambar3=$data['gambar3']['file_name'];
+    	$gambar4=$data['gambar4']['file_name'];
+    	$gambar5=$data['gambar5']['file_name'];
+
+        $data = array
+        	(
+                
+                'gambar1' => $gambar1,
+                'gambar2' => $gambar2,
+                'gambar3' => $gambar3,
+                'gambar4' => $gambar4,
+                'gambar5' => $gambar5
+            );
+
+        // insert form data into database
+        $result_set= $this->tbl_products_model->insertUser($data);
+
 
     }
 	public function save()

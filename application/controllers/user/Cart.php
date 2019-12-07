@@ -89,7 +89,7 @@
             $this->m_cart->update_qty($where_detail, $qty4);
             echo "masuk";
         }else {
-
+          echo "-masuk detail baru";
           $this->m_cart->insert_cart($cart2, 'tabel_temp_detail_transaksi');
           echo "asd";
           // echo $cek;
