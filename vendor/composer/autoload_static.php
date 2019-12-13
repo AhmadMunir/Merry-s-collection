@@ -9,6 +9,7 @@ class ComposerStaticInit99d7789b515cf3da43bb44c1c384291a
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -28,6 +29,8 @@ class ComposerStaticInit99d7789b515cf3da43bb44c1c384291a
         ),
         'P' => 
         array (
+            'Pusher\\' => 7,
+            'Psr\\Log\\' => 8,
             'Prophecy\\' => 9,
             'PayPalCheckoutSdk\\' => 18,
         ),
@@ -64,6 +67,14 @@ class ComposerStaticInit99d7789b515cf3da43bb44c1c384291a
         'Sample\\' => 
         array (
             0 => __DIR__ . '/..' . '/paypal/paypal-checkout-sdk/samples',
+        ),
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Prophecy\\' => 
         array (

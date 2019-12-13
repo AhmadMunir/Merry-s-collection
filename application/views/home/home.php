@@ -1483,21 +1483,53 @@
     </div>
     <!-- Body main wrapper end -->
 
-    <!-- Placed js at the end of the document so the pages load faster -->
+    <!-- modal pesan -->
+    <div class="modal fade" id="modalpesan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete item</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="alert alert-info">
+                Are you sure to delete this item ?
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="hidden" name="id_detail_temp_transaksi" class="id_detail_temp_transaksi">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <button type="button" class="btn btn-primary btn-delete">Yes</button>
+        </div>
+        </div>
+    </div>
+    </div>
 
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <?php $this->load->view('home/partial/jquery') ?>
-    <script>
+    <script type="text/javascript">
+    
       var status;
       status = <?=$this->session->userdata('status')?>;
       function tes(ids){
         if ( status == 'login') {
-          alert(ids);
+          Lobibox.window({
+              title: 'Window title',
+              content: '...'
+          });
         }else {
           $.ajax({
             type : "POST",
             url : url + "user/cart/add_cart",
             data : {id_barang : ids},
-            dataType : "json"
+            dataType : "json",
+            success : function(){
+              $('#modalpesan').modal('show');
+            }
           });
         }
       };

@@ -12,7 +12,8 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"paypal/paypal-checkout-sdk": "1.0.0"
+		"paypal/paypal-checkout-sdk": "1.0.0",
+		"pusher/pusher-php-server": "^4.1"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
