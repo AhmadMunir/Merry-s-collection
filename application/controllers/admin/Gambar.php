@@ -12,26 +12,26 @@
 
   	public function index()
   	{
-  		$data["tabel_galeri"] = $this->gambar_model->getAll();
-  		$this->load->view("admin/gambar/list",$data);
+  		$data["tabel_gambar"] = $this->gambar_model->getAll();
+  		$this->load->view("admin/barang",$data);
 
   	}
+    
+  	 public function tambah()
+   {
+      $gambar = $this->gambar_model;
+      $validation = $this->form_validation;
+      $validation->set_rules($gambar->rules());
 
-  	public function add()
-  	{
-  		$gambar = $this->gambar_model;
-  		$validation = $this->form_validation;
-  		$validation->set_rules($gambar->rules());
+      if ($validation->run()){
+        $gambar->save();
+        $this->session->set_flashdata('success','Berhasil Disimpan');
+        redirect(site_url("admin/barang/tambah"));
+      }
+      $data["tabel_barang"] =$gambar->getTambah();
+      $this->load->view("admin/barang/tambah", $data);
 
-  		if ($validation->run()){
-  			$gambar->save();
-  			$this->session->set_flashdata('success','Berhasil Disimpan');
-         redirect(site_url("admin/gambar"));
-  		}
-
-  		$this->load->view("admin/gambar/new_form");
-
-  	}
+    }
   	public function edit($id = null)
   	{
   		if (!isset($id)) redirect('admin/gambar');
@@ -44,9 +44,8 @@
   			$this->session->set_flashdata('success','Berhasil Disimpan');
         redirect(site_url("admin/gambar"));
   		}
-
-  		$data["tabel_galeri"] = $gambar->getById($id);
-  		if (!$data["tabel_galeri"]) show_404();
+  		$data["tabel_gambar"] = $gambar->getById($id);
+  		if (!$data["tabel_gambar"]) show_404();
 
   		$this->load->view("admin/gambar/edit_form",$data);
   	}

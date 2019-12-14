@@ -53,9 +53,10 @@
                                   <th>No</th>
                                   <th>Nama Barang</th>
                                   <th>Nama Kategori</th>
-                                  <th>Gambar</th>
                                   <th>Harga</th>
-                                  <th>Stok</th>
+                                  <th>Deskripsi</th>
+                                  <th>Ukuran</th>
+                                  <th>Gambar</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
@@ -70,16 +71,25 @@
                                       <?php echo $barang->nama_barang ?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $barang->nama_kategori; ?>
+                                      <?php echo $barang->id_kategori; ?>
                                     </td>
-                                    <td width="150">
+                                    <!-- <td width="150">
                                       <img src="<?php echo base_url('img/barang/'.$barang->gambar) ?>" style="width: 70px;height: 70px;" />
-                                    </td>
+                                    </td> -->
                                     <td width="150">
                                       <?php echo $barang->harga ?>
                                     </td>
-                                    <td width="150">
+                                    <!-- <td width="150">
                                       <?php echo $barang->stok ?>
+                                    </td> -->
+                                    <td width="150">
+                                      <?php echo $barang->deskripsi ?>
+                                    </td>
+                                    <td>
+                                      <a href="<?php echo site_url('admin/barang/edit/'.$barang->id_barang)?>" class="btn btn-danger">Lihat</a>
+                                    </td>
+                                    <td>
+                                      <a href="<?php echo site_url('admin/barang/edit/'.$barang->id_barang)?>" class="btn btn-warning">Lihat</a>
                                     </td>
 
                                     <td width="150">

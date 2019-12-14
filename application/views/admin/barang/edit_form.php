@@ -43,10 +43,10 @@
                             <div class="form-group">
                               <label for="id_kategori">Nama Kategori</label>
 
-                              <select class="form-control <?php form_error('nama_kategori')? 'is-invalid':'' ?>"
+                              <select class="form-control <?php form_error('id_kategori')? 'is-invalid':'' ?>"
                                 name="id_kategori" onchange="cek_kategori()" id="id_kategori">
                                   
-                                  <option class="form-control" value='<?php echo $tabel_barang->id_kategori?>' selected=""><?php echo $tabel_barang->nama_kategori?>
+                                  <option class="form-control" value='<?php echo $tabel_barang->id_kategori?>' selected=""><?php echo $tabel_barang->id_kategori?>
                                   </option> 
                                   <?php
                                   foreach ($tabel_kategori as $kei) {?>
@@ -56,14 +56,6 @@
                                 ?>
                                 </select>
                             </div>
-                            <div class="form-group">
-                              <label for="name">Gambar</label>
-                              <input class="form-control-file <?php echo form_error('gambar') ? 'is-invalid' :'' ?>" type="file" name="gambar" />
-                              <input type="hidden" name="old_image" value="<?php echo $tabel_barang->gambar ?>"/>
-                              <div class="invalid-feedback">
-                                <?php echo form_error('gambar'); ?>
-                              </div>
-                            </div>
                              <div class="form-group">
                               <label for="nama_barang">Harga Barang</label>
 
@@ -72,13 +64,15 @@
                                 <?php echo form_error('harga')?>
                               </div>
                             </div>
-                            <div class="form-group">
-                              <label for="nama_barang">Stok</label>
+                             <div class="form-group">
+                              <label for="nama_barang">Deskripsi</label>
 
-                              <input class="form-control <?php echo form_error('stok') ? 'is-invalid':'' ?>" type="number" name="stok" value="<?php echo $tabel_barang->stok?>" />
+                              <input class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" type="text" name="deskripsi" value="<?php echo $tabel_barang->deskripsi?>" />
                               <div class="invalid-feedback">
-                                <?php echo form_error('harga')?>
+                                <?php echo form_error('deskripsi')?>
                               </div>
+                            </div>
+                            <div class="form-group">
                             </div>
                             <input class="btn btn-success" type="submit" name="btn"value="Simpan">
                              <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-primary">Back</a>

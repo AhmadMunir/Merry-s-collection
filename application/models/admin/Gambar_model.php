@@ -4,23 +4,35 @@
  */
 class Gambar_model extends CI_Model
 {
-	private $_table = "tabel_galeri";
+	private $_table = "tabel_gambar";
+	private $_table2 = "tabel_barang";
 
 	public $id_gambar;
-	public $nama_gambar;
+	public $id_barang;
+	public $gambar;
+
+
 
 	public function rules()
 	{
 		return [
-			['field'=>'nama_gambar',
-			'label'=>'name',
+			['field'=>'id_gambar',
+			'label'=>'Name',
 			'rules'=>'required'],
 		];
 	}
 
+	public function getTambah()
+	{
+		$this->db->limit(1);
+		$this->db->order_by('time', 'DESC');
+		return $this->db->get('tabel_barang')->result();	
+	}
+
 	public function getAll()
 	{
-		return $this->db->get($this->_table)->result();
+		$this->db->order_by('time', 'DESC');
+		return $this->db->get($this->_table2)->result();
 	}
 
 	public function getById($id)
@@ -29,54 +41,48 @@ class Gambar_model extends CI_Model
 	}
 
 
-	public function uploadGambar()
+public function uploadgambar()
+	// {
+	// 	$config['upload_path']		= APPPATH.'../img/barang/';
+	// 	$config['allowed_types']	= 'gif|jpg|png';
+	// 	$config['file_name']		= uniqid();
+	// 	$config['overwrite']		= true;
+	// 	$config['max_size']			= 5000;
+
+
+ //       $this->load->library('upload', $config);
+
+	// 	if($this->upload->do_upload('gambar')) {
+	// 		return $this->upload->data("file_name");
+	// 	}
+	// 	else {
+	// 		return "default.jpg";
+	// 	}
+	// }
+
 	{
-		$config['upload_path'] = './img/galeri/'; //path folder
-        $config['allowed_types'] = 'gif|jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
-        $config['file_name']	= uniqid(); //nama yang terupload nantinya
- 
-        $this->load->library('upload',$config);
-        for ($i=1; $i <=5 ; $i++) { 
-            if(!empty($_FILES['filefoto'.$i]['name'])){
-                if(!$this->upload->do_upload('filefoto'.$i))
-                    $this->upload->display_errors();  
-                else{
+		$config['upload_path']	= './img/barang/';
+		$config['allowed_types']= 'gif|jpg|png|jpeg';
+		$config['file_name']	= uniqid();
+
+		$this->load->library('upload',$config);
+		for($i=1; $i <=5 ; $i++){
+			 if(!empty($_FILES['gambar'.$i]['name'])){
+                if(!$this->upload->do_upload('gambar'.$i))
+                    $this->upload->display_errors();
+               } else{
                 	return $this->upload->data("file_name");
                     echo "Foto berhasil di upload";
                 }
 
-            }
-        }
-                 
-    }
+		}
+	}
 	public function save()
 	{
 		$post = $this->input->post();
-
-		$this->load->helper('string');
-		// echo random_string('alnum',5);
-		$this->id_gambar = random_string('alnum',7);
-		$this->gambar = $this->uploadGambar();
-		// $this->stok = $post["stok"];
-
-		// Stok
-		$size = $_POST['size'];
-		$desk = $_POST['desk'];
-		$stok = $_POST['stok'];
-
-		$data = array();
-
-		$index = 0;
-
-		foreach ($size as $siz) {
-			array_push($data, array(
-				'id_gambar' => $this->id_gambar,
-				'jumlah_stok' => $stok[$index],
-				'size' => $size[$index],
-				'deskripsi' => $desk[$index],
-			));
-			$index++;
-		}
+		$this->id_gambar = $post["id_barang"];
+		$this->gambar = $this->uploadgambar();
+		$this->db->insert($this->_table,$this);
 
 	}
 
@@ -84,13 +90,17 @@ class Gambar_model extends CI_Model
 	{
 		$post = $this->input->post();
 		$this->id_gambar = $post["id"];
-		$this->id_kategori = $post["id_kategori"];
+		$this->nama_gambar = $post["nama_gambar"];
 
 		if(!empty($_FILES["gambar"]["name"])) {
-			$this->gambar = $this->uploadGambar();
+			$this->gambar = $this->uploadgambar();
 		}else{
 			$this->gambar = $post["old_image"];
 		}
+
+		$this->tulisan_sedang = $post["tulisan_sedang"];
+		$this->tulisan_kecil = $post["tulisan_kecil"];
+
 
 		$this->db->update($this->_table, $this, array('id_gambar' => $post['id']));
 	}
@@ -109,7 +119,7 @@ class Gambar_model extends CI_Model
 		$gambar = $this->getById($id);
 		if($gambar->gambar != "default.jpg"){
 			$filename = explode(".", $gambar->gambar)[0];
-			return array_map('unink',glob(FCPATH."upload/galeri/$filename.*"));
+			return array_map('unink',glob(FCPATH."upload/gambar/$filename.*"));
 		}
 	}
 
