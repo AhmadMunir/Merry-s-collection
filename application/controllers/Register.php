@@ -83,6 +83,9 @@
 
           if ($user['kode'] == $kode) {
               //update user active status
+              $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+              $code = substr(str_shuffle($set), 0, 12);
+              $data['kode'] = $code;
               $data['status_email'] = "verified";
               $query = $this->m_registeruser->activate($data, $username);
 

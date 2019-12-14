@@ -21,6 +21,7 @@
         <section id="page-content" class="page-wrapper">
           <script type="text/javascript">
             var notif = '<?=$this->session->flashdata('success')?>';
+            var ntf ='<?=$this->session->flashdata('ceke')?>';
             var url = '<?=base_url();?>'
           </script>
           <?php if ($this->session->flashdata('success')): ?>
@@ -91,7 +92,14 @@
                                                           <input type="text" value="<?php echo $nama ?>" disabled>
                                                       </p>
                                                       <p class="form-row">
-                                                          <label><span class="required">*</span>E-mail address</label>
+                                                          <label><span class="required">*</span>E-mail address</label> &nbsp;
+                                                          <?php
+                                                          if ($s_email == "unverified") {
+                                                            echo '<a href="../activeemail" >Click Here For Activate Your Email</a>';
+                                                          }else {
+
+                                                          }
+                                                           ?>
                                                           <input type="text" value="<?php echo $email ?>" disabled>
                                                       </p>
                                                       <p class="form-row">
@@ -657,8 +665,7 @@
     <!-- Placed js at the end of the document so the pages load faster -->
 
     <?php $this->load->view('home/partial/jquery') ?>
-    <<?php $this->load->view('home/partial/modals') ?>
-
+    <?php $this->load->view('home/partial/modals') ?>
 
 </body>
 

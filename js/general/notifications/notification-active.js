@@ -8,4 +8,10 @@
             msg: 'Data Saved'
         });
       }
+      if (ntf == 'ceke') {
+        Lobibox.notify('info', {
+            img: url + 'img/notif/info.png',
+            msg: 'Check Your Emeil to Verify Your Email'
+        });
+      }
 })(jQuery);
