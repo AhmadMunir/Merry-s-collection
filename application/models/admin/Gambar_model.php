@@ -42,40 +42,21 @@ class Gambar_model extends CI_Model
 
 
 public function uploadgambar()
-	// {
-	// 	$config['upload_path']		= APPPATH.'../img/barang/';
-	// 	$config['allowed_types']	= 'gif|jpg|png';
-	// 	$config['file_name']		= uniqid();
-	// 	$config['overwrite']		= true;
-	// 	$config['max_size']			= 5000;
-
-
- //       $this->load->library('upload', $config);
-
-	// 	if($this->upload->do_upload('gambar')) {
-	// 		return $this->upload->data("file_name");
-	// 	}
-	// 	else {
-	// 		return "default.jpg";
-	// 	}
-	// }
-
 	{
-		$config['upload_path']	= './img/barang/';
-		$config['allowed_types']= 'gif|jpg|png|jpeg';
-		$config['file_name']	= uniqid();
+		$config['upload_path']		= './img/barang/';
+		$config['allowed_types']	= 'gif|jpg|png';
+		$config['file_name']			= uniqid();
+		$config['overwrite']		= true;
+		$config['max_size']			= 5000;
 
-		$this->load->library('upload',$config);
-		for($i=1; $i <=5 ; $i++){
-			 if(!empty($_FILES['gambar'.$i]['name'])){
-                if(!$this->upload->do_upload('gambar'.$i))
-                    $this->upload->display_errors();
-               } else{
-                	return $this->upload->data("file_name");
-                    echo "Foto berhasil di upload";
-                }
 
+       $this->load->library('upload', $config);
+
+		if($this->upload->do_upload('baner')) {
+			return $this->upload->data("file_name");
 		}
+
+		return "default.jpg";
 	}
 	public function save()
 	{

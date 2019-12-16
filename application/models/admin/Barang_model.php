@@ -24,6 +24,12 @@ class Barang_model extends CI_Model
 		];
 	}
 
+	public function page()
+	{
+		$query = $this->db->get('tabel_barang',$limit,$start);
+		$return = $query;
+	}
+
 	public function getKat(){
 		return $this->db->get('tabel_kategori')->result();
 	}
@@ -32,6 +38,7 @@ class Barang_model extends CI_Model
 		$this->db->order_by('time', 'DESC');
 		return $this->db->get($this->_table)->result();
 	}
+	
 
 	public function getTambah()
 	{
