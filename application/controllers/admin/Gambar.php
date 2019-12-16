@@ -26,7 +26,7 @@
       if ($validation->run()){
         $gambar->save();
         $this->session->set_flashdata('success','Berhasil Disimpan');
-        redirect(site_url("admin/barang/list"));
+        redirect(site_url("admin/barang"));
       }
       $data["tabel_barang"] =$gambar->getTambah();
       $this->load->view("admin/barang/tambah", $data);

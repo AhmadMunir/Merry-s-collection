@@ -18,8 +18,17 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                     <br>
                   <br>
+                 <br>
+                 <br>
+                 <br>
+                          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                          <h4>Masukkan Gambar</h4>
+                        </div>
+                        </div>
+                <br>
+                <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
 
                           <br>
@@ -30,22 +39,48 @@
 
                                   <?php
                                   foreach ($tabel_barang as $kei) {?>
-                                     <input class="form-control"  name="id_barang" value='<?php echo $kei->id_barang?>'>
+                                     <input class="hidden  <?php echo form_error('id_barang') ? 'is-invalid':'' ?>" id="id_barang" name="id_barang" value='<?php echo $kei->id_barang?>'>
+                                        <?php echo form_error('id_barang')?>
+                                      
 
                                  <?php }
                                 ?>
                                 </select>
 
                             <div class="form-group">
-                              <label for="gambar">Gambar</label>
+                              <label for="gambar">Gambar 1</label>
 
                               
-                              <input class="form-control <?php echo form_error('gambar') ? 'is-invalid':'' ?>" type="file" name="gambar">
+                              <input class="form-control <?php echo form_error('gambar') ? 'is-invalid':'' ?>"  name="gambar" type="file">
                               <div class="invalid-feedback">
                                 <?php echo form_error('gambar')?>
                               </div>
+                             </div>
                              <div class="form-group">
-                           
+                              <label for="gambar2">Gambar 2</label>
+
+                              
+                              <input class="form-control <?php echo form_error('gambar2') ? 'is-invalid':'' ?>"  name="gambar2" type="file">
+                             </div>
+                             <div class="form-group">
+                              <label for="gambar3">Gambar 3</label>
+
+                              
+                              <input class="form-control <?php echo form_error('gambar3') ? 'is-invalid':'' ?>"  name="gambar3" type="file">
+                             </div>
+                             <div class="form-group">
+                              <label for="gambar4">Gambar 4</label>
+
+                              
+                              <input class="form-control <?php echo form_error('gambar4') ? 'is-invalid':'' ?>"  name="gambar4" type="file">
+                             </div>
+                             <div class="form-group">
+                              <label for="gambar5">Gambar 5</label>
+
+                              
+                              <input class="form-control <?php echo form_error('gambar5') ? 'is-invalid':'' ?>"  name="gambar5" type="file">
+                             </div>
+                                                   
 
                             
                             <input class="btn btn-success" type="submit" name="btn"value="Simpan">
