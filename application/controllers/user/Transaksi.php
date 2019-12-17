@@ -24,32 +24,15 @@
         'status' => 'Order Accepted',
         'alamat_pengiriman' => 'nulls'
       );
+      $del = array(
+        'id_transaksi' => $id_tr
+      );
 
       // insert transaksi
       $this->m_trans->insert_trans('tabel_transaksi', $trans);
       echo 'transaksi masok';
-      // get detail trans
-      // $detail = $this->m_trans->get_detail(array('id_transaksi' => $id_tr));
-      // // masukin detail transaksi
-      // foreach ($variable as $key) {
-      //   $det = array(
-      //     'id_detail_transaksi' => $key->id_detail_temp_transaksi,
-      //     ''
-      //   )
-      // }
-      // $id_user = $this->session->userdata('id');
-      //
-      // $where = array(
-      //   'id_transaksi' => $id,
-      //   'id_user' => $id_user,
-      //   'total' => $total,
-      //   'status' => 'Pesanan Di Terima',
-      //   'alamat pengiriman' => $alamat
-      // );
-      //
-      // $this->m_transaksi->insert_trans();
-      // echo "transaksi masuk";
-      // echo $data->id;
+      $this->m_trans->delete_temp($del);
+      echo "/ temp terhapus";
     }
   }
  ?>

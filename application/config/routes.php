@@ -53,3 +53,4 @@ $route['default_controller'] = 'home';
 $route['merry'] = 'admin/home';
 $route['404_override'] = 'empat';
 $route['translate_uri_dashes'] = FALSE;
+$route['activeemail'] = 'email/up_email';

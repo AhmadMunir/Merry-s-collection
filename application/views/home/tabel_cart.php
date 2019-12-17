@@ -1,7 +1,7 @@
-<tbody>
+<tbody class="show_cart">
   <?php
   $no = 1;
-  foreach ($cirt as $kay):
+  foreach ($cart as $kay):
     ?>
     <script type="text/javascript">
       var user = '<?=$this->session->userdata('id')?>'
@@ -59,6 +59,7 @@
                 }
               },
               success : function(response){
+                // $("#view").remove();
                 $("#view").html(response.hasil);
               },
               error: function(xhr, ajaxOptions, thrownError){
