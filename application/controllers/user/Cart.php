@@ -11,9 +11,13 @@
     }
 
     public function index(){
+      $this->load->view('home/cart');
+    }
+
+    public function get_cart(){
       $id = $this->session->userdata('id');
-      $data['cart'] = $this->m_cart->get_cart($id);
-      $this->load->view('home/cart', $data);
+      $data = $this->m_cart->get_cart($id);
+      echo json_encode($data);
     }
 
     public function add_cart(){
@@ -89,7 +93,7 @@
             $this->m_cart->update_qty($where_detail, $qty4);
             echo "masuk";
         }else {
-
+          echo "-masuk detail baru";
           $this->m_cart->insert_cart($cart2, 'tabel_temp_detail_transaksi');
           echo "asd";
           // echo $cek;
@@ -104,24 +108,16 @@
 
     }
 
+
     public function delete(){
-      $id = decrypt_url($this->input->post('id_temp_transaksi'));
-
-      $where = array(
-        'id_detail_temp_transaksi' => $id
-      );
-      $this->m_cart->delete($where);
-
-      $idu = $this->session->userdata('id');
-      $cart = $this->m_cart->get_cart($idu);
-
-      $hasil = $this->load->view('home/tabel_cart', array('cart'=>$cart), true);
-
-      $callback = array(
-        'hasil' => $hasil
-      );
-
-      echo json_encode($callback);
+        $id = $this->input->post('id');
+      //
+        $where = array(
+          'id_detail_temp_transaksi' => $id
+        );
+        $this->m_cart->delete($where);
+        echo "deleted";
+        echo $id;
     }
 }
  ?>

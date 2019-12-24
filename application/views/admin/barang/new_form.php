@@ -18,24 +18,35 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                     <br>
                   <br>
+                 <br>
+                 <br>
+                 <br>
+                          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                          <h4>Masukkan Barang</h4>
+                        </div>
+                        </div>
+                <br>
+                <br>
+                    <form action="<?php base_url('admin/barang/add') ?>" method="post" enctype="multipart/form-data">
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
 
                           <br>
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
 
-                      <form action="<?php base_url('admin/barang/add') ?>" method="post" enctype="multipart/form-data">
+                    
 
                             <div class="form-group">
-                              <label for="nama_barang">Masukkan Barang</label>
+                              <label for="nama_barang">Nama Barang</label>
 
                               <input class="form-control <?php echo form_error('nama_barang') ? 'is-invalid':'' ?>" type="text" name="nama_barang" placeholder="Nama barang" />
                               <div class="invalid-feedback">
                                 <?php echo form_error('nama_barang')?>
                               </div>
-
+                              <br>
+                            <div class="form-group">
                               <label for="id_kategori">Pilih Kategori</label>
                               <select class="form-control <?php form_error('nama_kategori')? 'is-invalid':'' ?>"
                                 name="id_kategori" onchange="cek_kategori()" id="id_kategori">
@@ -51,15 +62,6 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                              <label for="harga">Gambar</label>
-                              <!-- <input class="form-control <?php echo form_error('gambar') ? 'is-invalid':'' ?>" type="file" name="gambar"> -->
-                              <?php for ($i=1; $i <=5 ; $i++) :?>
-                                <input type="file" name="filefoto<?php echo $i;?>"><br/>
-                                  <?php endfor;?>
-                              <div class="invalid-feedback">
-                                <?php echo form_error('gambar')?>
-                              </div>
                              <div class="form-group">
                               <label for="harga">Harga</label>
 
@@ -67,17 +69,44 @@
                               <div class="invalid-feedback">
                                 <?php echo form_error('harga')?>
                               </div>
-
-                             <div class="form-group">
-                              <!-- <label for="stok">Stok</label>
-
-                              <input class="form-control <?php //echo form_error('stok') ? 'is-invalid':'' ?>" type="number" name="stok" placeholder="stok" />
-                              <div class="invalid-feedback">
-                                <?php //echo form_error('stok')?>
-                              </div> -->
                               <br>
-                              <!-- Buat tombol untuk menabah form data -->
+                              <div class="form-group">
+                              <label for="deskripsi">Deskripsi</label>
 
+                              <input class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" type="text" name="deskripsi" placeholder="Deskripsi" />
+                              <div class="invalid-feedback">
+                                <?php echo form_error('deskripsi')?>
+                             </div>  
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+        </div>
+    </div>
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                          <h4>Masukkan Ukuran</h4>
+                        </div>
+                        </div>
+    <br>
+    <br>
+
+    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
+
+                          <br>
+                          <br>
+                          <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
                                 <b>Ukuran ke 1 :</b>
                                 <div class="row">
                                   <div class="col-md-3">
@@ -92,12 +121,18 @@
                                 </div>
                                 <div id="insert-form"></div>
                                 <hr>
-                                <button type="button" id="btn-tambah-form">Tambah Ukuran</button>
-                                <button type="button" id="btn-reset-form">Reset Ukuran</button><br><br>
+                                
+                                <button class="btn btn-danger" type="button" id="btn-tambah-form">+ Tambah Ukuran</button>
+                                <button class ="btn btn-warning" type="button" id="btn-reset-form">Reset Ukuran</button>
+                                </p>
                               <br>
-                            <input class="btn btn-success" type="submit" name="btn"value="Simpan">
-                            <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-primary">Back</a>
+                            
+
+                            <p align="center">
+                            <input class="btn btn-success" type="submit" name="btn"value="Simpan Perubahan">
+                            <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-primary">Kembali</a>
                           </form>
+                          </p>
                           <input type="hidden" id="jumlah-form" value="1">
 
                         </div>
@@ -107,10 +142,6 @@
                   </div>
                 </div>
               </div>
-
-
-        </div>
-    </div>
 
     <!-- jquery
         ============================================ -->

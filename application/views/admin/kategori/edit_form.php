@@ -18,9 +18,18 @@
         <div class="content">
             
 
-                <div class="row">
+                 <div class="row">
                   <br>
-                  <br>
+                 <br>
+                 <br>
+                 <br>
+                          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                          <h4>Edit Kategori</h4>
+                        </div>
+                        </div>
+                <br>
+                <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
 
                           <br>
@@ -33,7 +42,7 @@
                             <input type="hidden" name="id" value="<?php echo $tabel_kategori->id_kategori?>"/>
 
                             <div class="form-group">
-                              <label for="nama_kategori">Edit Kategori</label>
+                              <label for="nama_kategori">Nama Kategori</label>
 
                               <input class="form-control <?php echo form_error('nama_kategori') ? 'is-invalid':'' ?>" type="text" name="nama_kategori" value="<?php echo $tabel_kategori->nama_kategori?>" />
                               <div class="invalid-feedback">

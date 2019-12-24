@@ -21,9 +21,18 @@
              
             
            
-                <div class="row">
-                     <br>
+                 <div class="row">
                   <br>
+                 <br>
+                 <br>
+                 <br>
+                          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                          <h4>Masukkan Kategori</h4>
+                        </div>
+                        </div>
+                <br>
+                <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
 
                           <br>
@@ -34,7 +43,7 @@
                         <br>
                                                    
                             <div class="form-group">
-                              <label for="nama_kategori">Masukkan Kategori</label>
+                              <label for="nama_kategori">Nama Kategori</label>
 
                               <input class="form-control <?php echo form_error('nama_kategori') ? 'is-invalid':'' ?>" type="text" name="nama_kategori" placeholder="Nama kategori" />
                               <div class="invalid-feedback">

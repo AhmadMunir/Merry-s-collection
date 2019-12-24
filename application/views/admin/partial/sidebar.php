@@ -20,11 +20,14 @@
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="input baner" href="<?php echo base_url('admin/baner') ?>"> <span class="mini-sub-pro">Input Baner</span></a></li>
                             </ul>
+                            <ul class="submenu-angle" aria-expanded="true">
+                                <li><a title="input baner" href="<?php echo base_url('admin/gambar') ?>"> <span class="mini-sub-pro">Input Galeri</span></a></li>
+                            </ul>
                         </li>
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span class="mini-click-non">Laporan</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="laporan bulanan" href="mailbox.html"><span class="mini-sub-pro">Laporan Bulanan</span></a></li>
+                                <li><a title="laporan bulanan" href="<?php echo base_url('admin/laporan') ?>"><span class="mini-sub-pro">Laporan Bulanan</span></a></li>
                             </ul>
                         </li>
                         <li>
