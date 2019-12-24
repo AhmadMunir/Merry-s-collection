@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html>
 
 <head>
    <?php $this->load->view('admin/partial/head') ?>
@@ -28,7 +28,7 @@
 
                       <form action="<?php base_url('admin/gambar/add') ?>" method="post" enctype="multipart/form-data">
 
-                         
+
 
                             <div class="form-group">
                               <label for="harga">Gambar</label>

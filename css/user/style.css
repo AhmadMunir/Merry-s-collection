@@ -2413,7 +2413,7 @@ textarea.custom-textarea {
   /* inline-block space fix */
   margin-right: -4px;
   text-align: center;
-  
+
   background-color: yellow;
   border: 1px solid #ddd;
 }

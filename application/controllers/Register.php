@@ -14,6 +14,69 @@
           $this->load->view('register');
       }
 
+      public function registeradmin()
+      {
+          $nama = $this->input->post("nama");
+          $username = $this->input->post("username");
+          $email = $this->input->post("email");
+          $password = $this->input->post('password');
+          $notel = $this->input->post("no_telp");
+          $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          $code = substr(str_shuffle($set), 0, 12);
+
+
+          $register = array(
+            'nama_admin' => $nama,
+            'email'		=> $email,
+            'username'	=> $username,
+            'password'	=> $password,
+            'no_telp'	=> $notel,
+            'kode' => $code);
+          // $this->m_register->save($register);
+          $this->load->library('mailer');
+
+          $message = "
+						<html>
+						<head>
+							<title>WELCOME TO MERRY'S COLLECTION</title>
+						</head>
+						<body>
+							<h2>Thank you for Registering.</h2>
+							<p>Your Account:</p>
+							<p>Email: ".$email."</p>
+              <p>Username: ".$username."</p>
+							<p>Password: ".$password."</p>
+							<p>Please click the link below to activate your account.</p>
+							<h4><a href='".base_url()."Register/activate/".$username."/".$code."'>Activate My Account</a></h4>
+						</body>
+						</html>
+						";
+
+          $email_penerima = $email;
+          $subjek = "Registration Verification Email";
+          $sendmail = array(
+           'email_penerima'=>$email_penerima,
+           'subjek'=>$subjek,
+           'content'=>$message,
+         );
+
+          if (empty($attachment['name'])) { // Jika tanpa attachment
+              $send = $this->mailer->send($sendmail); // Panggil fungsi send yang ada di librari Mailer
+          } else { // Jika dengan attachment
+            $send = $this->mailer->send_with_attachment($sendmail); // Panggil fungsi send_with_attachment yang ada di librari Mailer
+          }
+
+          // echo "<b>".."</b><br />";
+          if ($send['status'] == "Sukses") {
+              $this->m_register->saveadmin($register);
+              // $this->session->set_flashdata('success', 'Check your email for verify');
+              redirect(base_url("user/login"));
+          } else {
+              echo "gagal kirim email";
+          }
+      }
+
+
       public function add()
       {
           $username = $this->input->post("username");
@@ -74,6 +137,7 @@
               echo "gagal kirim email";
           }
       }
+
       public function activate()
       {
           $username = $this->uri->segment(3);

@@ -112,7 +112,7 @@
     }else {
       // $this->session->set_flashdata('gagal', 'Password dan Username Salah!');
       // redirect('Login');
-      $this->session->set_flashdata('success','Berhasil Disimpan');
+      $this->session->set_flashdata('success','Login Gagal, Masukkan data yang benar');
         redirect(site_url("user/login"));
       }
   	}
