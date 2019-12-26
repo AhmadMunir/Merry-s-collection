@@ -47,10 +47,10 @@ class Gambar_model extends CI_Model
 
 	public function uploadgambar()
 	{
+
 		$config['upload_path']		= './img/barang/';
 		$config['allowed_types']	= 'gif|jpg|png';
-		$config['file_name']			= uniqid();
-		$config['overwrite']		= true;
+		$config['file_name']		= uniqid();
 		$config['max_size']			= 5000;
 
 
@@ -61,84 +61,68 @@ class Gambar_model extends CI_Model
 		}
 
 		return "default.jpg";
+		
 	}
+
+
 	public function uploadgambar2()
 	{
 		$config['upload_path']		= './img/barang/';
 		$config['allowed_types']	= 'gif|jpg|png';
-		$config['file_name']			= uniqid();
-		$config['overwrite']		= true;
 		$config['max_size']			= 5000;
-
 
        $this->load->library('upload', $config);
 
 		if($this->upload->do_upload('gambar2')) {
 			return $this->upload->data("file_name");
 		}
-
-		
 	}
 	public function uploadgambar3()
 	{
 		$config['upload_path']		= './img/barang/';
 		$config['allowed_types']	= 'gif|jpg|png';
-		$config['file_name']			= uniqid();
-		$config['overwrite']		= true;
 		$config['max_size']			= 5000;
-
 
        $this->load->library('upload', $config);
 
 		if($this->upload->do_upload('gambar3')) {
 			return $this->upload->data("file_name");
 		}
-
-		
 	}
 	public function uploadgambar4()
 	{
 		$config['upload_path']		= './img/barang/';
 		$config['allowed_types']	= 'gif|jpg|png';
-		$config['file_name']			= uniqid();
-		$config['overwrite']		= true;
-		$config['max_size']			= 5000;
-
+		$config['max_size']			= 50000;
 
        $this->load->library('upload', $config);
 
 		if($this->upload->do_upload('gambar4')) {
 			return $this->upload->data("file_name");
 		}
-
-		
 	}
 	public function uploadgambar5()
 	{
-		$config['upload_path']		= './img/barang/';
+		$config['upload_path']		= './img/barang';
 		$config['allowed_types']	= 'gif|jpg|png';
-		$config['file_name']			= uniqid();
-		$config['overwrite']		= true;
-		$config['max_size']			= 5000;
-
+		$config['max_size']			= 50000;
 
        $this->load->library('upload', $config);
 
 		if($this->upload->do_upload('gambar5')) {
 			return $this->upload->data("file_name");
 		}
-
-		
 	}
+	
 	public function save()
 	{
 		$post = $this->input->post();
 		$this->id_barang = $post["id_barang"];
-		$this->gambar = $this->uploadgambar();
+		$this->gambar  = $this->uploadgambar();
 		$this->gambar2 = $this->uploadgambar2();
 		$this->gambar3 = $this->uploadgambar3();
 		$this->gambar4 = $this->uploadgambar4();
-		$this->gambar5 = $this->uploadgambar5();
+		$this->gambar5 = $post = $this->uploadgambar5();
 		$this->db->insert($this->_table,$this);
 	}
 

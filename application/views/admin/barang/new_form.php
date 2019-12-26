@@ -107,6 +107,8 @@
                           <br>
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                           
+
                                 <b>Ukuran ke 1 :</b>
                                 <div class="row">
                                   <div class="col-md-3">
