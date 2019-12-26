@@ -1512,7 +1512,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <?php $this->load->view('home/partial/jquery') ?>
     <script type="text/javascript">
-    
+
       var status;
       status = <?=$this->session->userdata('status')?>;
       function tes(ids){

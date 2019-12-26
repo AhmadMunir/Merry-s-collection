@@ -10,7 +10,10 @@
       }
     }
 
+
+
     public function index(){
+      // $data['itung_cart'] = $this->m_cart->itung_cart($where);
       $this->load->view('home/cart');
     }
 
@@ -91,10 +94,12 @@
               "subtotal" => $subtotal
               );
             $this->m_cart->update_qty($where_detail, $qty4);
+            $this->hitung_cart();
             echo "masuk";
         }else {
           echo "-masuk detail baru";
           $this->m_cart->insert_cart($cart2, 'tabel_temp_detail_transaksi');
+          $this->hitung_cart();
           echo "asd";
           // echo $cek;
         }
@@ -102,6 +107,7 @@
         echo "pesanan kosong";
         $this->m_cart->insert_cart($xcart, 'tabel_temp_transaksi');
         $this->m_cart->insert_cart($cart, 'tabel_temp_detail_transaksi');
+        $this->hitung_cart();
         echo "string";
       }
 
@@ -116,8 +122,38 @@
           'id_detail_temp_transaksi' => $id
         );
         $this->m_cart->delete($where);
+        $this->hitung_cart();
         echo "deleted";
         echo $id;
     }
+
+    public function hitung_cart(){
+
+      $id = $this->session->userdata('id');
+      $where = array(
+        'id_user' => $id
+      );
+      $data['itung_cart'] = $this->m_cart->itung_cart($where);
+
+      $this->load->view('/vendor/autoload.php');
+        $options = array(
+            'cluster' => 'ap1',
+            'useTLS' => true
+          );
+          $pusher = new Pusher\Pusher(
+            '47980f8443159a27e646',
+            '70e4e200051728975830',
+            '913455',
+            $options
+          );
+
+          $data['status'] = 'success';
+          $response = $pusher->trigger('notif-cart', 'my-event', $data);
+
+      // echo $data['itung_cart'];
+
+      // echo $pusher->get($resource, $params);
+    }
+
 }
  ?>

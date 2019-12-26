@@ -42,6 +42,9 @@ class M_cart extends CI_Model
     return $this->db->get('view_cart')->result();
   }
 
+  public function itung_cart($where){
+    return $this->db->get_where('view_cart', $where)->num_rows();
+  }
 
   public function delete($id){
     $this->db->delete('tabel_temp_detail_transaksi', $id);

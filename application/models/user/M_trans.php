@@ -15,5 +15,9 @@ class M_trans extends CI_Model
   public function delete_temp($id){
     $this->db->delete('tabel_temp_transaksi',$id);
   }
+
+  public function get_transaksi($where){
+    return $this->db->get_where('view_transaksi', $where)->result();
+  }
 }
 ?>
