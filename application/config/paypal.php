@@ -1,22 +1,36 @@
-<?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+/** set your paypal credential **/
 
-// ------------------------------------------------------------------------
-// Paypal library configuration
-// ------------------------------------------------------------------------
+$config['client_id'] = 'AS6yMkPP1YEQ_1RPmSItB_hnP8uthx2dEREmoMSg9MMLiKebZ4VFRYbiOnKhR4nFoBYlr25YKcEiWgXl';
+$config['secret'] = 'EIwQWr68T99yeLfiknzSkcqSiFGGWEZPEvLa87cLae1Tn07zbP0oeqA6Uwsja71VWNhxjpR22otzfLu9';
 
-// PayPal environment, Sandbox or Live
-$config['sandbox'] = TRUE; // FALSE for live environment
+/**
+ * SDK configuration
+ */
+/**
+ * Available option 'sandbox' or 'live'
+ */
+$config['settings'] = array(
 
-// PayPal business email
-$config['business'] = 'Your_PayPal_Email';
-
-// What is the default currency?
-$config['paypal_lib_currency_code'] = 'USD';
-
-// Where is the button located at?
-$config['paypal_lib_button_path'] = 'assets/images/';
-
-// If (and where) to log ipn response in a file
-$config['paypal_lib_ipn_log'] = TRUE;
-$config['paypal_lib_ipn_log_file'] = BASEPATH . 'logs/paypal_ipn.log';
+    'mode' => 'sandbox',
+    /**
+     * Specify the max request time in seconds
+     */
+    'http.ConnectionTimeOut' => 1000,
+    /**
+     * Whether want to log to a file
+     */
+    'log.LogEnabled' => true,
+    /**
+     * Specify the file that want to write on
+     */
+    'log.FileName' => 'application/logs/paypal.log',
+    /**
+     * Available option 'FINE', 'INFO', 'WARN' or 'ERROR'
+     *
+     * Logging is most verbose in the 'FINE' level and decreases as you
+     * proceed towards ERROR
+     */
+    'log.LogLevel' => 'FINE'
+);
 ?>

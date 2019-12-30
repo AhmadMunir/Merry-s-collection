@@ -96,14 +96,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="cart-show-label show-label mt-15">
-                                                                <select>
-                                                                    <option selected="selected" value="position">Zip/Postal Code</option>
-                                                                    <option value="Name">1200</option>
-                                                                    <option value="Price">1201</option>
-                                                                    <option value="Price">1202</option>
-                                                                    <option value="Price">1203</option>
-                                                                    <option value="Price">1204</option>
-                                                                </select>
+                                                                <input id="zip" placeholder="Zippostal Code">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -128,22 +121,22 @@
                                                       </div>
                                                     </div>
                                                 </div>
-                                                <a class="button extra-small pull-right mt-20" href="#" title="Add to Cart">
+                                                <!-- <a class="button extra-small pull-right mt-20" href="#" title="Add to Cart">
                                                     <span>Get a Quote</span>
-                                                </a>
+                                                </a> -->
                                             </div>
                                             <div class="col-md-4 col-sm-6 clearfix">
                                                 <div class="counpon-info ml-35">
                                                     <div class="cart-title text-uppercase">
-                                                        <h5 class="mb-30"><strong>COUPON DISCOUNT</strong></h5>
+                                                        <h5 class="mb-30"><strong>Address Detail</strong></h5>
                                                     </div>
                                                     <div class="coupon-discount">
-                                                        <label class="pb-10">Enter Your Coupon Code Here</label>
-                                                        <input type="text">
+                                                        <label class="pb-10">Enter Your Adress Detail</label>
+                                                        <input id="detail_address" type="text" maxlength="60">
                                                     </div>
-                                                    <a class="button extra-small pull-right mt-35" href="#" title="Add to Cart">
+                                                    <!-- <a class="button extra-small pull-right mt-35" href="#" title="Add to Cart">
                                                         <span>Apply Coupon</span>
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                             </div>
                                             <div class="col-md-offset-0 col-md-4 col-sm-offset-3 col-sm-6 clearfix">
@@ -157,20 +150,57 @@
                                                                 <th>Subtotal</th>
                                                                 <td id="result"></td>
                                                             </tr>
+                                                            <tr class="cart-tax">
+                                                              <th>Tax</th>
+                                                              <td id="tax">-<td>
+                                                              </tr>
                                                             <tr class="cart-shipping">
                                                                 <th>Shipping</th>
                                                                 <td id="shipping">-</td>
                                                             </tr>
                                                             <tr class="cart-total">
                                                                 <th>Grand Total</th>
-                                                                <td>£215.00</td>
+                                                                <td>USD 215.00</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                                    <script
-                                                      src="https://www.paypal.com/sdk/js?client-id=AS6yMkPP1YEQ_1RPmSItB_hnP8uthx2dEREmoMSg9MMLiKebZ4VFRYbiOnKhR4nFoBYlr25YKcEiWgXl"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
-                                                    </script>
-                                                    <div id="paypal-button-container"></div>
+                                                    <div id="payment">
+
+                                                      <?php foreach ($alamt as $ky) {
+                                                        $al = $ky->alamat;
+                                                        $kota = $ky->kota;
+                                                        $id_kota = $ky->id_kota;
+                                                        $provinsi =$ky->provinsi;
+                                                        $negara = $ky->negara;
+                                                        $kode_pos = $ky->kode_pos;
+                                                        if ($al == null && $kota == null && $provinsi == null && $negara == null && $kode_pos == null) {
+                                                          ?>
+                                                          <center>
+                                                            <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
+                                                          </center>
+                                                          <?php
+                                                        }elseif ($al == null or $kota == null or $provinsi == null or $negara == null or $kode_pos == null) {
+                                                          ?>
+                                                          <center>
+                                                            <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
+                                                          </center>
+                                                          <?php
+                                                        }else {
+                                                          ?>
+                                                          <center>
+                                                            <h7 id="address_from_this" style="color : green;"></h7>
+                                                          </center>
+                                                          <center>
+                                                            <h7 id="address_from_db" style="color : green;">The package will deliver to <?php echo $al.", ".$kota.", ".$provinsi.", ".$negara; ?></h7>
+                                                          </center>
+                                                          <script
+                                                          src="https://www.paypal.com/sdk/js?client-id=AS6yMkPP1YEQ_1RPmSItB_hnP8uthx2dEREmoMSg9MMLiKebZ4VFRYbiOnKhR4nFoBYlr25YKcEiWgXl"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+                                                          </script>
+                                                          <div id="paypal-button-container"></div>
+                                                        <?php }
+                                                      } ?>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -325,7 +355,7 @@
 
     <!-- jquery latest version -->
     <?php $this->load->view('home/partial/jquery') ?>
-    
+
 </body>
 
 </html>

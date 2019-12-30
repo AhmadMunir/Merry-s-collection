@@ -10,17 +10,44 @@
       }
     }
 
-
+    public function cek(){
+      print_r($_SESSION['ship_session']);
+    }
 
     public function index(){
-      // $data['itung_cart'] = $this->m_cart->itung_cart($where);
-      $this->load->view('home/cart');
+      $_SESSION['ship_session'] = array(
+        'cost' => null,
+        'method' => null,
+        'address_line_1' => null,
+        'address_line_2' => null,
+        'admin_area_2' => null,
+        'admin_area_1' => null,
+        'postal_code' => null,
+        'country_code' => null,
+      );
+      $id = $this->session->userdata('id');
+      $where = array(
+        'id_user'=>$id
+      );
+      $data['alamt'] = $this->m_cart->cek_apa('tabel_alamat', $where);
+      $this->load->view('home/cart', $data);
     }
 
     public function get_cart(){
       $id = $this->session->userdata('id');
       $data = $this->m_cart->get_cart($id);
       echo json_encode($data);
+    }
+    public function tax(){
+      $id = $this->session->userdata('id');
+      $data = $this->m_cart->get_cart($id);
+      $tax = 0;
+      foreach ($data as $tr) {
+
+        $tax += $tr->harga*0.029+0.30;
+      };
+      // return number_format($tax,2);
+      echo json_encode(number_format($tax,2));
     }
 
     public function add_cart(){
@@ -126,6 +153,7 @@
         echo "deleted";
         echo $id;
     }
+
 
     public function hitung_cart(){
 

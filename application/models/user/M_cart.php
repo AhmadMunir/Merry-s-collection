@@ -42,12 +42,25 @@ class M_cart extends CI_Model
     return $this->db->get('view_cart')->result();
   }
 
+  public function get_tr($id){
+    $idu = array(
+      'id_user' => $id
+    );
+    $this->db->where($idu);
+    return $this->db->get('tabel_temp_transaksi')->result();
+  }
+
   public function itung_cart($where){
     return $this->db->get_where('view_cart', $where)->num_rows();
   }
 
   public function delete($id){
     $this->db->delete('tabel_temp_detail_transaksi', $id);
+  }
+
+  public function cek_apa($tabel, $where){
+    $this->db->where($where);
+    return $this->db->get($tabel)->result();
   }
 }
 ?>

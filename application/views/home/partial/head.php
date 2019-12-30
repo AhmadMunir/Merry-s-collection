@@ -33,6 +33,7 @@
 
 <!-- Modernizr JS -->
 <script src="<?php echo base_url('js/user/vendor/modernizr-2.8.3.min.js'); ?>"></script>
+<!-- <script src="https://www.paypalobjects.com/api/checkout.js"></script> -->
 
 <!-- <script src="<?php //echo base_url('css/select2/select2.min.css'); ?>"></script> -->
 

@@ -2,6 +2,8 @@
   class Shipping extends CI_Controller{
     public function __construct(){
       parent::__construct();
+
+      $this->load->model('user/m_cart');
     }
 
     private $api_key = 'ec5ac9d3c347270853a915782f25979a';
@@ -91,6 +93,16 @@
        $kurir = $this->input->post('kurir');
        $asal = '114';
        $city =  $this->input->post('city');
+       if ($city == null) {
+         $id = $this->session->userdata('id');
+         $where = array(
+           'id_user'=>$id
+         );
+         $data = $this->m_cart->cek_apa('tabel_alamat', $where);
+         foreach ($data as $key) {
+           $city = $key->id_kota;
+         }
+       }
        $berat = '1000';
 
        $curl = curl_init();
@@ -155,6 +167,28 @@
         $data = json_decode($response, true);
         return $data['rates']['USD'];
       }
+    }
+
+    public function set_ship_session(){
+      $cost = $this->input->post('cost');
+      $method = $this->input->post('method');
+      $address_line_1 = $this->input->post('a1');
+      $address_line_2 = $this->input->post('a2');
+      $admin_area_2 = $this->input->post('a3');
+      $admin_area_1 = $this->input->post('a4');
+      $postal_code = $this->input->post('a5');
+      $country_code = $this->input->post('a6');
+
+      $_SESSION['ship_session'] = array(
+        'cost' => $cost,
+        'method' => $method,
+        'address_line_1' => $address_line_1,
+        'address_line_2' => $address_line_2,
+        'admin_area_2' => $admin_area_2,
+        'admin_area_1' => $admin_area_1,
+        'postal_code' => $postal_code,
+        'country_code' => $country_code,
+      );
     }
 
   }

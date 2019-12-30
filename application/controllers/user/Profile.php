@@ -45,16 +45,22 @@
       $address = $this->input->post("address");
       $zip = $this->input->post("zipostal");
       $city = $this->input->post("city");
+      $city_name = $this->input->post("city_name");
       $province = $this->input->post("province");
+      $prov_name = $this->input->post("prov_name");
       $country = $this->input->post("country");
+      $country_name = $this->input->post("country_name");
 
       $where = array('id_user' => $id);
 
       $data = array(
         'alamat' => $address,
-        'kota' => $city,
-        'provinsi' => $province,
-        'negara' => $country,
+        'id_kota' => $city,
+        'kota' => $city_name,
+        'id_prov' => $province,
+        'provinsi' => $prov_name,
+        'id_neg' => $country,
+        'negara' => $country_name,
         'kode_pos' => $zip
       );
       $this->M_profile->update($where, $data, 'tabel_alamat');

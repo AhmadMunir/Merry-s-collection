@@ -26,9 +26,12 @@ var omkir;
         // $('#cart_itung').html('html');
         show_province();
         show_product();
+        set_tax()
+        //
+        // $('#paypal-button-container').hide();
 
         //Pusher
-        Pusher.logToConsole = true;
+        // Pusher.logToConsole = true;
 
         var pusher = new Pusher('47980f8443159a27e646', {
           cluster: 'ap1',
@@ -39,6 +42,8 @@ var omkir;
         channel.bind('my-event', function(data) {
           if (data.status == 'success') {
             $('#cart_itung').html(data.itung_cart);
+            show_product();
+            set_tax();
           }
         });
 
@@ -49,6 +54,19 @@ var omkir;
             type : 'GET',
             success : function(data){
 
+            }
+          });
+        }
+
+        function set_tax(){
+          $.ajax({
+            url : '<?php echo base_url("user/cart/tax");?>',
+            type : 'GET',
+            dataType : 'json',
+            success : function(tax){
+              var html;
+              html = tax;
+              $('#tax').html(html);
             }
           });
         }
@@ -98,11 +116,14 @@ var omkir;
 
         //cek ongkir
         $('#kurir').change(function(){
-          // html = '<option value="&nbsp"> Selectn Courier </option>'
-          // $('#kurir').html(html);
 
           var kurir = $('#kurir').val();
           var city = $('#city').val();
+          // if ($('#city').val() == null) {
+          //   var city = document.getElementById('default_city').value;
+          // } else {
+          //   var city = $('#city').val();
+          // }
 
           $.ajax({
             type  : 'POST',
@@ -123,9 +144,34 @@ var omkir;
         });
 
         $('#service').change(function(){
+          var html;
           var ship = $('#service').val();
           $('#shipping').html(ship);
           omkir = ship;
+
+          $.ajax({
+            type  : 'POST',
+            url : '<?php echo base_url("shipping/set_ship_session");?>',
+            dataType  : 'json',
+            data  : {'cost':$('#service').val(),
+              'method':$('#kurir option:selected').text()+'&nbsp;-&nbsp;'+$('#service option:selected').text(),
+             'a1':document.getElementById('detail_address').value,
+             // 'a2':'Sukosari',
+             'a3':$('#city').val(),
+             'a4':$('#province').val(),
+             'a5':$('#zip').val(),
+             'a6':'US',},
+          });
+        });
+
+        //input detail address
+
+        $('#detail_address').on('input',function(){
+          $('#detail_address').css("backgrounColor", "green");
+          $('#address_from_db').hide();
+          html = 'The package will deliver to '+document.getElementById('detail_address').value+
+                  ', '+$('#city option:selected').text()+', '+$('#province option:selected').text();
+          $('#address_from_this').html(html);
         });
 
         // FUNCTION SHOW PRODUCT
@@ -188,41 +234,146 @@ var omkir;
                 data   : {id: id_detail_temp_transaksi},
                 success: function(){
                     $('#ModalDelete').modal('hide');
-                    show_product();
+
                 }
             });
         });
         // END DELETE PRODUCT
 
+        // country_name
+        $('#country').change(function(){
+          document.getElementById('cn_name').value = $('#country option:selected').text();
+        });
+
+        //prov name
+        $('.prv').change(function(){
+          document.getElementById('prov_name').value = $('#province option:selected').text();
+        });
+
+        //city name
+        $('.city').change(function(){
+          document.getElementById('city_name').value = $('#city option:selected').text();
+        });
+
+
       });
 </script>
 <script>
-//function get total;
-function get_total(){
-  $.ajax({
-      url   : '<?php echo site_url("user/cart/get_cart");?>',
-      type  : 'GET',
-      async : true,
-      dataType : 'json',
-      success : function(data){
-          id_trans = data[0].id_transaksi;
-          sam = data[0].total;
+  paypal.Buttons({
+    createOrder: function() {
+        return fetch('<?php echo base_url('payment/paypal/createorder/order');?>', {
+          method: 'post',
+          headers: {
+            'content-type': 'application/json'
           }
-      });
-  };
+        }).then(function(res) {
+          return res.json();
+        }).then(function(data) {
+          return data.result.id; // Use the same key name for order ID on the client and server
+        });
+      }
+  }).render('#paypal-button-container');
+</script>
+<!-- <script>
+
 paypal.Buttons({
     createOrder: function(data, actions) {
       // This function sets up the details of the transaction, including the amount and line item details.
-      get_total();
       return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: sam,
-            tax: omkir
-            // TODO: menambahkan fee
-          }
-        }]
+        "intent": "CAPTURE",
+         "application_context": {
+           "return_url": "https://google.com",
+           "cancel_url": "https://example.com",
+           "brand_name": "EXAMPLE INC",
+           "locale": "en-US",
+           "landing_page": "BILLING",
+           "shipping_preference": "SET_PROVIDED_ADDRESS",
+           "user_action": "CONTINUE"
+         },
+         "purchase_units": [
+           {
+             "reference_id": "PUHF",
+             "description": "Sporting Goods",
+
+             "custom_id": "CUST-HighFashions",
+             "soft_descriptor": "HighFashions",
+             "amount": {
+               "currency_code": "USD",
+               "value": "230.00",
+               "breakdown": {
+                 "item_total": {
+                   "currency_code": "USD",
+                   "value": "180.00"
+                 },
+                 "shipping": {
+                   "currency_code": "USD",
+                   "value": "30.00"
+                 },
+                 "handling": {
+                   "currency_code": "USD",
+                   "value": "10.00"
+                 },
+                 "tax_total": {
+                   "currency_code": "USD",
+                   "value": "20.00"
+                 },
+                 "shipping_discount": {
+                   "currency_code": "USD",
+                   "value": "10"
+                 }
+               }
+             },
+             "items": [
+               {
+                 "name": "T-Shirt",
+                 "description": "Green XL",
+                 "sku": "sku01",
+                 "unit_amount": {
+                   "currency_code": "USD",
+                   "value": "90.00"
+                 },
+                 "tax": {
+                   "currency_code": "USD",
+                   "value": "10.00"
+                 },
+                 "quantity": "1",
+                 "category": "PHYSICAL_GOODS"
+               },
+               {
+                 "name": "Shoes",
+                 "description": "Running, Size 10.5",
+                 "sku": "sku02",
+                 "unit_amount": {
+                   "currency_code": "USD",
+                   "value": "45.00"
+                 },
+                 "tax": {
+                   "currency_code": "USD",
+                   "value": "5.00"
+                 },
+                 "quantity": "2",
+                 "category": "PHYSICAL_GOODS"
+               }
+             ],
+             "shipping": {
+               "method": "United States Postal Service",
+               "address": {
+                 "name": {
+                   "full_name":"John",
+                   "surname":"Doe"
+                 },
+                 "address_line_1": "123 Townsend St",
+                 "address_line_2": "Floor 6",
+                 "admin_area_2": "San Francisco",
+                 "admin_area_1": "CA",
+                 "postal_code": "94107",
+                 "country_code": "US"
+               }
+             }
+           }
+         ]
       });
+
     },
     onApprove: function(data, actions) {
     // This function captures the funds from the transaction.
@@ -246,5 +397,17 @@ paypal.Buttons({
 
     });
   }
+  // createOrder: function() {
+  //   return fetch('<?php //echo base_url('payment/paypal/createorder/order');?>', {
+  //     method: 'post',
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     }
+  //   }).then(function(res) {
+  //     return res.json();
+  //   }).then(function(data) {
+  //     return data.id; // Use the same key name for order ID on the client and server
+  //   });
+  // }
   }).render('#paypal-button-container');
-</script>
+</script> -->
