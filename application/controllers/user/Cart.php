@@ -44,10 +44,10 @@
       $tax = 0;
       foreach ($data as $tr) {
 
-        $tax += $tr->harga*0.029+0.30;
+        $tax += number_format(floor(($tr->harga*0.029+0.30)*100)/100,2);
       };
       // return number_format($tax,2);
-      echo json_encode(number_format($tax,2));
+      echo json_encode($tax);
     }
 
     public function add_cart(){

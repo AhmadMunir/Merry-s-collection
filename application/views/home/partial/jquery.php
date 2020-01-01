@@ -154,7 +154,7 @@ var omkir;
             url : '<?php echo base_url("shipping/set_ship_session");?>',
             dataType  : 'json',
             data  : {'cost':$('#service').val(),
-              'method':$('#kurir option:selected').text()+'&nbsp;-&nbsp;'+$('#service option:selected').text(),
+            'method':$('#kurir option:selected').text()+'-'+$('#service option:selected').text(),
              'a1':document.getElementById('detail_address').value,
              // 'a2':'Sukosari',
              'a3':$('#city').val(),
@@ -271,7 +271,22 @@ var omkir;
         }).then(function(data) {
           return data.result.id; // Use the same key name for order ID on the client and server
         });
-      }
+      },
+      onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        // alert('Transaction completed by ' + details.payer.name.given_name);
+        // Call your server to save the transaction
+        return fetch('../payment/paypal/getorder/get', {
+          method: 'post',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            orderID: data.orderID
+          })
+        });
+      });
+    }
   }).render('#paypal-button-container');
 </script>
 <!-- <script>

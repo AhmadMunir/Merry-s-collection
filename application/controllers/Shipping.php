@@ -173,7 +173,7 @@
       $cost = $this->input->post('cost');
       $method = $this->input->post('method');
       $address_line_1 = $this->input->post('a1');
-      $address_line_2 = $this->input->post('a2');
+      // $address_line_2 = $this->input->post('a2');
       $admin_area_2 = $this->input->post('a3');
       $admin_area_1 = $this->input->post('a4');
       $postal_code = $this->input->post('a5');
@@ -183,7 +183,7 @@
         'cost' => $cost,
         'method' => $method,
         'address_line_1' => $address_line_1,
-        'address_line_2' => $address_line_2,
+        // 'address_line_2' => $address_line_2,
         'admin_area_2' => $admin_area_2,
         'admin_area_1' => $admin_area_1,
         'postal_code' => $postal_code,

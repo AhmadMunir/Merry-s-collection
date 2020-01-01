@@ -25,7 +25,7 @@ class Createorder extends CI_Controller
 
      public function total(){
        $id = $this->session->userdata('id');
-       $data = $this->m_cart->get_tr(1);
+       $data = $this->m_cart->get_tr($id);
        $total = array();
        foreach ($data as $tr) {
          // array_push($total, array(
@@ -39,34 +39,33 @@ class Createorder extends CI_Controller
      }
      public function tax(){
        $id = $this->session->userdata('id');
-       $data = $this->m_cart->get_cart(1);
+       $data = $this->m_cart->get_cart($id);
        $tax = 0;
        foreach ($data as $tr) {
-         // array_push($tax, array(
-         //   'currency_code' => 'USD',
-         //   'value' => number_format($tr->total*0.0044+0.30,2)
-         // ));
-         $tax += $tr->harga*0.029+0.30;
+         // echo floor(($tr->harga*0.029+0.30)*100)/100;
+         // echo '+';
+         $tax += number_format(floor(($tr->harga*0.029+0.30)*100)/100,2);
        };
        return number_format($tax,2);
-       // echo json_encode(number_format($tax,2));
+       // echo number_format($tax,2);
+       // echo json_encode($tax);
      }
 
      public function items(){
        $id = $this->session->userdata('id');
-       $data = $this->m_cart->get_cart(1);
+       $data = $this->m_cart->get_cart($id);
        $item = array();
        foreach ($data as $key) {
          array_push($item, array(
-           'name' => $key->nama_barang,
-           'sku' => $key->id_barang,
+           'name' => $key->id_barang.'-'.$key->nama_barang,
+           'sku' => $key->id_detail_temp_transaksi,
            'unit_amount' => array(
              'currency_code' => 'USD',
              'value' => $key->harga,
            ),
            'tax' => array(
              'currency_code' => 'USD',
-             'value' => number_format($key->harga*0.029+0.30,2),
+             'value' => number_format(floor(($key->harga*0.029+0.30)*100)/100,2),
            ),
            'quantity' => $key->qty,
            'category' => 'PHYSICAL_GOODS'
@@ -138,7 +137,7 @@ class Createorder extends CI_Controller
               'address' =>
                   array(
                       'address_line_1' => $al1,
-                      'address_line_2' => $al2,
+                      // 'address_line_2' => $al2,
                       'admin_area_2' => $al3,
                       'admin_area_1' => $al4,
                       'postal_code' => $al5,

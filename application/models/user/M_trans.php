@@ -8,8 +8,12 @@ class M_trans extends CI_Model
     return $this->db->insert($tabel, $where);
   }
 
-  public function get_detail($where){
-    return $this->db->get_where("tabel_temp_detail_transaksi", $where)->result();
+  public function get_sembarang($table,$where){
+    return $this->db->get_where($table, $where)->result();
+  }
+
+  public function count_sembarang($table,$where){
+    return $this->db->get_where($table, $where)->row();
   }
 
   public function delete_temp($id){
