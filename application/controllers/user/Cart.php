@@ -43,8 +43,8 @@
       $data = $this->m_cart->get_cart($id);
       $tax = 0;
       foreach ($data as $tr) {
-
-        $tax += number_format(floor(($tr->harga*0.029+0.30)*100)/100,2);
+        $tix = number_format(floor(($tr->harga*0.029+0.30)*100)/100,2);
+       $tax += $tix*$tr->qty;
       };
       // return number_format($tax,2);
       echo json_encode($tax);

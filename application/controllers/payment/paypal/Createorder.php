@@ -41,11 +41,11 @@ class Createorder extends CI_Controller
        $id = $this->session->userdata('id');
        $data = $this->m_cart->get_cart($id);
        $tax = 0;
-       foreach ($data as $tr) {
-         // echo floor(($tr->harga*0.029+0.30)*100)/100;
-         // echo '+';
-         $tax += number_format(floor(($tr->harga*0.029+0.30)*100)/100,2);
+       foreach ($data as $tr){
+          $tix = number_format(floor(($tr->harga*0.029+0.30)*100)/100,2);
+         $tax += $tix*$tr->qty;
        };
+
        return number_format($tax,2);
        // echo number_format($tax,2);
        // echo json_encode($tax);
@@ -56,6 +56,7 @@ class Createorder extends CI_Controller
        $data = $this->m_cart->get_cart($id);
        $item = array();
        foreach ($data as $key) {
+         $tax = number_format(floor(($key->harga*0.029+0.30)*100)/100,2);
          array_push($item, array(
            'name' => $key->id_barang.'-'.$key->nama_barang,
            'sku' => $key->id_detail_temp_transaksi,
@@ -65,7 +66,7 @@ class Createorder extends CI_Controller
            ),
            'tax' => array(
              'currency_code' => 'USD',
-             'value' => number_format(floor(($key->harga*0.029+0.30)*100)/100,2),
+             'value' => $tax,
            ),
            'quantity' => $key->qty,
            'category' => 'PHYSICAL_GOODS'
