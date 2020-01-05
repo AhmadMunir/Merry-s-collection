@@ -20,6 +20,8 @@
             <div class="container-fluid">
         <form method="post" action="<?php echo base_url('admin/laporan'); ?>">
         <!-- DataTables -->
+        <br>
+        <br>
         <div class="card mb-3">
           <div class="card-header">
             <select id="bulan" name="bulan" required="required">Pilih Bulan
@@ -54,11 +56,9 @@
                   <tr>
                     <th>ID Transaksi</th> 
                     <th>NAMA PEMBELI</th>
-                    <th>NAMA BARANG</th>
                     <th>TANGGAL</th>
-                    <th>ALAMAT PENGIRIMAN</th>
-                    <th>STATUS</th>
                     <th>TOTAL</th>
+                    <th>DETAIL</th>
                     
                   </tr>
                 </thead>
@@ -72,21 +72,14 @@
                       <?php echo $key->nama_user ?>
                     </td>
                     <td>
-                      <?php echo $key->nama_barang ?>
-                    </td>
-                    <td>
                       <?php echo $key->tanggal ?>
-                    </td>
-                    <td>
-                      <?php echo $key->alamat_pengiriman ?>
-                    </td>
-                    <td>
-                      <?php echo $key->status ?>
                     </td>
                     <td>
                       <?php echo $key->total ?>
                     </td>
-                    
+                    <td>
+                      <button class="form-control btn btn-primary" data-toggle="modal" data-target="#tambah-pegawai"><i class="glyphicon glyphicon-plus-sign"></i> Tambah Data</button>
+                    </td>
                   </tr>
                   <?php endforeach; ?>
 
