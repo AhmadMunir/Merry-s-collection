@@ -10,10 +10,10 @@
   		$this->load->library('form_validation');
   	}
 
-  	public function index()
+  	public function index($id = null)
   	{
-  		$data["tabel_gambar"] = $this->gambar_model->getAll();
-  		$this->load->view("admin/barang",$data);
+  		$data["tabel_gambar"] = $this->gambar_model->getAll($id);
+  		$this->load->view("admin/barang/gambar_list",$data);
 
   	}
     
@@ -26,11 +26,10 @@
       if ($validation->run()){
         $gambar->save();
         $this->session->set_flashdata('success','Berhasil Disimpan');
-        redirect(site_url("admin/barang/tambah"));
+        redirect(site_url("admin/barang"));
       }
       $data["tabel_barang"] =$gambar->getTambah();
       $this->load->view("admin/barang/tambah", $data);
-
     }
   	public function edit($id = null)
   	{

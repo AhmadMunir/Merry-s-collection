@@ -85,7 +85,7 @@
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form action="<?php echo base_url('Register/add'); ?>" id="loginForm" method="post">
+                        <form action="<?php echo base_url('Register/registeradmin'); ?>" id="loginForm" method="post">
                             <div class="row">
                                 <div class="form-group col-lg-12">
                                     <label>Name</label>

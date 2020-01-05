@@ -1,5 +1,9 @@
+
 <!doctype html>
+
 <html class="no-js" lang="zxx">
+
+<link rel="stylesheet" href="style.css">
 
 <head>
     <?php $this->load->view('home/partial/head') ?>
@@ -49,7 +53,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="section-title-2 text-uppercase text-center mtb-40">
-                                <h4>Meet the team</h4>
+                                <h4>The Owners</h4>
                             </div>
                         </div>
                     </div>
@@ -58,169 +62,58 @@
                             <div class="item-team text-center text-capitalize">
                                 <div class="team-info">
                                     <div class="team-img mb-10">
-                                        <img width="250" height="250" alt="team4" class="img-responsive" src="images/about/1.jpg">
-                                        <div class="mask">
-                                            <div class="mask-inner">
-                                                <a href=""><i class="zmdi zmdi-facebook"></i></a>
-                                                <a href=""><i class="zmdi zmdi-twitter"></i></a>
-                                            </div>
-                                        </div>
+                                        <center>
+                                            <img class="mx-auto rounded-circle" src="../img/about/own.jpg" alt="" width="175px" height="175px">
+                                        </center>
+                    <!-- <a href="../img/about/own.jpg" class="btn gallery-img">See More +</a> -->
+                                        <h4>Orang Tua</h4>
+                                        <p class="text-muted">Lead Developer and Produk Owner</p>
                                     </div>
                                 </div>
-                                <h5>Martin Demichelis</h5>
-                                <h6>PHP Developer</h6>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-4">
                             <div class="item-team text-center text-capitalize">
                                 <div class="team-info">
                                     <div class="team-img mb-10">
-                                        <img width="250" height="250" alt="team4" class="img-responsive" src="images/about/2.jpg">
-                                        <div class="mask">
-                                            <div class="mask-inner">
-                                                <a href=""><i class="zmdi zmdi-facebook"></i></a>
-                                                <a href=""><i class="zmdi zmdi-twitter"></i></a>
-                                            </div>
-                                        </div>
+                                        <center>
+                                            <img class="mx-auto rounded-circle" src="../img/about/own.jpg" alt="" width="175px" height="175px">
+                                        </center>
+                    <!-- <a href="../img/about/own.jpg" class="btn gallery-img">See More +</a> -->
+                                        <h4>Orang Tua</h4>
+                                        <p class="text-muted">Lead Developer and Produk Owner</p>
                                     </div>
                                 </div>
-                                <h5>Luka Biglia</h5>
-                                <h6>Programmer</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-4">
-                            <div class="item-team text-center text-capitalize">
-                                <div class="team-info">
-                                    <div class="team-img mb-10">
-                                        <img width="250" height="250" alt="team4" class="img-responsive" src="images/about/3.jpg">
-                                        <div class="mask">
-                                            <div class="mask-inner">
-                                                <a href=""><i class="zmdi zmdi-facebook"></i></a>
-                                                <a href=""><i class="zmdi zmdi-twitter"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h5>Havier Macherano</h5>
-                                <h6>Developer</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-3 hidden-sm">
-                            <div class="item-team text-center text-capitalize">
-                                <div class="team-info">
-                                    <div class="team-img mb-10">
-                                        <img width="250" height="250" alt="team4" class="img-responsive" src="images/about/4.jpg">
-                                        <div class="mask">
-                                            <div class="mask-inner">
-                                                <a href=""><i class="zmdi zmdi-facebook"></i></a>
-                                                <a href=""><i class="zmdi zmdi-twitter"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h5>Martin Demichelis</h5>
-                                <h6>PHP Developer</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Of About us Area -->
-            <!-- Start Brand Area -->
-            <div class="brand-area pb-90">
+                <section class="bg-light" id="team">
                 <div class="container">
                     <div class="row">
-                        <div class="brand-list">
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/1.png" alt="">
-                                    </a>
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading text-uppercase">About Location</h2>
+                        </div>
+                    </div>
+                    <section class="medilife-video-area section-padding-100 bg-overlay bg-img" style="background-image: url(../img/bg-img/video.jpg);"></section>
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-8">
+                                <div class="video-box bg-overlay-black">
+                                    <iframe width="1100" height="350" src="https://www.youtube.com/embed/4e_hgBrgBHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                       
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/2.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/3.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/4.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/5.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/6.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/1.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/2.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/3.png" alt="">
-                                    </a>
+                            <div class="col-12 col-lg-4">
+                                <div class="video-content">
+                                    <h2></h2>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- End Of Brand Area -->
-            <!-- Start Newsletter Area -->
-            <div class="newsletter-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="newsletter-content default-bg clearfix ptb-40">
-                            <div class="col-md-offset-2 col-md-3 col-sm-5">
-                                <div class="newsletter-title text-white text-uppercase">
-                                    <h4>NewsLetter Sign-Up</h4>
-                                </div>
-                            </div>
-                            <div class="col-md-5 col-sm-7">
-                                <div class="signup-form">
-                                    <form class="news-form" action="#">
-                                        <input type="text" placeholder="Enter your email address..." class="f-form">
-                                        <button class="submit text-uppercase">subscribe</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </section> 
             <!-- End Of Newsletter Area -->
         </section>
         <!-- End page content -->
@@ -314,19 +207,7 @@
         </footer>
         <!-- End footer area -->
     </div>
-    <!-- Body main wrapper end -->
-
-
-    <!-- Placed js at the end of the document so the pages load faster -->
-
-    <!-- jquery latest version -->
-    <script src="js/vendor/jquery-3.1.1.min.js"></script>
-    <!-- Bootstrap framework js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- All js plugins included in this file. -->
-    <script src="js/plugins.js"></script>
-    <!-- Main js file that contents all jQuery plugins activation. -->
-    <script src="js/main.js"></script>
+    z
 
 </body>
 

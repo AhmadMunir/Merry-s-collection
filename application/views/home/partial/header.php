@@ -1,6 +1,6 @@
 <script
     src="https://www.paypal.com/sdk/js?client-id=AS6yMkPP1YEQ_1RPmSItB_hnP8uthx2dEREmoMSg9MMLiKebZ4VFRYbiOnKhR4nFoBYlr25YKcEiWgXl"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
-  </script>
+</script>
 <!-- <header> -->
     <div class="header-top-bar white-bg ptb-20">
         <div class="container">
@@ -81,13 +81,10 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="lh-50">
-                                <a href="checkout.html" class="prl-20 text-uppercase">check out</a>
-                            </li>
                             <li class="cart-link lh-50">
                                 <a href="#" class="pl-20">
                                     <i class="zmdi zmdi-shopping-cart"></i>
-                                    <span>2</span>
+                                    <span><div id="cart_itung">0</div></span>
                                 </a>
                                 <div class="mini-cart-inner header-top-down p-20">
                                     <ul class="cart-list">
@@ -161,7 +158,7 @@
                                 <ul class="main-menu text-center">
                                     <li><a href="<?php echo base_url('home') ?>">Home</a></li>
                                     <li><a href="<?php echo base_url('user/About') ?>">About</a></li>
-                                    <li><a href="shop-full.html">men</a></li>
+                                    <li><a href="shop-full.html">CATEGORY</a></li>
                                     <li><a href="<?php echo base_url('user/custom') ?>">CUSTOM</a></li>
                                     <li><a href="<?php echo base_url('user/galeri') ?>">GALLERY</a></li>
                                     <?php if ($this->session->userdata('status') =="login"){ ?>
@@ -187,18 +184,18 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="shop-full.html">men</a></li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul class="dropdown header-top-hover ptb-10">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="my-account.html">my Acoount</a></li>
-                                    <li><a href="login.html">Register</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                <<li><a href="<?php echo base_url('home') ?>">Home</a></li>
+                                <li><a href="<?php echo base_url('user/About') ?>">About</a></li>
+                                <li><a href="shop-full.html">men</a></li>
+                                <li><a href="<?php echo base_url('user/custom') ?>">CUSTOM</a></li>
+                                <li><a href="<?php echo base_url('user/galeri') ?>">GALLERY</a></li>
+                                <?php if ($this->session->userdata('status') =="login"){ ?>
+                                  <li><a href="<?php echo base_url('user/profile'); ?>">My Acoount</a></li>
+                                  <li><a href="<?php echo base_url('user/cart') ?>">My Cart</a></li>
+                                <?php }else { ?>
+                                  <li><a href="<?php echo base_url('user/login'); ?>">Login or Register</a></li>
+                                  <li><a href="<?php echo base_url('user/Contact') ?>">Contact Us</a></li>
+                                <?php }?>
                             </ul>
                         </nav>
                     </div>

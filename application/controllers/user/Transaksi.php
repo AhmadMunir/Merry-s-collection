@@ -11,6 +11,15 @@
 
     }
 
+    public function index(){
+      $where = array(
+        'id_user'=>$this->session->userdata('id')
+      );
+      $data['trans'] = $this->m_trans->get_transaksi($where);
+
+      $this->load->view('home/history_trans',$data);
+    }
+
     public function add_trans_cart(){
 
       $json = file_get_contents('php://input');
@@ -33,6 +42,14 @@
       echo 'transaksi masok';
       $this->m_trans->delete_temp($del);
       echo "/ temp terhapus";
+    }
+    public function get_transaksi(){
+      $where = array(
+        'id_user'=>$this->session->userdata('id')
+      );
+      $data = $this->m_trans->get_transaksi($where);
+
+      echo json_encode($data);
     }
   }
  ?>

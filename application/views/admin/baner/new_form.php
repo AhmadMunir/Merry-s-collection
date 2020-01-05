@@ -29,7 +29,7 @@
                       <form action="<?php base_url('admin/baner/add') ?>" method="post" enctype="multipart/form-data">
                                        
                             <div class="form-group">
-                              <label for="nama_baner">Masukkan baner</label>
+                              <label for="nama_baner">Nama baner</label>
 
                               <input class="form-control <?php echo form_error('nama_baner') ? 'is-invalid':'' ?>" type="text" name="nama_baner" placeholder="Nama baner" />
                               <div class="invalid-feedback">
