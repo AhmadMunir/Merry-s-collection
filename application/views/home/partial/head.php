@@ -24,6 +24,10 @@
 <link rel="stylesheet" href="<?php echo base_url('css/user/custom.css') ?>">
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/admin/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  
+
+
 
 <!-- notifications CSS
 ============================================ -->
