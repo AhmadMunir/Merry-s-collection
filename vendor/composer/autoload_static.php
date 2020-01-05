@@ -32,6 +32,7 @@ class ComposerStaticInit99d7789b515cf3da43bb44c1c384291a
             'Pusher\\' => 7,
             'Psr\\Log\\' => 8,
             'Prophecy\\' => 9,
+            'PayPalHttp\\' => 11,
             'PayPalCheckoutSdk\\' => 18,
         ),
         'D' => 
@@ -79,6 +80,10 @@ class ComposerStaticInit99d7789b515cf3da43bb44c1c384291a
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
+        'PayPalHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/paypal/paypalhttp/lib/PayPalHttp',
         ),
         'PayPalCheckoutSdk\\' => 
         array (

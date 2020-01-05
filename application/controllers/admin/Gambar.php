@@ -30,7 +30,6 @@
       }
       $data["tabel_barang"] =$gambar->getTambah();
       $this->load->view("admin/barang/tambah", $data);
-
     }
   	public function edit($id = null)
   	{
