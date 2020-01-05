@@ -66,6 +66,20 @@
                             <input class="btn btn-success" type="submit" name="btn"value="Simpan">
                              <a href="<?php echo site_url('admin/baner') ?>" class="btn btn-primary">Back</a>
                           </form>
+                          <table id="trueid">
+                            <thead>
+                              <tr>
+                              <th>asd</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                              <td>asd</td>
+                                
+                              </tr>
+                            </tbody>
+                          </table>
 
                     </div>
                     </div>
@@ -81,6 +95,12 @@
     <!-- jquery
         ============================================ -->
      <?php $this->load->view('admin/partial/jquery') ?>
+     <script type="text/javascript">
+       
+     $(document).ready( function () {
+    $('#trueid').DataTable();
+} );
+     </script>
 </body>
 
 </html>

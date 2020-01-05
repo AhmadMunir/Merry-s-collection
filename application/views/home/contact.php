@@ -54,8 +54,8 @@
                                     <ul class="toggle-footer text-ash p-30">
                                         <li class="mb-30 pl-45">
                                             <i class="zmdi zmdi-pin"></i>
-                                            <p>Jl. Petitenget no. 200, ( Confronted with Gourmet Cafe)<br>
-                                            Kuta Utara, BALI 80361, INDONESIA</p>
+                                            <p>Jl. Petitenget No.200, Kerobokan Kelod, Kec. Kuta Utara,<br>
+                                            Kabupaten Badung, Bali 80361</p>
                                         </li>
                                         <li class="mb-30 pl-45">
                                             <i class="zmdi zmdi-email"></i>
