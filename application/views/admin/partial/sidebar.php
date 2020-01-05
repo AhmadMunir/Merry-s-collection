@@ -21,7 +21,7 @@
                                 <li><a title="input baner" href="<?php echo base_url('admin/baner') ?>"> <span class="mini-sub-pro">Input Baner</span></a></li>
                             </ul>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="input baner" href="<?php echo base_url('admin/gambar') ?>"> <span class="mini-sub-pro">Input Galeri</span></a></li>
+                                <li><a title="input baner" href="<?php echo base_url('admin/galeri') ?>"> <span class="mini-sub-pro">Input Galeri</span></a></li>
                             </ul>
                         </li>
                         <li>

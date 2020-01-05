@@ -26,54 +26,61 @@
               </div>
             <?php endif;?>
                 <div class="row">
-                 <br>
-                 <br>
-                 <br>
-                 <br>
-                          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
-                            <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
-                          <a href="<?php echo site_url('admin/gambar/add') ?>" class="btn btn-warning"> Add New </a>
-                        </div>
-                        </div>
+                   
                   <br>
                  <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
 
-
-
-
                           <br>
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                            <input type="hidden" name="id" value="<?php echo $tabel_gambar->id_barang?>"/>
 
                           <div class="table-responsive">
                             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                               <thead>
                                 <tr>
                                   <th>No</th>
-                                  <th>Gambar</th>
-                                  <th>Tindakan</th>
                                   
+                                  <th>Gambar 1</th>
+                                  <th>Gambar 2</th>
+                                  <th>Gambar 3</th>
+                                  <th>Gambar 4</th>
+                                  <th>Gambar 5</th>
+                                  <th>Tindakan</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <?php $i=1?>
-                                <?php foreach ($tabel_galeri as $gambar): ?>
+                                <?php $tabel_gambar ?>
                                   <tr>
                                     <td width="10">
                                       <?php echo $i++?>
                                     </td>
-                                   
+                                    
+                                     <td width="150">
+                                      <img src="<?php echo base_url('img/barang/'.$gambar->gambar) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
                                     <td width="150">
-                                      <img src="<?php echo base_url('img/gambar/'.$gambar->gambar) ?>" style="width: 70px;height: 70px;" />
-
+                                      <img src="<?php echo base_url('img/barang/'.$gambar->gambar2) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
                                     <td width="150">
+                                      <img src="<?php echo base_url('img/barang/'.$gambar->gambar3) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
+                                    <td width="150">
+                                      <img src="<?php echo base_url('img/barang/'.$gambar->gambar4) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
+                                    <td width="150">
+                                      <img src="<?php echo base_url('img/barang/'.$gambar->gambar5) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
+                                    
+                                    <td width="200">
                                     <a href="<?php echo site_url('admin/gambar/edit/'.$gambar->id_gambar)?>" class="btn btn-info">Edit</a>
+                                 
                                     <a onclick="deleteConfirm('<?php echo site_url('admin/gambar/delete/'.$gambar->id_gambar)?>')"
                                     href="#!" class="btn btn-primary">Hapus</a>
                                     </td>
                                   </tr>
-                                <?php endforeach; ?>
+                                
                               </tbody>
                             </table>
                           </div>

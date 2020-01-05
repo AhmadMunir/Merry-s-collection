@@ -32,7 +32,7 @@
                  <br>
                           <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
                             <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
-                          <a href="<?php echo site_url('admin/barang/add') ?>" class="btn btn-warning"> Add New </a>
+                          <a href="<?php echo site_url('admin/galeri/add') ?>" class="btn btn-warning"> Add New </a>
                         </div>
                         </div>
                   <br>
@@ -51,50 +51,44 @@
                               <thead>
                                 <tr>
                                   <th>No</th>
-                                  <th>Nama Barang</th>
-                                  <th>Nama Kategori</th>
-                                  <th>Harga</th>
-                                  <th>Deskripsi</th>
-                                  <th>Ukuran</th>
-                                  <th>Gambar</th>
-                                  <th>Action</th>
+                                  <th>Judul Galeri</th>
+                                  <th>Gambar 1</th>
+                                  <th>Gambar 2</th>
+                                  <th>Gambar 3</th>
+                                  <th>Gambar 4</th>
+                                  <th>Gambar 5</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <?php $i=1?>
-                                <?php foreach ($tabel_barang as $barang): ?>
+                                <?php foreach ($tabel_galeri as $galeri): ?>
                                   <tr>
                                     <td width="10">
                                       <?php echo $i++?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $barang->nama_barang ?>
+                                      <?php echo $galeri->judul ?>
                                     </td>
+                                     <td width="150">
+                                      <img src="<?php echo base_url('img/galeri/'.$galeri->gambar) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
                                     <td width="150">
-                                      <?php echo $barang->id_kategori; ?>
-                                    </td>
-                                    <!-- <td width="150">
-                                      <img src="<?php echo base_url('img/barang/'.$barang->gambar) ?>" style="width: 70px;height: 70px;" />
-                                    </td> -->
+                                      <img src="<?php echo base_url('img/galeri/'.$galeri->gambar2) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
                                     <td width="150">
-                                      <?php echo $barang->harga ?>
-                                    </td>
-                                    <!-- <td width="150">
-                                      <?php echo $barang->stok ?>
-                                    </td> -->
+                                      <img src="<?php echo base_url('img/galeri/'.$galeri->gambar3) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
                                     <td width="150">
-                                      <?php echo $barang->deskripsi ?>
-                                    </td>
-                                    <td>
-                                      <a href="<?php echo site_url('admin/barang/'.$barang->id_barang)?>" class="btn btn-danger">Lihat</a>
-                                    </td>
-                                    <td>
-                                      <a href="<?php echo site_url('admin/gambar/'.$barang->id_barang)?>" class="btn btn-warning">Lihat</a>
-                                    </td>
-
+                                      <img src="<?php echo base_url('img/galeri/'.$galeri->gambar4) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
                                     <td width="150">
-                                    <a href="<?php echo site_url('admin/barang/edit/'.$barang->id_barang)?>" class="btn btn-info">Edit</a>
-                                    <a onclick="deleteConfirm('<?php echo site_url('admin/barang/delete/'.$barang->id_barang)?>')"
+                                      <img src="<?php echo base_url('img/galeri/'.$galeri->gambar5) ?>" style="width: 70px;height: 70px;" />
+                                    </td> 
+                                    
+                                    <td width="200">
+                                    <a href="<?php echo site_url('admin/galeri/edit/'.$galeri->id_galeri)?>" class="btn btn-info">Edit</a>
+                                 
+                                    <a onclick="deleteConfirm('<?php echo site_url('admin/galeri/delete/'.$galeri->id_galeri)?>')"
                                     href="#!" class="btn btn-primary">Hapus</a>
                                     </td>
                                   </tr>

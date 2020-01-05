@@ -10,10 +10,10 @@
   		$this->load->library('form_validation');
   	}
 
-  	public function index()
+  	public function index($id = null)
   	{
-  		$data["tabel_gambar"] = $this->gambar_model->getAll();
-  		$this->load->view("admin/barang",$data);
+  		$data["tabel_gambar"] = $this->gambar_model->getAll($id);
+  		$this->load->view("admin/barang/gambar_list",$data);
 
   	}
     
