@@ -98,7 +98,7 @@
                                       <a href="<?php echo site_url('admin/barang/'.$barang->id_barang)?>" class="btn btn-danger">Lihat</a>
                                     </td>
                                     <td>
-                                      <a href="<?php echo site_url('admin/gambar/'.$barang->id_barang)?>" class="btn btn-warning">Lihat</a>
+                                      <a href="<?php echo site_url('admin/gambar/')?>" class="btn btn-warning">Lihat</a>
                                     </td>
 
                                     <td width="150">

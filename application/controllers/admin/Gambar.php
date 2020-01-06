@@ -10,12 +10,18 @@
   		$this->load->library('form_validation');
   	}
 
-  	public function index($id = null)
+  	public function index()
   	{
-  		$data["tabel_gambar"] = $this->gambar_model->getAll($id);
+  		$data["tabel_gambar"] = $this->gambar_model->getAll();
   		$this->load->view("admin/barang/gambar_list",$data);
 
   	}
+    public function uri()
+    {
+      $data["tabel_gambar"] = $this->uri->segment('4');
+      $this->load->view("admin/barang/gambar_list",$data);
+
+    }
     
   	 public function tambah()
    {

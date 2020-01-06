@@ -34,14 +34,12 @@
                           <br>
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
-                            <input type="hidden" name="id" value="<?php echo $tabel_gambar->id_barang?>"/>
+                           
 
                           <div class="table-responsive">
                             <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                               <thead>
-                                <tr>
-                                  <th>No</th>
-                                  
+                                <tr>                                
                                   <th>Gambar 1</th>
                                   <th>Gambar 2</th>
                                   <th>Gambar 3</th>
@@ -52,10 +50,10 @@
                               </thead>
                               <tbody>
                                 <?php $tabel_gambar ?>
-                                  <tr>
-                                    <td width="10">
-                                      <?php echo $i++?>
-                                    </td>
+                                  
+                                      
+                                      <?php foreach ($tabel_gambar as $gambar): ?>
+                                    
                                     
                                      <td width="150">
                                       <img src="<?php echo base_url('img/barang/'.$gambar->gambar) ?>" style="width: 70px;height: 70px;" />
@@ -71,8 +69,7 @@
                                     </td> 
                                     <td width="150">
                                       <img src="<?php echo base_url('img/barang/'.$gambar->gambar5) ?>" style="width: 70px;height: 70px;" />
-                                    </td> 
-                                    
+                                    </td>                                 
                                     <td width="200">
                                     <a href="<?php echo site_url('admin/gambar/edit/'.$gambar->id_gambar)?>" class="btn btn-info">Edit</a>
                                  
@@ -80,7 +77,7 @@
                                     href="#!" class="btn btn-primary">Hapus</a>
                                     </td>
                                   </tr>
-                                
+                                <?php endforeach; ?> 
                               </tbody>
                             </table>
                           </div>

@@ -29,14 +29,14 @@ class Gambar_model extends CI_Model
 	public function getTambah()
 	{
 		$this->db->limit(1);
-		// $this->db->order_by($this->["id_gambar" => $id]);
-		return $this->db->get_where($this->_table, ["id_barang" => $id])->result();	
+		$this->db->order_by("id_gambar", 'desc');
+		return $this->db->get($this->_table)->result();
 	}
 
-	public function getAll($id)
+	public function getAll()
 	{
 		$this->db->limit(1);
-		$this->db->order_by("id_gambar", $id);
+		$this->db->order_by("id_gambar");
 		return $this->db->get($this->_table)->result();
 	}
 
