@@ -27,6 +27,7 @@
   			$barang->save();
   			$this->session->set_flashdata('success','Berhasil Disimpan');
         redirect(site_url("admin/gambar/tambah"));
+        // echo json_encode($data);
   		}
       $data["tabel_kategori"] =$barang->getKat();
 
@@ -52,7 +53,7 @@
   		$this->load->view("admin/barang/edit_form",$data);
   	}
 
-   
+
 
   	public function delete($id=null)
   	{
