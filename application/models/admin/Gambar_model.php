@@ -5,6 +5,7 @@
 class Gambar_model extends CI_Model
 {
 	private $_table = "tabel_gambar";
+	private $_table2 = "tabel_barang";
 
 
 	public $id_gambar;
@@ -29,8 +30,8 @@ class Gambar_model extends CI_Model
 	public function getTambah()
 	{
 		$this->db->limit(1);
-		$this->db->order_by("id_gambar", 'desc');
-		return $this->db->get($this->_table)->result();
+		$this->db->order_by("time", 'desc');
+		return $this->db->get($this->_table2)->result();
 	}
 
 	public function getAll()
@@ -62,7 +63,7 @@ class Gambar_model extends CI_Model
 		}
 
 		return "default.jpg";
-		
+
 	}
 
 
@@ -114,7 +115,7 @@ class Gambar_model extends CI_Model
 			return $this->upload->data("file_name");
 		}
 	}
-	
+
 	public function save()
 	{
 		$post = $this->input->post();

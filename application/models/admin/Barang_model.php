@@ -112,5 +112,18 @@ class Barang_model extends CI_Model
 		return $this->db->delete($this->_table, array("id_barang" => $id));
 	}
 
+	public function detail($where){
+		$this->db->where($where);
+		return $this->db->get('tabel_barang')->result();
+	}
+	public function gambar($where){
+		$this->db->where($where);
+		return $this->db->get('tabel_gambar')->result();
+	}
+	public function stok($where){
+		$this->db->where($where);
+		return $this->db->get('tabel_detail_stok')->result();
+	}
+
 }
 ?>
