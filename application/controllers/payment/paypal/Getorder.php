@@ -24,9 +24,10 @@ class Getorder extends CI_Controller
     $data = json_decode($json);
 
     // isi Transaksi
-    // $orderId = $data->orderID;
+    // id order
+    $orderId = $data->orderID;
     // $orderId = $this->input->post('id');
-    $orderId = '1MT24436JG5332639';
+    // $orderId = '1MT24436JG5332639';
 
     // 3. Call PayPal to get the transaction details
     $client = PayPalClient::client();
@@ -55,19 +56,21 @@ class Getorder extends CI_Controller
      // echo count($order['purchase_units'][0]['items']);
 
      // shipping method
-     // $mtd = $_SESSION['ship_session']['method'];
-     // $method = explode('-',$mtd);
+     $mtd = $_SESSION['ship_session']['method'];
+     $method = explode('-',$mtd);
 
      // print_r($order['purchase_units'][0]['payments']['captures']);
      $detail_tr = array();
      $tr = array(
        'id_transaksi' => $order['id'],
-       'id_user' => $this->session->userdata('id'),
+       // 'id_user' => $this->session->userdata('id'),
+       'id_user' => 1,
        'status' => 'Order Accepted',
        'total' => $order['purchase_units'][0]['amount']['breakdown']['item_total']['value'],
        'tax_total' => $order['purchase_units'][0]['amount']['breakdown']['tax_total']['value'],
        'shipping' => $order['purchase_units'][0]['amount']['breakdown']['shipping']['value'],
-       'ship_method' => str_replace("\u00a0","- ",$method[0].'-'.$method[1]),
+       'shipping_method' => str_replace("\u00a0","- ",$method[0].'-'.$method[1]),
+       // 'shipping_method' => 'JNE',
        'alamat_pengiriman' => $order['purchase_units'][0]['shipping']['address']['address_line_1'].', '.
                               $order['purchase_units'][0]['shipping']['address']['admin_area_2'].', '.
                               $order['purchase_units'][0]['shipping']['address']['admin_area_1'].', '.
@@ -78,7 +81,7 @@ class Getorder extends CI_Controller
      // echo json_encode($tr);
 
      //insert trans
-     // $this->m_trans->insert_trans('tabel_transaksi', $tr);
+     $this->m_trans->insert_trans('tabel_transaksi', $tr);
 
      //get id temp tr lawas
      $where = array(
@@ -90,24 +93,115 @@ class Getorder extends CI_Controller
      foreach ($temp as $key) {
        $id_temp_tr = $key->id_transaksi;
      }
-     echo $id_temp_tr;
-     //end id tmp lawas
+     // echo $id_temp_tr;
+     //end id tmp lawasx
+     // $r = array();
 
+     //detail_input
+     // for ($i=0; $i < count($order['purchase_units'][0]['items']); $i++) {
+     //   $idb = $order['purchase_units'][0]['items'][$i]['name'];
+     //   $idba = explode("-",$idb);
+     //   array_push($detail_tr, array(
+     //     'id_detail_transaksi' => $order['purchase_units'][0]['items'][$i]['sku'],
+     //     'id_transaksi' => $order['id'],
+     //     'id_user' => 1,
+     //     'id_barang' => $idba[0],
+     //     'qty' => $order['purchase_units'][0]['items'][$i]['quantity'],
+     //     'subtotal' => $order['purchase_units'][0]['items'][$i]['unit_amount']['value'],
+     //     'tax' => $order['purchase_units'][0]['items'][$i]['tax']['value'],
+     //   ));
+     // }
+
+
+
+     //input_detail
      for ($i=0; $i < count($order['purchase_units'][0]['items']); $i++) {
-       $idb = $order['purchase_units'][0]['items'][$i]['name'];
-       $idba = explode("-",$idb);
-       array_push($detail_tr, array(
-         'id_detail_transaksi' => $order['purchase_units'][0]['items'][$i]['sku'],
-         'id_transaksi' => $order['id'],
-         'id_user' => 1,
-         'id_barang' => $idba[0],
-         'qty' => $order['purchase_units'][0]['items'][$i]['quantity'],
-         'subtotal' => $order['purchase_units'][0]['items'][$i]['unit_amount']['value'],
-         'tax' => $order['purchase_units'][0]['items'][$i]['tax']['value'],
-       ));
+
+       $id_temp_tr = array(
+         'id_detail_temp_transaksi' => $order['purchase_units'][0]['items'][$i]['sku']
+       );
+       echo json_encode($id_temp_tr);
+       $jml_dtr = $this->m_trans->count_sembarang('tabel_temp_detail_transaksi', $id_temp_tr);
+
+
+       if ($jml_dtr > 0) {
+         // echo "ada";//
+         $temp_dtl = $this->m_trans->get_sembarang('tabel_temp_detail_transaksi', $id_temp_tr);
+         foreach ($temp_dtl as $kay) {
+           $temp_qty = $kay->qty;
+         }
+         $qt = $temp_qty-$order['purchase_units'][0]['items'][$i]['quantity'];
+         // echo $qt;
+         if ($qt==0) {
+           $idb = $order['purchase_units'][0]['items'][$i]['name'];
+           $idba = explode("-",$idb);
+           $qt0 = array(
+             'id_detail_transaksi' => $order['purchase_units'][0]['items'][$i]['sku'],
+             'id_transaksi' => $order['id'],
+             'id_user' => 1,
+             'id_barang' => $idba[0],
+             'size' => $idba[2],
+             'qty' => $order['purchase_units'][0]['items'][$i]['quantity'],
+             'subtotal' => $order['purchase_units'][0]['items'][$i]['unit_amount']['value'],
+             'tax' => $order['purchase_units'][0]['items'][$i]['tax']['value'],
+           );
+
+           $this->m_trans->insert_trans('tabel_detail_transaksi',$qt0);
+           $this->m_trans->delete_temp('tabel_temp_detail_transaksi', $id_temp_tr);
+         }elseif ($qt>0) {
+           $tmp_dt = $this->m_trans->get_sembarang('tabel_temp_detail_transaksi', $id_temp_tr);
+           foreach ($tmp_dt as $dtr) {
+             $qtt = $dtr->qty;
+             $sub = $dtr->subtotal;
+           }
+           $qtf = $qtt-$order['purchase_units'][0]['items'][$i]['quantity'];
+           $sbt = ($sub/$qtt)*$qtf;
+
+           // update temp detail _transaksi
+           $this->m_trans->update_sembarang('tabel_temp_detail_transaksi',
+                                            array('qty'=>$qtf, 'subtotal' => $sbt),
+                                            $id_temp_tr);
+
+           //  // masuk ke detail tr
+           $idb = $order['purchase_units'][0]['items'][$i]['name'];
+           $idba = explode("-",$idb);
+           $qt1 = array(
+             'id_detail_transaksi' => $order['purchase_units'][0]['items'][$i]['sku'],
+             'id_transaksi' => $order['id'],
+             'id_user' => 1,
+             'id_barang' => $idba[0],
+             'size' => $idba[2],
+             'qty' => $order['purchase_units'][0]['items'][$i]['quantity'],
+             'subtotal' => $order['purchase_units'][0]['items'][$i]['unit_amount']['value'],
+             'tax' => $order['purchase_units'][0]['items'][$i]['tax']['value'],
+           );
+           $this->m_trans->insert_trans('tabel_detail_transaksi',$qt1);
+
+           // echo "yang kurang :";
+           // print_r($qt1);
+         }else {
+           echo "error";
+         }
+         // echo "";
+       }elseif ($jml_dtr<=0) {
+         echo "perlu refund";
+       }else {
+         echo "error";
+       }
      }
+     //end input details
+     $count_tdtr = $this->m_trans->count_sembarang('tabel_temp_detail_transaksi',$where);
+
+     if ($count_tdtr == 0) {
+       $this->m_trans->delete_temp('tabel_temp_transaksi', $where);
+     };
+
+     // print_r($temp_dtl);
+
      // echo json_encode($detail_tr);
   }
+
+
 }
 
 /**

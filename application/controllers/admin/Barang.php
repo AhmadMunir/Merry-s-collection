@@ -63,6 +63,20 @@
         redirect(site_url('admin/barang'));
   		}
   	}
+
+    public function detail(){
+      $id_barang = decrypt_url($this->input->post('id_barang'));
+
+      $where = array('id_barang' => $id_barang);
+      $detail = $this->barang_model->detail($where);
+
+      $gambar = $this->barang_model->gambar($where);
+      $stok = $this->barang_model->stok($where);
+
+      echo json_encode(array('detail'=>$detail,
+                              'gambar'=>$gambar,
+                              'stok'=>$stok));
+    }
   }
 
  ?>

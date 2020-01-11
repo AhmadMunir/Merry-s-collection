@@ -6,7 +6,7 @@
     <a href="product-details.html">
         <style>
         .imga{
-          object-fit: none;
+          object-fit: contain;
           object-position: center;
 
           width: 270px;
@@ -111,7 +111,7 @@
                                       <div class="single-product mb-40">
                                           <div class="product-img-content mb-20">
                                               <div class="product-img">
-                                                      <img class="imga" src="<?php echo base_url('img/barang/'.$new->gambar)?>" alt="">
+                                                      <img class="imga" src="<?php echo base_url('img/barang/'.$new->pic)?>" alt="">
                                                   </a>
                                               </div>
                                               <!-- diskon -->
@@ -136,7 +136,7 @@
                                                   <i class="zmdi zmdi-star-half"></i>
                                               </div>
                                               <div class="product-price">
-                                                  <span class="new-price">IDR <?php echo $new->harga;?></span>
+                                                  <span class="new-price">USD <?php echo $new->harga;?></span>
                                               </div>
                                           </div>
                                       </div>
@@ -1405,53 +1405,105 @@
     <script type="text/javascript">
 
       var status;
-      status = '<?php echo $this->session->userdata('status')?>';
-      // function tes(ids){
-      //   if ( status == 'login') {
-      //     $.ajax({
-      //       type : "POST",
-      //       url : url + "user/cart/add_cart",
-      //       data : {id_barang : ids},
-      //       dataType : "json",
-      //       success : function(){
-      //         $('#modalpesan').modal('show');
-      //       }
-      //     });
-      //   }else {
-      //     Lobibox.window({
-      //         title: 'Window title',
-      //         content: '...'
-      //     });
-      //
-      //   }
-      // };
+      var ukur = '';
+      var status = '<?php echo $this->session->userdata('status')?>';
+
       $('.add_cart').on('click', function(){
         var id_barang = $(this).data("id");
+        // var id_barang;
+        // id_barang = $(this).data("id");
+        if (qty == null) {
+          qty == 1;
+        }
 
         if ( status == 'login') {
-          $.ajax({
-            type : "POST",
-            url : url + "user/cart/add_cart",
-            data : {id_barang : id_barang},
-            dataType : "json",
-            success : function(){
-              $('#modalpesan').modal('show');
-            }
-          });
+          // $.ajax({
+          //   type : "POST",
+          //   url : url + "user/cart/add_cart",
+          //   data : {'id_barang' : id_barang, 'qty' : qty},
+          //   dataType : "json",
+          //   success : function(){
+          //     Lobibox.alert('success',
+          //       {
+          //         img: url + 'img/notif/centang.png',
+          //         msg: 'Success add to cart'
+          //       }
+          //     );
+          //   }
+          // });
+          add_cart(id_barang);
         }else {
-          Lobibox.window({
-              title: 'Window title',
-              content: '...'
+          Lobibox.notify('error',{
+            img: url + 'img/notif/info.png',
+            position: 'center top',
+            msg: 'Login First TO add this item to cart'
           });
 
         }
       });
+
+      function cek_qty(){
+        $('#qty').val(1);
+        var id = ($("input[name='ukuran']:checked").val());
+        $.ajax({
+          type : "POST",
+          url : url + "home/cek_qty",
+          data : {id_stok:id},
+          dataType : "json",
+          success : function(data){
+            $('#qty').attr('max', data[0].jumlah_stok);
+          }
+        });
+      }
+
+      function add_cart(id){
+        $.ajax({
+          type : "POST",
+          url : url + "user/cart/add_cart",
+          data : {id:id},
+          dataType : "json",
+          success : function(){
+            Lobibox.alert('success',
+              {
+                img: url + 'img/notif/centang.png',
+                msg: 'Success add to cart'
+              }
+            );
+          }
+        });
+      }
+
+
+
+      function add_cart2(id){
+        var qty = $('#qty').val();
+        var ukuran = $("input[name='ukuran']:checked").val();
+        $.ajax({
+          type : "POST",
+          url : url + "user/cart/add_cart2",
+          data : {id:id, size : ukuran, qty : qty},
+          dataType : "json",
+          success : function(){
+          }
+        });
+        notifsukses('Success add this item to cart');
+        $('#productModal').modal('hide');
+      }
+
+      function notifsukses(msg){
+        Lobibox.notify('success',{
+          img: url + 'img/notif/info.png',
+          position: 'center top',
+          msg: msg
+        });
+      }
 
       $('.prev_product').on('click', function(){
         var id_barang = $(this).data("id");
         var size = '';
         var gambaraktiv = '';
         var gambar = '';
+        var btn ='';
 
           $.ajax({
             type : "POST",
@@ -1462,10 +1514,15 @@
               $('#nama_prod').html(data.detail[0].nama_barang);
               $('#harga_prod').html(data.detail[0].harga);
               $('#deskripsi_produk').html(data.detail[0].deskripsi);
+              $('#harga_produk').html('USD ' + data.detail[0].harga);
 
+              // size += '<form id="myForm">';
               for (var i = 0; i < data.stok.length; i++) {
-                size += '<li><a href="">'+ data.stok[i].size+'</a></li>';
+                if (data.stok[i].jumlah_stok != 0) {
+                  size += '<li><label><input type="radio" name="ukuran" onclick="cek_qty()" class="ks" value='+data.stok[i].id_detail_stok+'>'+data.stok[i].size+'</label> </li>';
+                }
               }
+              // size += '</form>';
               $('#size_produk').html(size);
 
               gambaraktiv += '<div class="tab-pane b-img active" id="view1">'+
@@ -1493,6 +1550,9 @@
               gambar += '<div class="pro-view b-img"><a href="#view4" data-toggle="tab"><img class="iview4" src="" alt=""></a></div>'
               }
 
+              // btn += '<button class="btn btn-large btn-primary add_cart" data-id="'+data.detail[0].id_barang+'"><span> ADD TO CART </span></button>';
+              btn += '<a href="javascript:add_cart2(\''+data.detail[0].id_barang+ '\');" ><button class="btn btn-large btn-primary"><span> ADD TO CART </span></button></a>';
+              $('#btn-add').html(btn);
               $('.gambaraktiv').html(gambaraktiv);
               $('.gambarkecil').html(gambar);
 
@@ -1500,10 +1560,6 @@
               $(".iview2").attr("src", '<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar2+'');
               $(".iview3").attr("src", '<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar3+'');
               $(".iview4").attr("src", '<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar4+'');
-
-
-
-
             }
           });
         $('#productModal').modal('show');

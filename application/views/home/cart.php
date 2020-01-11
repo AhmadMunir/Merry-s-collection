@@ -2,6 +2,7 @@
 <html class="no-js" lang="zxx">
 
 <head>
+
   <?php $this->load->view('home/partial/head') ?>
   <a href="product-details.html">
       <style>
@@ -57,7 +58,7 @@
                                                     <th class="product-thumbnail"></th>
                                                     <th class="product-name"><span class="nobr">Product</span></th>
                                                     <th class="product-prices"><span class="nobr"> Price </span></th>
-                                                    <th class="product-add-to-cart"><span class="nobr">Add to Cart </span></th>
+                                                    <th class="product-add-to-cart"><span class="nobr">Quantity</span></th>
                                                     <th class="product-stock-stauts"><span class="nobr"> Subtotal </span></th>
                                                     <th class="product-remove"><span class="nobr">Remove</span></th>
                                                 </tr>
@@ -381,6 +382,7 @@
 
     <!-- jquery latest version -->
     <?php $this->load->view('home/partial/jquery') ?>
+    <?php $this->load->view('home/partial/jscart') ?>
 
 </body>
 

@@ -47,6 +47,86 @@
       }
     }
 
+    public function country(){
+      $curl = curl_init();
+
+      curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.rajaongkir.com/basic/v2/internationalDestination",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+          "key: $this->api_key"
+        ),
+      ));
+
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
+
+      curl_close($curl);
+
+      $option = array();
+
+      if ($err) {
+        echo "cURL Error #:" . $err;
+      } else {
+        // echo json_encode($response);
+        // echo $response;
+        $data = json_decode($response, true);
+        for ($i=0; $i < count($data['rajaongkir']['results']); $i++) {
+          array_push($option, array(
+            'id_country' => $data['rajaongkir']['results'][$i]['country_id'],
+            'country' => $data['rajaongkir']['results'][$i]['country_name'])
+          );
+        }
+        echo json_encode($option);
+      }
+    }
+
+    public function indestination(){
+      $id_country = $this->input->post('id_country');
+
+      $curl = curl_init();
+
+      curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.rajaongkir.com/basic/v2/internationalDestination?id=".$id_country,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+          "key: $this->api_key"
+        ),
+      ));
+
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
+
+      curl_close($curl);
+
+      $city = array();
+
+      if ($err) {
+        echo "cURL Error #:" . $err;
+      } else {
+        echo $response;
+        // $data = json_decode($response, true);
+        // for ($i=0; $i < count($data['rajaongkir']['results']); $i++) {
+        //   array_push($city, array(
+        //     'city_id' => $data['rajaongkir']['results'][$i]['city_id'],
+        //     'type' => $data['rajaongkir']['results'][$i]['type'],
+        //     'city_name' => $data['rajaongkir']['results'][$i]['city_name'])
+        //   );
+        // }
+        // echo json_encode($city);
+      }
+    }
+
     public function city(){
       $id_province = $this->input->post('id_province');
 
@@ -88,6 +168,109 @@
       }
     }
 
+    public function origin(){
+      $id_province = $this->input->post('id_province');
+
+      $curl = curl_init();
+
+      curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.rajaongkir.com/basic/v2/internationalOrigin?province=".$id_province,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+          "key: $this->api_key"
+        ),
+      ));
+
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
+
+      curl_close($curl);
+
+      $city = array();
+
+      if ($err) {
+        echo "cURL Error #:" . $err;
+      } else {
+        echo $response;
+        // $data = json_decode($response, true);
+        // for ($i=0; $i < count($data['rajaongkir']['results']); $i++) {
+        //   array_push($city, array(
+        //     'city_id' => $data['rajaongkir']['results'][$i]['city_id'],
+        //     'type' => $data['rajaongkir']['results'][$i]['type'],
+        //     'city_name' => $data['rajaongkir']['results'][$i]['city_name'])
+        //   );
+        // }
+        // echo json_encode($city);
+      }
+    }
+
+    public function kurir_in(){
+
+      $asal = '114';
+      $dest =  $this->input->post('dest');
+      $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => "https://api.rajaongkir.com/basic/v2/internationalCost",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "POST",
+          CURLOPT_POSTFIELDS => "origin=".$asal."&destination=".$dest."&weight=1500&courier=pos",
+          CURLOPT_HTTPHEADER => array(
+            "content-type: application/x-www-form-urlencoded",
+            "key: $this->api_key"
+          ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        } else {
+          echo $response;
+        }
+    }
+
+    public function ongkir_in(){
+      $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => "https://api.rajaongkir.com/basic/v2/internationalCost",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "POST",
+          CURLOPT_POSTFIELDS => "origin=152&destination=108&weight=1400&courier=pos",
+          CURLOPT_HTTPHEADER => array(
+            "content-type: application/x-www-form-urlencoded",
+            "key: your-api-key"
+          ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+          echo "cURL Error #:" . $err;
+        } else {
+          echo $response;
+        }
+    }
     public function cek_ongkir(){
 
        $kurir = $this->input->post('kurir');
@@ -145,6 +328,7 @@
      }
 
     }
+  
 
     public function convert(){
       $ch = curl_init();

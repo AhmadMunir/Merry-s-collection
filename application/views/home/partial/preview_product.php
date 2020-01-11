@@ -15,7 +15,7 @@
                                 </div>
                                 <div id="viewproduct" class="nav nav-tabs product-view bxslider gambarkecil" data-tabs="tabs">
 
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -42,29 +42,19 @@
                             <div class="product-size text-uppercase pb-30">
                                 <h4 class="product-details-tilte text-uppercase pb-10">size</h4>
                                 <ul id="size_produk">
-                                    <!-- <li><a href="#">s</a></li>
-                                    <li><a href="#">m</a></li>
-                                    <li><a href="#">l</a></li>
-                                    <li><a href="#">xl</a></li>
-                                    <li><a href="#">xxl</a></li> -->
+
                                 </ul>
                             </div>
                             <div class="product-attributes clearfix">
                                 <div class="pull-left text-uppercase pb-30" id="quantity-wanted" >
                                     <h4 class="product-details-tilte text-uppercase pb-10">quantity</h4>
-                                    <input type="number" value="1">
+                                    <input type="number" value="1" min="1" id="qty" max="3">
                                 </div>
                             </div>
-                            <div class="product-action-shop text-center mb-30">
-                                <a href="#" title="Quick view">
-                                    <i class="zmdi zmdi-eye"></i>
-                                </a>
-                                <a href="#" title="Add to cart">
-                                    <i class="zmdi zmdi-shopping-cart"></i>
-                                </a>
-                                <a href="#" title="Add to Wishlist">
-                                    <i class="zmdi zmdi-favorite"></i>
-                                </a>
+                            <div class="product-attributes clearfix">
+                                <div class="pull-left text-uppercase pb-30" id="btn-add" >
+
+                                </div>
                             </div>
                             <div class="socialsharing-product">
                                 <h4 class="product-details-tilte text-uppercase pb-10">share this on</h4>
