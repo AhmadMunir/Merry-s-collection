@@ -60,15 +60,7 @@ class Gambar_model extends CI_Model
 		if($this->upload->do_upload('gambar')) {
 			return $this->upload->data("file_name");
 		}
-
-<<<<<<< HEAD
-		return "default.jpg";		
-=======
-		return "default.jpg";
-
->>>>>>> e479c3661a71601d74eacd73f60092a72c0da5c4
 	}
-
 
 	public function uploadgambar2()
 	{
