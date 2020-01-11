@@ -49,9 +49,7 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <?php $tabel_gambar ?>
-                                  
-                                      
+                                
                                       <?php foreach ($tabel_gambar as $gambar): ?>
                                     
                                     
@@ -73,13 +71,12 @@
                                     <td width="200">
                                     <a href="<?php echo site_url('admin/gambar/edit/'.$gambar->id_gambar)?>" class="btn btn-info">Edit</a>
                                  
-                                    <a onclick="deleteConfirm('<?php echo site_url('admin/gambar/delete/'.$gambar->id_gambar)?>')"
-                                    href="#!" class="btn btn-primary">Hapus</a>
                                     </td>
                                   </tr>
                                 <?php endforeach; ?> 
                               </tbody>
                             </table>
+                             <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-danger">Kembali Ke Menu</a>
                           </div>
 
 

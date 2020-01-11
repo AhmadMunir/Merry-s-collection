@@ -43,7 +43,7 @@
   		if ($validation->run()){
   			$barang->update();
   			$this->session->set_flashdata('success','Berhasil Disimpan');
-        redirect(site_url("admin/barang"));
+        redirect(site_url("admin/gambar/index/$barang->id_barang"));
   		}
       $data["tabel_kategori"] =$barang->getKat();
   		$data["tabel_barang"] = $barang->getById($id);

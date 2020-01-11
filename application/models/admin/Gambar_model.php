@@ -5,6 +5,7 @@
 class Gambar_model extends CI_Model
 {
 	private $_table = "tabel_gambar";
+	private $_table2 = "tabel_barang";
 
 
 	public $id_gambar;
@@ -29,15 +30,15 @@ class Gambar_model extends CI_Model
 	public function getTambah()
 	{
 		$this->db->limit(1);
-		$this->db->order_by("id_gambar", 'desc');
-		return $this->db->get($this->_table)->result();
+		$this->db->order_by("time", 'desc');
+		return $this->db->get($this->_table2)->result();
 	}
 
-	public function getAll()
+	public function getAll($where, $table)
 	{
 		$this->db->limit(1);
-		$this->db->order_by("id_gambar");
-		return $this->db->get($this->_table)->result();
+		$this->db->order_by("id_gambar", 'asc');
+		return $this->db->get_where($table, $where);
 	}
 
 	public function getById($id)
@@ -48,7 +49,6 @@ class Gambar_model extends CI_Model
 
 	public function uploadgambar()
 	{
-
 		$config['upload_path']		= './img/barang/';
 		$config['allowed_types']	= 'gif|jpg|png';
 		$config['file_name']		= uniqid();
@@ -61,8 +61,7 @@ class Gambar_model extends CI_Model
 			return $this->upload->data("file_name");
 		}
 
-		return "default.jpg";
-		
+		return "default.jpg";		
 	}
 
 
@@ -131,16 +130,32 @@ class Gambar_model extends CI_Model
 	{
 		$post = $this->input->post();
 		$this->id_gambar = $post["id"];
-		$this->nama_gambar = $post["nama_gambar"];
-
+		$this->id_barang = $post["id_barang"];
 		if(!empty($_FILES["gambar"]["name"])) {
 			$this->gambar = $this->uploadgambar();
 		}else{
 			$this->gambar = $post["old_image"];
 		}
-
-		$this->tulisan_sedang = $post["tulisan_sedang"];
-		$this->tulisan_kecil = $post["tulisan_kecil"];
+		if(!empty($_FILES["gambar2"]["name"])) {
+			$this->gambar2 = $this->uploadgambar2();
+		}else{
+			$this->gambar2 = $post["old_image2"];
+		}
+		if(!empty($_FILES["gambar3"]["name"])) {
+			$this->gambar3 = $this->uploadgambar3();
+		}else{
+			$this->gambar3 = $post["old_image3"];
+		}
+		if(!empty($_FILES["gambar4"]["name"])) {
+			$this->gambar4 = $this->uploadgambar4();
+		}else{
+			$this->gambar4 = $post["old_image4"];
+		}
+		if(!empty($_FILES["gambar5"]["name"])) {
+			$this->gambar5 = $this->uploadgambar5();
+		}else{
+			$this->gambar5 = $post["old_image5"];
+		}
 
 
 		$this->db->update($this->_table, $this, array('id_gambar' => $post['id']));
