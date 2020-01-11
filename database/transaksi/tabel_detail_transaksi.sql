@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 10, 2020 at 05:05 PM
+-- Generation Time: Jan 11, 2020 at 04:45 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -33,6 +33,7 @@ CREATE TABLE `tabel_detail_transaksi` (
   `id_transaksi` varchar(17) NOT NULL,
   `id_user` varchar(7) NOT NULL,
   `id_barang` varchar(5) NOT NULL,
+  `size` varchar(5) NOT NULL,
   `qty` int(3) NOT NULL,
   `subtotal` smallint(6) NOT NULL,
   `tax` float NOT NULL,
@@ -43,8 +44,8 @@ CREATE TABLE `tabel_detail_transaksi` (
 -- Dumping data for table `tabel_detail_transaksi`
 --
 
-INSERT INTO `tabel_detail_transaksi` (`id_detail_transaksi`, `id_transaksi`, `id_user`, `id_barang`, `qty`, `subtotal`, `tax`, `tanggal`) VALUES
-('S9gR0', '3CA304653R4228947', '1', 'ywCpL', 1, 20, 0.88, '2020-01-10 23:05:04');
+INSERT INTO `tabel_detail_transaksi` (`id_detail_transaksi`, `id_transaksi`, `id_user`, `id_barang`, `size`, `qty`, `subtotal`, `tax`, `tanggal`) VALUES
+('S9gR0', '3CA304653R4228947', '1', 'ywCpL', '', 1, 20, 0.88, '2020-01-10 23:05:04');
 
 --
 -- Triggers `tabel_detail_transaksi`

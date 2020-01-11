@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 10, 2020 at 05:05 PM
+-- Generation Time: Jan 11, 2020 at 04:44 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -39,15 +39,16 @@ CREATE TABLE `tabel_transaksi` (
   `alamat_pengiriman` text NOT NULL,
   `shipping_method` varchar(20) NOT NULL,
   `paypal_fee` float NOT NULL,
-  `terima_bersih` float NOT NULL
+  `terima_bersih` float NOT NULL,
+  `resi` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tabel_transaksi`
 --
 
-INSERT INTO `tabel_transaksi` (`id_transaksi`, `id_user`, `tanggal`, `total`, `tax_total`, `shipping`, `status`, `alamat_pengiriman`, `shipping_method`, `paypal_fee`, `terima_bersih`) VALUES
-('3CA304653R4228947', 1, '2020-01-10 23:05:03', 20, 0.88, 4, 'Order Accepted', 'Rt 9  Rw 4 Sukosari Lor, Kabupaten Kaur, Bengkulu, AS', 'JNE', 1.02, 23.86);
+INSERT INTO `tabel_transaksi` (`id_transaksi`, `id_user`, `tanggal`, `total`, `tax_total`, `shipping`, `status`, `alamat_pengiriman`, `shipping_method`, `paypal_fee`, `terima_bersih`, `resi`) VALUES
+('3CA304653R4228947', 1, '2020-01-10 23:05:03', 20, 0.88, 4, 'Order Accepted', 'Rt 9  Rw 4 Sukosari Lor, Kabupaten Kaur, Bengkulu, AS', 'JNE', 1.02, 23.86, NULL);
 
 --
 -- Indexes for dumped tables
