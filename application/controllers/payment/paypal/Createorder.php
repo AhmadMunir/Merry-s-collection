@@ -58,7 +58,7 @@ class Createorder extends CI_Controller
        foreach ($data as $key) {
          $tax = number_format(floor(($key->harga*0.029+0.30)*100)/100,2);
          array_push($item, array(
-           'name' => $key->id_barang.'-'.$key->nama_barang,
+           'name' => $key->id_barang.'-'.$key->nama_barang.'-'.$key->size,
            'sku' => $key->id_detail_temp_transaksi,
            'unit_amount' => array(
              'currency_code' => 'USD',
@@ -87,7 +87,7 @@ class Createorder extends CI_Controller
         $met  = $_SESSION['ship_session']['method'];
         // $met  = 'JNE YES';
         // jika user mengisiform ship
-        if ($al1 == null or $al2 == null or $al3 == null or $al4 == null or $al5 == null or $al6 == null) {
+        if ($al1 == null  or $al3 == null or $al4 == null or $al5 == null or $al6 == null) {
           if ($met != null) {
             // user memilih $kurir
             $id = $this->session->userdata('id');
@@ -123,7 +123,22 @@ class Createorder extends CI_Controller
             return $ship;
           }else {
             // code...
-            echo "user tidak mengisi metode pengiriman";
+            // echo "user tidak mengisi metode pengiriman";
+            $this->load->view('/vendor/autoload.php');
+              $options = array(
+                  'cluster' => 'ap1',
+                  'useTLS' => true
+                );
+                $pusher = new Pusher\Pusher(
+                  '47980f8443159a27e646',
+                  '70e4e200051728975830',
+                  '913455',
+                  $options
+                );
+
+                $data['status'] = 'error';
+                $data['ket'] = 'Select the courier first, before checkout';
+                $response = $pusher->trigger('notif-cart', 'my-event', $data);
           }
 
           //jika tidak
@@ -148,7 +163,21 @@ class Createorder extends CI_Controller
             // echo $ship;
             return $ship;
           }else {
-            echo "user tidak mengisi metode pengiriman";
+            $this->load->view('/vendor/autoload.php');
+              $options = array(
+                  'cluster' => 'ap1',
+                  'useTLS' => true
+                );
+                $pusher = new Pusher\Pusher(
+                  '47980f8443159a27e646',
+                  '70e4e200051728975830',
+                  '913455',
+                  $options
+                );
+
+                $data['status'] = 'error';
+                $data['ket'] = 'Select the courier first, before checkout';
+                $response = $pusher->trigger('notif-cart', 'my-event', $data);
           }
         }
      }

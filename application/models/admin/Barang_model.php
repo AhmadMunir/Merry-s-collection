@@ -6,7 +6,7 @@ class Barang_model extends CI_Model
 {
 	private $_table = "tabel_barang";
 	private $_table2 = "tabel_gambar";
-	
+
 	private $_view  = "view_barang";
 
 	public $id_barang;
@@ -38,7 +38,7 @@ class Barang_model extends CI_Model
 		$this->db->order_by('time', 'DESC');
 		return $this->db->get($this->_table)->result();
 	}
-	
+
 
 	public function getTambah()
 	{
@@ -64,7 +64,7 @@ class Barang_model extends CI_Model
 		$this->id_barang = random_string('alnum',7);
 		$this->nama_barang = $post["nama_barang"];
 		$this->id_kategori = $post["id_kategori"];
-		
+
 		$this->harga = $post["harga"];
 		$this->deskripsi = $post["deskripsi"];
 		// Stok
@@ -80,32 +80,17 @@ class Barang_model extends CI_Model
 			array_push($data, array(
 				'id_barang' => $this->id_barang,
 				'jumlah_stok' => $stok[$index],
-				'size' => $siz[$index],
+				'size' => $size[$index],
 				'deskripsi_ukuran' => $desk[$index],
 			));
 			$index++;
 		}
 
+		// echo json_encode($data);
 		$this->db->insert($this->_table,$this);
 		$this->save_batch_size($data);
 
 	}
-	// public function saveGambar()
-	// {
-	// 	$post = $this->input->post();
-
-	// 	$this->load->helper('string');
-	// 	// echo random_string('alnum',5);
-	// 	$this->id_barang = random_string('alnum',7);
-	// 	$this->nama_barang = $post["nama_barang"];
-	// 	$this->id_kategori = $post["id_kategori"];
-		
-	// 	$this->harga = $post["harga"];
-	// 	$this->deskripsi = $post["deskripsi"];
-	    
-
-	// 	$this->db->insert($this->_table2,$this);
-	// }
 
 	public function update()
 	{
@@ -120,19 +105,6 @@ class Barang_model extends CI_Model
 		$this->db->update($this->_table, $this, array('id_barang' => $post['id']));
 	}
 
-	// public function updateGambar()
-	// {
-	// 	$post = $this->input->post();
-	// 	$this->id_barang = $post["id"];
-	// 	if(!empty($_FILES["gambar"]["name"])) {
-	// 		$this->gambar = $this->uploadGambar();
-	// 	}else{
-	// 		$this->gambar = $post["old_image"];
-	// 	}
-
-	// 	$this->db->update($this->_table2, $this, array('id_barang' => $post['id']));
-	// }
-
 
 	public function delete($id)
 	{
@@ -140,16 +112,18 @@ class Barang_model extends CI_Model
 		return $this->db->delete($this->_table, array("id_barang" => $id));
 	}
 
-
-
-	// private function _deleteImage($id)
-	// {
-	// 	$barang = $this->getById($id);
-	// 	if($barang->gambar != "default.jpg"){
-	// 		$filename = explode(".", $barang->gambar)[0];
-	// 		return array_map('unink',glob(FCPATH."upload/barang/$filename.*"));
-	// 	}
-	// }
+	public function detail($where){
+		$this->db->where($where);
+		return $this->db->get('tabel_barang')->result();
+	}
+	public function gambar($where){
+		$this->db->where($where);
+		return $this->db->get('tabel_gambar')->result();
+	}
+	public function stok($where){
+		$this->db->where($where);
+		return $this->db->get('tabel_detail_stok')->result();
+	}
 
 }
 ?>

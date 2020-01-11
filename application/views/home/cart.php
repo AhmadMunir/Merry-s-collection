@@ -2,6 +2,7 @@
 <html class="no-js" lang="zxx">
 
 <head>
+
   <?php $this->load->view('home/partial/head') ?>
   <a href="product-details.html">
       <style>
@@ -57,7 +58,7 @@
                                                     <th class="product-thumbnail"></th>
                                                     <th class="product-name"><span class="nobr">Product</span></th>
                                                     <th class="product-prices"><span class="nobr"> Price </span></th>
-                                                    <th class="product-add-to-cart"><span class="nobr">Add to Cart </span></th>
+                                                    <th class="product-add-to-cart"><span class="nobr">Quantity</span></th>
                                                     <th class="product-stock-stauts"><span class="nobr"> Subtotal </span></th>
                                                     <th class="product-remove"><span class="nobr">Remove</span></th>
                                                 </tr>
@@ -76,27 +77,27 @@
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="cart-show-label show-label">
-                                                                <select>
-                                                                    <option selected="selected" value="position">Country</option>
-                                                                    <option value="Name">Bangladesh</option>
-                                                                    <option value="Price">india</option>
-                                                                    <option value="Price">Nepal</option>
-                                                                </select>
+                                                              <select name="country" id="country">
+                                                                <option value="" selected >Country</option>
+                                                              </select>
                                                             </div>
-                                                            <div class="cart-show-label show-label mt-15">
+                                                            <div class="cart-show-label show-label mt-15 indo" style="display:none">
+                                                              <select name="city" id="city">
+                                                                <option value="" selected >CITY</option>
+                                                              </select>
+                                                            </div>
+                                                            <div class="cart-show-label show-label mt-15 inter" style="display:none">
+                                                                <input id="city_int" placeholder="City">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="cart-show-label show-label indo" style="display:none">
                                                                 <select name="province" id="province">
                                                                   <option value="" selected >Province</option>
                                                                 </select>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="cart-show-label show-label">
-                                                                <select name="city" id="city">
-                                                                  <option value="" selected >CITY</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="cart-show-label show-label mt-15">
-                                                                <input id="zip" placeholder="Zippostal Code">
+                                                            <div class="cart-show-label show-label mt-15 inter" style="display:none">
+                                                                <input id="provice_int" placeholder="Province">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -130,13 +131,51 @@
                                                     <div class="cart-title text-uppercase">
                                                         <h5 class="mb-30"><strong>Address Detail</strong></h5>
                                                     </div>
+                                                    <div class="cart-show-label show-label mt-15">
+                                                        <input id="zip" placeholder="Zippostal Code">
+                                                    </div>
+                                                    <br>
                                                     <div class="coupon-discount">
                                                         <label class="pb-10">Enter Your Adress Detail</label>
                                                         <input id="detail_address" type="text" maxlength="60">
                                                     </div>
+                                                  </br>
                                                     <!-- <a class="button extra-small pull-right mt-35" href="#" title="Add to Cart">
                                                         <span>Apply Coupon</span>
                                                     </a> -->
+                                                    <?php foreach ($alamt as $ky) {
+                                                      $al = $ky->alamat;
+                                                      $kota = $ky->kota;
+                                                      $id_kota = $ky->id_kota;
+                                                      $provinsi =$ky->provinsi;
+                                                      $negara = $ky->negara;
+                                                      $kode_pos = $ky->kode_pos;
+                                                      if ($al == null && $kota == null && $provinsi == null && $negara == null && $kode_pos == null) {
+                                                        ?>
+                                                        <center>
+                                                          <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
+                                                        </center>
+                                                        <?php
+                                                      }elseif ($al == null or $kota == null or $provinsi == null or $negara == null or $kode_pos == null) {
+                                                        ?>
+                                                        <center>
+                                                          <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
+                                                        </center>
+                                                        <?php
+                                                      }else {
+                                                        ?>
+                                                        <center>
+                                                          <h7 id="address_from_this" style="color : green;"></h7>
+                                                        </center>
+                                                        <center>
+                                                          <h7 id="address_from_db" style="color : green;">The package will deliver to <?php echo $al.", ".$kota.", ".$provinsi.", ".$negara; ?></h7>
+                                                        </center>
+                                                        <!-- <script
+                                                        src="https://www.paypal.com/sdk/js?client-id=AS6yMkPP1YEQ_1RPmSItB_hnP8uthx2dEREmoMSg9MMLiKebZ4VFRYbiOnKhR4nFoBYlr25YKcEiWgXl"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+                                                        </script>
+                                                        <div id="paypal-button-container"></div> -->
+                                                      <?php }
+                                                    } ?>
                                                 </div>
                                             </div>
                                             <div class="col-md-offset-0 col-md-4 col-sm-offset-3 col-sm-6 clearfix">
@@ -160,45 +199,33 @@
                                                             </tr>
                                                             <tr class="cart-total">
                                                                 <th>Grand Total</th>
-                                                                <td>USD 215.00</td>
+                                                                <td id="grand_total">USD 215.00</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
                                                     <div id="payment">
-
-                                                      <?php foreach ($alamt as $ky) {
-                                                        $al = $ky->alamat;
-                                                        $kota = $ky->kota;
-                                                        $id_kota = $ky->id_kota;
-                                                        $provinsi =$ky->provinsi;
-                                                        $negara = $ky->negara;
-                                                        $kode_pos = $ky->kode_pos;
+                                                      <?php
                                                         if ($al == null && $kota == null && $provinsi == null && $negara == null && $kode_pos == null) {
                                                           ?>
-                                                          <center>
+                                                          <!-- <center>
                                                             <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
-                                                          </center>
+                                                          </center> -->
                                                           <?php
                                                         }elseif ($al == null or $kota == null or $provinsi == null or $negara == null or $kode_pos == null) {
                                                           ?>
-                                                          <center>
+                                                          <!-- <center>
                                                             <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
-                                                          </center>
+                                                          </center> -->
                                                           <?php
                                                         }else {
                                                           ?>
-                                                          <center>
-                                                            <h7 id="address_from_this" style="color : green;"></h7>
-                                                          </center>
-                                                          <center>
-                                                            <h7 id="address_from_db" style="color : green;">The package will deliver to <?php echo $al.", ".$kota.", ".$provinsi.", ".$negara; ?></h7>
-                                                          </center>
                                                           <script
                                                           src="https://www.paypal.com/sdk/js?client-id=AS6yMkPP1YEQ_1RPmSItB_hnP8uthx2dEREmoMSg9MMLiKebZ4VFRYbiOnKhR4nFoBYlr25YKcEiWgXl"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
                                                           </script>
                                                           <div id="paypal-button-container"></div>
                                                         <?php }
-                                                      } ?>
+                                                       ?>
+
                                                     </div>
 
                                                 </div>
@@ -355,6 +382,7 @@
 
     <!-- jquery latest version -->
     <?php $this->load->view('home/partial/jquery') ?>
+    <?php $this->load->view('home/partial/jscart') ?>
 
 </body>
 

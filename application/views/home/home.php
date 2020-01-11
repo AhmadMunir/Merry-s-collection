@@ -6,7 +6,7 @@
     <a href="product-details.html">
         <style>
         .imga{
-          object-fit: none;
+          object-fit: contain;
           object-position: center;
 
           width: 270px;
@@ -111,21 +111,16 @@
                                       <div class="single-product mb-40">
                                           <div class="product-img-content mb-20">
                                               <div class="product-img">
-                                                      <img class="imga" src="<?php echo base_url('img/barang/'.$new->gambar)?>" alt="">
+                                                      <img class="imga" src="<?php echo base_url('img/barang/'.$new->pic)?>" alt="">
                                                   </a>
                                               </div>
                                               <!-- diskon -->
                                               <!-- <span class="new-label text-uppercase">-30%</span> -->
                                               <input  value="<?php echo $new->id_barang ?>" type="hidden" readonly disabled>
                                               <div class="product-action text-center">
-                                                  <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                                      <i class="zmdi zmdi-eye"></i>
-                                                  </a>
-                                                  <a href="javascript:tes('<?php
-                                                                          echo encrypt_url($new->id_barang);
-                                                                          ?>')" title="Add to cart" class="add_cart">
-                                                      <i class="zmdi zmdi-shopping-cart"></i>
-                                                  </a>
+                                                  <a href="javascript:void(0);" class="prev_product" data-id="<?php echo encrypt_url($new->id_barang); ?>"><i class="zmdi zmdi-eye"></i></i></a>
+                                                  <a href="javascript:void(0);" class="add_cart" data-id="<?php echo encrypt_url($new->id_barang); ?>"><i class="zmdi zmdi-shopping-cart"></i></i></a>
+
                                                   <a href="#" title="Add to Wishlist">
                                                       <i class="zmdi zmdi-favorite"></i>
                                                   </a>
@@ -141,7 +136,7 @@
                                                   <i class="zmdi zmdi-star-half"></i>
                                               </div>
                                               <div class="product-price">
-                                                  <span class="new-price">IDR <?php echo $new->harga;?></span>
+                                                  <span class="new-price">USD <?php echo $new->harga;?></span>
                                               </div>
                                           </div>
                                       </div>
@@ -1374,111 +1369,7 @@
         </footer>
         <!-- End footer area -->
         <!--Quickview Product Start -->
-        <div id="quickview-wrapper">
-            <!-- Modal -->
-            <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="modal-product">
-                                <div class="single-product-image">
-                                    <div id="product-img-content">
-                                        <div id="my-tab-content" class="tab-content mb-20">
-                                            <div class="tab-pane b-img active" id="view1">
-                                                <a class="venobox" href="<?php echo base_url('img/user/')?>product/product-details/1.jpg" data-gall="gallery" title=""><img src="<?php echo base_url('img/user/')?>product/product-details/1.jpg" alt=""></a>
-                                            </div>
-                                            <div class="tab-pane b-img" id="view2">
-                                                <a class="venobox" href="<?php echo base_url('img/user/')?>product/product-details/2.jpg" data-gall="gallery" title=""><img src="<?php echo base_url('img/user/')?>product/product-details/2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="tab-pane b-img" id="view3">
-                                                <a class="venobox" href="<?php echo base_url('img/user/')?>product/product-details/3.jpg" data-gall="gallery" title=""><img src="<?php echo base_url('img/user/')?>product/product-details/3.jpg" alt=""></a>
-                                            </div>
-                                            <div class="tab-pane b-img" id="view4">
-                                                <a class="venobox" href="<?php echo base_url('img/user/')?>product/product-details/4.jpg" data-gall="gallery" title=""><img src="<?php echo base_url('img/user/')?>product/product-details/4.jpg" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <div id="viewproduct" class="nav nav-tabs product-view bxslider" data-tabs="tabs">
-                                            <div class="pro-view b-img active"><a href="#view1" data-toggle="tab"><img src="<?php echo base_url('img/user/')?>product/product-details/s-1.jpg" alt=""></a></div>
-                                            <div class="pro-view b-img"><a href="#view2" data-toggle="tab"><img src="<?php echo base_url('img/user/')?>product/product-details/s-2.jpg" alt=""></a></div>
-                                            <div class="pro-view b-img"><a href="#view3" data-toggle="tab"><img src="<?php echo base_url('img/user/')?>product/product-details/s-3.jpg" alt=""></a></div>
-                                            <div class="pro-view b-img"><a href="#view4" data-toggle="tab"><img src="<?php echo base_url('img/user/')?>product/product-details/s-4.jpg" alt=""></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-details-content">
-                                    <div class="product-content text-uppercase">
-                                        <a href="product-details.html" title="Slim Shirt With Stretch">Slim Shirt With Stretch</a>
-                                        <div class="rating-icon pb-20 mt-10">
-                                            <i class="zmdi zmdi-star"></i>
-                                            <i class="zmdi zmdi-star"></i>
-                                            <i class="zmdi zmdi-star"></i>
-                                            <i class="zmdi zmdi-star-half"></i>
-                                            <i class="zmdi zmdi-star-half"></i>
-                                        </div>
-                                        <div class="product-price pb-20">
-                                            <span class="new-price">£ 185.00</span>
-                                            <span class="old-price">£ 200.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-view pb-20">
-                                        <h4 class="product-details-tilte text-uppercase">overview</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. luptate. </p>
-                                    </div>
-                                    <div class="product-size text-uppercase pb-30">
-                                        <h4 class="product-details-tilte text-uppercase pb-10">size</h4>
-                                        <ul>
-                                            <li><a href="#">s</a></li>
-                                            <li><a href="#">m</a></li>
-                                            <li><a href="#">l</a></li>
-                                            <li><a href="#">xl</a></li>
-                                            <li><a href="#">xxl</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product-attributes clearfix">
-                                        <div class="product-color text-uppercase pb-30">
-                                            <h4 class="product-details-tilte text-uppercase pb-10">color</h4>
-                                            <ul>
-                                                <li class="color-1"><a href="#"></a></li>
-                                                <li class="color-2"><a href="#"></a></li>
-                                                <li class="color-3"><a href="#"></a></li>
-                                                <li class="color-4"><a href="#"></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="pull-left" id="quantity-wanted">
-                                            <h4 class="product-details-tilte text-uppercase pb-10">quantity</h4>
-                                            <input type="number" value="1">
-                                        </div>
-                                    </div>
-                                    <div class="product-action-shop text-center mb-30">
-                                        <a href="#" title="Quick view">
-                                            <i class="zmdi zmdi-eye"></i>
-                                        </a>
-                                        <a href="#" title="Add to cart">
-                                            <i class="zmdi zmdi-shopping-cart"></i>
-                                        </a>
-                                        <a href="#" title="Add to Wishlist">
-                                            <i class="zmdi zmdi-favorite"></i>
-                                        </a>
-                                    </div>
-                                    <div class="socialsharing-product">
-                                        <h4 class="product-details-tilte text-uppercase pb-10">share this on</h4>
-                                        <button type="button"><i class="zmdi zmdi-facebook"></i></button>
-                                        <button type="button"><i class="zmdi zmdi-instagram"></i></button>
-                                        <button type="button"><i class="zmdi zmdi-rss"></i></button>
-                                        <button type="button"><i class="zmdi zmdi-twitter"></i></button>
-                                        <button type="button"><i class="zmdi zmdi-pinterest"></i></button>
-                                    </div>
-                                </div>
-                                <!-- .product-info -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php $this->load->view('home/partial/preview_product') ?>
         <!--End of Quickview Product-->
     </div>
     <!-- Body main wrapper end -->
@@ -1514,25 +1405,165 @@
     <script type="text/javascript">
 
       var status;
-      status = <?=$this->session->userdata('status')?>;
-      function tes(ids){
+      var ukur = '';
+      var status = '<?php echo $this->session->userdata('status')?>';
+
+      $('.add_cart').on('click', function(){
+        var id_barang = $(this).data("id");
+        // var id_barang;
+        // id_barang = $(this).data("id");
+        if (qty == null) {
+          qty == 1;
+        }
+
         if ( status == 'login') {
-          Lobibox.window({
-              title: 'Window title',
-              content: '...'
-          });
+          // $.ajax({
+          //   type : "POST",
+          //   url : url + "user/cart/add_cart",
+          //   data : {'id_barang' : id_barang, 'qty' : qty},
+          //   dataType : "json",
+          //   success : function(){
+          //     Lobibox.alert('success',
+          //       {
+          //         img: url + 'img/notif/centang.png',
+          //         msg: 'Success add to cart'
+          //       }
+          //     );
+          //   }
+          // });
+          add_cart(id_barang);
         }else {
+          Lobibox.notify('error',{
+            img: url + 'img/notif/info.png',
+            position: 'center top',
+            msg: 'Login First TO add this item to cart'
+          });
+
+        }
+      });
+
+      function cek_qty(){
+        $('#qty').val(1);
+        var id = ($("input[name='ukuran']:checked").val());
+        $.ajax({
+          type : "POST",
+          url : url + "home/cek_qty",
+          data : {id_stok:id},
+          dataType : "json",
+          success : function(data){
+            $('#qty').attr('max', data[0].jumlah_stok);
+          }
+        });
+      }
+
+      function add_cart(id){
+        $.ajax({
+          type : "POST",
+          url : url + "user/cart/add_cart",
+          data : {id:id},
+          dataType : "json",
+          success : function(){
+            Lobibox.alert('success',
+              {
+                img: url + 'img/notif/centang.png',
+                msg: 'Success add to cart'
+              }
+            );
+          }
+        });
+      }
+
+
+
+      function add_cart2(id){
+        var qty = $('#qty').val();
+        var ukuran = $("input[name='ukuran']:checked").val();
+        $.ajax({
+          type : "POST",
+          url : url + "user/cart/add_cart2",
+          data : {id:id, size : ukuran, qty : qty},
+          dataType : "json",
+          success : function(){
+          }
+        });
+        notifsukses('Success add this item to cart');
+        $('#productModal').modal('hide');
+      }
+
+      function notifsukses(msg){
+        Lobibox.notify('success',{
+          img: url + 'img/notif/info.png',
+          position: 'center top',
+          msg: msg
+        });
+      }
+
+      $('.prev_product').on('click', function(){
+        var id_barang = $(this).data("id");
+        var size = '';
+        var gambaraktiv = '';
+        var gambar = '';
+        var btn ='';
+
           $.ajax({
             type : "POST",
-            url : url + "user/cart/add_cart",
-            data : {id_barang : ids},
+            url : url + "admin/barang/detail",
+            data : {id_barang : id_barang},
             dataType : "json",
-            success : function(){
-              $('#modalpesan').modal('show');
+            success : function(data){
+              $('#nama_prod').html(data.detail[0].nama_barang);
+              $('#harga_prod').html(data.detail[0].harga);
+              $('#deskripsi_produk').html(data.detail[0].deskripsi);
+              $('#harga_produk').html('USD ' + data.detail[0].harga);
+
+              // size += '<form id="myForm">';
+              for (var i = 0; i < data.stok.length; i++) {
+                if (data.stok[i].jumlah_stok != 0) {
+                  size += '<li><label><input type="radio" name="ukuran" onclick="cek_qty()" class="ks" value='+data.stok[i].id_detail_stok+'>'+data.stok[i].size+'</label> </li>';
+                }
+              }
+              // size += '</form>';
+              $('#size_produk').html(size);
+
+              gambaraktiv += '<div class="tab-pane b-img active" id="view1">'+
+              '<a class="venobox" href="<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar+'" data-gall="gallery" title=""><img class="iview1" src="" alt=""></a>'+
+              '</div>';
+              gambar +='<div class="pro-view b-img active"><a href="#view1" data-toggle="tab"><img class="iview1" src="" alt=""></a></div>';
+
+              if (data.gambar[0].gambar2 != null){
+                gambaraktiv += '<div class="tab-pane b-img" id="view2">'+
+                '<a class="venobox" href="<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar2+'" data-gall="gallery" title=""><img class="iview2" src="" alt=""></a>'+
+                '</div>';
+                gambar += '<div class="pro-view b-img"><a href="#view2" data-toggle="tab"><img class="iview2" src="" alt=""></a></div>';
+              }
+              if (data.gambar[0].gambar3 != null){
+              gambaraktiv += '<div class="tab-pane b-img" id="view3">'+
+              '<a class="venobox" href="<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar3+'" data-gall="gallery" title=""><img class="iview3" src="" alt=""></a>'+
+              '</div>';
+              gambar += '<div class="pro-view b-img"><a href="#view3" data-toggle="tab"><img class="iview3" src="" alt=""></a></div>';
+              }
+
+              if (data.gambar[0].gambar4 != null){
+              gambaraktiv += '<div class="tab-pane b-img" id="view4">'+
+              '<a class="venobox" href="<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar4+'" data-gall="gallery" title=""><img class="iview4" src="" alt=""></a>'+
+              '</div>';
+              gambar += '<div class="pro-view b-img"><a href="#view4" data-toggle="tab"><img class="iview4" src="" alt=""></a></div>'
+              }
+
+              // btn += '<button class="btn btn-large btn-primary add_cart" data-id="'+data.detail[0].id_barang+'"><span> ADD TO CART </span></button>';
+              btn += '<a href="javascript:add_cart2(\''+data.detail[0].id_barang+ '\');" ><button class="btn btn-large btn-primary"><span> ADD TO CART </span></button></a>';
+              $('#btn-add').html(btn);
+              $('.gambaraktiv').html(gambaraktiv);
+              $('.gambarkecil').html(gambar);
+
+              $(".iview1").attr("src", '<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar+'');
+              $(".iview2").attr("src", '<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar2+'');
+              $(".iview3").attr("src", '<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar3+'');
+              $(".iview4").attr("src", '<?php echo base_url('img/barang/')?>'+data.gambar[0].gambar4+'');
             }
           });
-        }
-      };
+        $('#productModal').modal('show');
+      });
     </script>
 
 </body>

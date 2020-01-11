@@ -13,11 +13,16 @@ class M_trans extends CI_Model
   }
 
   public function count_sembarang($table,$where){
-    return $this->db->get_where($table, $where)->row();
+    return $this->db->get_where($table, $where)->num_rows();
   }
 
-  public function delete_temp($id){
-    $this->db->delete('tabel_temp_transaksi',$id);
+  public function update_sembarang($tabel, $data, $where){
+    $this->db->where($where);
+    $this->db->update($tabel,$data);
+  }
+
+  public function delete_temp($tabel,$id){
+    $this->db->delete($tabel,$id);
   }
 
   public function get_transaksi($where){

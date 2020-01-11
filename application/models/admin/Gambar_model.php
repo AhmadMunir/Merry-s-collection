@@ -61,7 +61,12 @@ class Gambar_model extends CI_Model
 			return $this->upload->data("file_name");
 		}
 
+<<<<<<< HEAD
 		return "default.jpg";		
+=======
+		return "default.jpg";
+
+>>>>>>> e479c3661a71601d74eacd73f60092a72c0da5c4
 	}
 
 
@@ -113,7 +118,7 @@ class Gambar_model extends CI_Model
 			return $this->upload->data("file_name");
 		}
 	}
-	
+
 	public function save()
 	{
 		$post = $this->input->post();

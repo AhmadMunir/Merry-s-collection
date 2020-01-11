@@ -27,6 +27,7 @@
   			$barang->save();
   			$this->session->set_flashdata('success','Berhasil Disimpan');
         redirect(site_url("admin/gambar/tambah"));
+        // echo json_encode($data);
   		}
       $data["tabel_kategori"] =$barang->getKat();
 
@@ -52,7 +53,7 @@
   		$this->load->view("admin/barang/edit_form",$data);
   	}
 
-   
+
 
   	public function delete($id=null)
   	{
@@ -62,6 +63,20 @@
         redirect(site_url('admin/barang'));
   		}
   	}
+
+    public function detail(){
+      $id_barang = decrypt_url($this->input->post('id_barang'));
+
+      $where = array('id_barang' => $id_barang);
+      $detail = $this->barang_model->detail($where);
+
+      $gambar = $this->barang_model->gambar($where);
+      $stok = $this->barang_model->stok($where);
+
+      echo json_encode(array('detail'=>$detail,
+                              'gambar'=>$gambar,
+                              'stok'=>$stok));
+    }
   }
 
  ?>

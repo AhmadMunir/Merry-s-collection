@@ -5,13 +5,16 @@
 class M_home extends CI_Model
 {
   public function load_newarrival(){
-    $this->db->order_by('time', 'desc');
-    $this->db->limit(4);
-    return $this->db->get('tabel_barang')->result();
+    return $this->db->get('newarrival')->result();
   }
 
   public function load_banner(){
     return $this->db->get('tabel_baner')->result();
+  }
+
+  public function cek($tabel, $where){
+    $this->db->where($where);
+    return $this->db->get($tabel)->result();
   }
 }
 ?>
