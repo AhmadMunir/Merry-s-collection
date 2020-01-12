@@ -18,7 +18,7 @@
         <div class="content">
 
             <div class="container-fluid">
-        <form method="post" action="<?php echo base_url('admin/laporan'); ?>">
+        <form method="post" action="<?php echo base_url('admin/transaksi_dikirim'); ?>">
         <!-- DataTables -->
         <br>
         <br>
@@ -48,11 +48,6 @@
             <button>FILTER</button>           
       </form>
           </div>
-          <tableid="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
-                                        data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar" width="100%" cellspacing="0">
-            
-          </table>
-          <br>
           <div class="card-body">
 
             <div class="table-responsive">
@@ -60,17 +55,24 @@
                 <thead>
                   <tr>
                     <th>ID Transaksi</th> 
-                    <th>NAMA PEMBELI</th>
+                    <th>ID USER</th>
+                    <th>NAMA USER</th>
                     <th>TANGGAL</th>
                     <th>TOTAL</th>
+                    <th>ALAMAT PENGIRIMAN</th>
+                    <th>STATUS</th>
+                    
                     
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($laporan as $key): ?>
+                  <?php foreach ($transaksi_dikirim as $key): ?>
                   <tr>
                     <td>
                       <?php echo $key->id_transaksi ?>
+                    </td>
+                    <td>
+                      <?php echo $key->id_user ?>
                     </td>
                     <td>
                       <?php echo $key->nama_user ?>
@@ -80,6 +82,12 @@
                     </td>
                     <td>
                       <?php echo $key->total ?>
+                    </td>
+                    <td>
+                      <?php echo $key->alamat_pengiriman ?>
+                    </td>
+                    <td>
+                      <?php echo $key->status ?>
                     </td>
                     <td>
                      
