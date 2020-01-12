@@ -228,6 +228,37 @@
                         </div>
                         </div>
 
+                        <br><br><br><br><br><br><br><br><br><br>
+                        <div class="col-lg-11" style="margin-bottom:20px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-12">
+                          <h3>Menu Pelanggan</h3>
+                          <div class="col-lg-3">
+                              <div class="panel panel-danger">
+                                  <div class="panel-heading">
+                                      <div class="row">
+                                          <div class="col-xs-3">
+                                              <i class="fa fa-user fa-3x"></i>
+                                          </div>
+                                          <div class="col-lg-9 text-right">
+                                              <div class="huge">Data</div>
+                                              <div>PELANGGAN</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <a href="admin/pelanggan">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Buka Menu</span>
+                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    </a>
+                              </div>
+                          </div>
+                          
+                          <br><br><br><br><br><br>
+                        </div>
+                        </div>
+
 
     <!-- jquery
         ============================================ -->

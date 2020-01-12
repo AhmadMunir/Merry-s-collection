@@ -64,35 +64,43 @@
                                         <thead>
                                 <tr>
                                   <th>No</th>
-                                  <th>Nama Anggota</th>
-                                  <th>Email</th>
-                                  <th>Status Email</th>
-                                  <th>No Telepon</th>
-                                  <th>Riwayat Transaksi</th>
+                                  <th>Nama User</th>
+                                  <th>Ukuran</th>
+                                  <th>Jumlah</th>
+                                  <th>Harga</th>
+                                  <th>Subtotal</th>
+                                  <th>Pajak</th>
+                                  <th>Tanggal</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <?php $i=1 ?>
-                                <?php foreach ($tabel_user as $user): ?>
+                                <?php foreach ($view_detail_transaksi as $trans): ?>
                                 
                                   <tr>
                                     <td width="5">
                                       <?php echo $i++?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $user->nama_user ?>
+                                      <?php echo $trans->nama_barang ?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $user->email ?>
+                                      <?php echo $trans->size ?>
                                     </td>
                                     <td>
-                                      <?php echo $user->status_email ?>
+                                      <?php echo $trans->qty ?>
                                     </td>
-                                    <td width="150">
-                                      <?php echo $user->no_telp ?>
+                                    <td>
+                                      <?php echo $trans->harga ?>
                                     </td>
-                                    <td width="50">
-                                    <a href="<?php echo site_url('admin/pelanggan/user/'.$user->id_user)?>" class="btn btn-success">Lihat</a>
+                                    <td>
+                                      <?php echo $trans->subtotal ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $trans->tax ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $trans->tanggal ?>
                                     </td>
                                   </tr>
                                 <?php endforeach; ?>

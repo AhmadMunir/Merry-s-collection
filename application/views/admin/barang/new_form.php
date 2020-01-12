@@ -116,7 +116,7 @@
                                 <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-primary">Back</a>
                               </form>
                               <input type="hidden" id="jumlah-form" value="1">
-                            <?php endforeach; ?>
+                           
                             </div>
                                </div>
                            </div>
