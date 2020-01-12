@@ -6,7 +6,7 @@ class Barang_model extends CI_Model
 {
 	private $_table = "tabel_barang";
 	private $_table2 = "tabel_gambar";
-
+	private $_table3 = "view_barang";
 	private $_view  = "view_barang";
 
 	public $id_barang;
@@ -35,8 +35,8 @@ class Barang_model extends CI_Model
 	}
 	public function getAll()
 	{
-		$this->db->order_by('time', 'DESC');
-		return $this->db->get($this->_table)->result();
+		$this->db->order_by('time', 'desc');
+		return $this->db->get($this->_table3)->result();
 	}
 
 

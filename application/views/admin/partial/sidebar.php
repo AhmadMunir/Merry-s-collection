@@ -1,8 +1,8 @@
 <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="<?php echo base_url('merry') ?>"><img class="main-logo" src="<?php echo base_url(); ?>/img/bb.png" alt="" /></a>
-                <strong><img src="<?php echo base_url(); ?>/img/admin/logo/logosn.png" alt="" /></strong>
+                <a href="<?php echo base_url('merry') ?>"><img class="main-logo" src="<?php echo base_url(); ?>/img/logo1.png" alt="" /></a>
+                <strong><img src="" alt="" /></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">

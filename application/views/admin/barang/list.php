@@ -25,21 +25,32 @@
                 $this->session->flashdata('success'); ?>
               </div>
             <?php endif;?>
-            <div class="data-table-area mg-tb-15">
-            <div class="container-fluid">
+          <!--   <div class="data-table-area mg-tb-15">
+            <div class="container-fluid"> -->
                 <div class="row">
                   <br>  
                   <br>  
                   <br>  
                   <br>
-                  <div class="col-lg-12 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                   <div class="col-lg-12 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
                             <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+
                           <a href="<?php echo site_url('admin/barang/add') ?>" class="btn btn-warning"> Add New </a>
                         </div>
                         </div>
                         <br>  
+                         <div class="col-lg-12 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
+
                       
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        
+                        <br>
+                          <br>
+                          <br>
+                          <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                          
+                          <div class="row">
+                      
+                    <div class="col-lg-13 col-md-12 col-sm-12 col-xs-12">
                         <div class="sparkline13-list">
                             <div class="sparkline13-hd">
                                 <div class="main-sparkline13-hd">
@@ -51,72 +62,80 @@
                                     <div id="toolbar">
                                         
                                     </div>
-                                    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
-                                        data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                   
+                                     <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                        data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar" width="100%" cellspacing="0">
                                         <thead>
-                                            <tr>
+                                  <tr>
                                   <th>No</th>
                                   <th>Nama Barang</th>
                                   <th>Nama Kategori</th>
                                   <th>Harga</th>
                                   <th>Deskripsi</th>
+                                  <th>Total Stok</th>
                                   <th>Ukuran</th>
                                   <th>Gambar</th>
-                                  <th>Action</th>
+                                  <th>Edit</th>
+                                  <th>Hapus</th>
                                 </tr>
                                         </thead>
                                         <tbody>
                                 <?php $i=1?>
                                 <?php foreach ($tabel_barang as $barang): ?>
                                   <tr>
-                                    <td width="10">
+                                    <td width="5">
                                       <?php echo $i++?>
                                     </td>
                                     <td width="150">
                                       <?php echo $barang->nama_barang ?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $barang->id_kategori; ?>
+                                      <?php echo $barang->nama_kategori; ?>
                                     </td>
-                                    <!-- <td width="150">
-                                      <img src="<?php echo base_url('img/barang/'.$barang->gambar) ?>" style="width: 70px;height: 70px;" />
-                                    </td> -->
-                                    <td width="150">
+                                    
+                                    <td width="100">
                                       <?php echo $barang->harga ?>
                                     </td>
-                                    <!-- <td width="150">
-                                      <?php echo $barang->stok ?>
-                                    </td> -->
-                                    <td width="150">
+                                    
+                                    <td width="50" align="center">
                                       <?php echo $barang->deskripsi ?>
                                     </td>
-                                    <td>
-                                      <a href="<?php echo site_url('admin/barang/'.$barang->id_barang)?>" class="btn btn-danger">Lihat</a>
+                                    <td width="5">
+                                      <?php echo $barang->stok?>
                                     </td>
-                                    <td>
+                                    
+                                    <td width="5">
+                                      <a href="<?php echo site_url('admin/stok/index/'.$barang->id_barang)?>" class="btn btn-danger">Lihat</a>
+                                    </td>
+                                    <td width="5">
                                       <a href="<?php echo site_url('admin/gambar/index/'.$barang->id_barang)?>" class="btn btn-warning">Lihat</a>
                                     </td>
 
-                                    <td width="150">
+                                    <td width="300">
                                     <a href="<?php echo site_url('admin/barang/edit/'.$barang->id_barang)?>" class="btn btn-info">Edit</a>
-                                    <a onclick="deleteConfirm('<?php echo site_url('admin/barang/delete/'.$barang->id_barang)?>')"
+                                   
+                                 </td>
+                                 <td><a onclick="deleteConfirm('<?php echo site_url('admin/barang/delete/'.$barang->id_barang)?>')"
                                     href="#!" class="btn btn-primary">Hapus</a>
-                                    </uri/
+                                  </td>
+                                 
                                   </tr>
-                                <?php endforeach; ?> 
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                                <?php endforeach; ?>
+                              </tbody>
+                            </table>
+                          </div>
+                        
+                     
+                    
                     </div>
+                  </div>
                 </div>
-            </div>
-        </div>
               </div>
               </div>
               </div>
+
+        
+    </div>
     </div>
 
     <!-- jquery

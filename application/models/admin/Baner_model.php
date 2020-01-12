@@ -17,7 +17,7 @@ class Baner_model extends CI_Model
 	public function rules()
 	{
 		return [
-			['field'=>'baner',
+			['field'=>'nama_baner',
 			'label'=>'Image',
 			'rules'=>'required'],
 		];
