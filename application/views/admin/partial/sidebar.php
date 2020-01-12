@@ -32,13 +32,11 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><span class="mini-click-non">About</span></a>
+                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa fa-user fa-1x"></i> <span class="mini-click-non">Pelanggan</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="about us" href="bar-charts.html"><span class="mini-sub-pro">About Us</span></a></li>
+                                <li><a title="about us" href="<?php echo base_url('admin/pelanggan') ?>"><i class="fa fa-file-text-o fa-1x"></i> <span class="mini-sub-pro">Data Pelanggan</span></a></li>
                             </ul>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="contact" href="bar-charts.html"><span class="mini-sub-pro">Contact</span></a></li>
-                            </ul>
+                            
                         </li>
                     </ul>
                 </nav>

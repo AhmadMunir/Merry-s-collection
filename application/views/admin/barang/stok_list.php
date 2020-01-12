@@ -66,9 +66,9 @@
                                 </td>
                                 <td width="150">
                                     <a href="<?php echo site_url('admin/stok/edit/'.$stok->id_detail_stok)?>" class="btn btn-info">Edit</a>
-                                    <a onclick="deleteConfirm('<?php echo site_url('admin/stok/delete/'.$stok->id_detail_stok)?>')"
-                                    href="#!" class="btn btn-primary">Hapus</a>
-                                  </td>
+                                
+                                  <a onclick="deleteConfirm('<?php echo site_url('admin/stok/delete/'.$stok->id_detail_stok)?>')"
+                                    href="#!" class="btn btn-primary">Hapus</a></td>
                                   </tr>
                                 <?php endforeach; ?> 
                               </tbody>
@@ -99,6 +99,7 @@
       $('#deleteModal').modal();
     }
     </script>
+
 </body>
 
 </html>
