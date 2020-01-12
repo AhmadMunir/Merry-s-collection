@@ -26,7 +26,15 @@
               </div>
             <?php endif;?>
                 <div class="row">
-                
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                          <a href="<?php echo site_url('admin/barang/add') ?>" class="btn btn-warning"> Add New </a>
+                        </div>
+                        </div>
                   <br>
                  <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
@@ -43,7 +51,7 @@
                         <div class="sparkline13-list">
                             <div class="sparkline13-hd">
                                 <div class="main-sparkline13-hd">
-                                    <h1>Tabel <span class="table-project-n">Data</span> Pelanggan</h1>
+                                    <h1>Tabel <span class="table-project-n">Barang</span> Hampir Habis</h1>
                                 </div>
                             </div>
                             <div class="sparkline13-graph">
@@ -56,35 +64,26 @@
                                         <thead>
                                 <tr>
                                   <th>No</th>
-                                  <th>Nama Anggota</th>
-                                  <th>Email</th>
-                                  <th>Status Email</th>
-                                  <th>No Telepon</th>
-                                  <th>Riwayat Transaksi</th>
+                                  <th>Nama Barang</th>
+                                  <th>Size</th>
+                                  <th>Jumlah Stok</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <?php $i=1 ?>
-                                <?php foreach ($tabel_user as $user): ?>
-                                
+                                <?php foreach ($view_user as $u): ?>
                                   <tr>
                                     <td width="5">
                                       <?php echo $i++?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $user->nama_user ?>
+                                      <?php echo $u->nama_barang ?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $user->email ?>
+                                      <?php echo $u->size ?>
                                     </td>
                                     <td>
-                                      <?php echo $user->status_email ?>
-                                    </td>
-                                    <td width="150">
-                                      <?php echo $user->no_telp ?>
-                                    </td>
-                                    <td width="50">
-                                    <a href="<?php echo site_url('admin/pelanggan/user/'.$user->id_user)?>" class="btn btn-success">Lihat</a>
+                                      <?php echo $u->jumlah_stok ?>
                                     </td>
                                   </tr>
                                 <?php endforeach; ?>
@@ -108,12 +107,6 @@
         ============================================ -->
         <?php $this->load->view('admin/partial/modal') ?>
      <?php $this->load->view('admin/partial/jquery') ?>
-     <script>
-    function deleteConfirm(url){
-      $('#btn-delete').attr('href',url);
-      $('#deleteModal').modal();
-    }
-    </script>
 </body>
 
 </html>

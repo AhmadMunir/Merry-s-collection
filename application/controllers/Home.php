@@ -11,14 +11,6 @@
       $this->load->view('home/home',$data);
     }
 
-    public function cek_qty(){
-      $id_stok = $this->input->post('id_stok');
-      $where = array('id_detail_stok' => $id_stok);
-
-      $stok = $this->m_home->cek('tabel_detail_stok', $where);
-
-      echo json_encode($stok);
-    }
   }
 
  ?>

@@ -47,8 +47,14 @@
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
 
                           <div class="table-responsive">
-                            <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                              <thead>
+                             <div class="sparkline13-graph">
+                                <div class="datatable-dashv1-list custom-datatable-overright">
+                                    <div id="toolbar">
+                                        
+                                    </div>
+                                    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                        data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                        <thead>
                                 <tr>
                                   <th>No</th>
                                   <th>Judul Galeri</th>
@@ -57,6 +63,7 @@
                                   <th>Gambar 3</th>
                                   <th>Gambar 4</th>
                                   <th>Gambar 5</th>
+                                  <th>Tindakan</th>
                                 </tr>
                               </thead>
                               <tbody>
