@@ -19,6 +19,7 @@
             
 
                 <div class="row">
+                  
                   <br>
                   <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
@@ -46,11 +47,11 @@
                               <select class="form-control <?php form_error('id_kategori')? 'is-invalid':'' ?>"
                                 name="id_kategori" onchange="cek_kategori()" id="id_kategori">
                                   
-                                  <option class="form-control" value='<?php echo $tabel_barang->id_kategori?>' selected=""><?php echo $tabel_barang->id_kategori?>
+                                  <option class="form-control" value='<?php echo $tabel_barang->nama_kategori?>' selected=""><?php echo $tabel_barang->id_kategori?>
                                   </option> 
                                   <?php
                                   foreach ($tabel_kategori as $kei) {?>
-                                     <option class="form-control" value='<?php echo $kei->id_kategori ?>'><?php echo $kei->id_kategori?>
+                                     <option class="form-control" value='<?php echo $kei->id_kategori ?>'><?php echo $kei->nama_kategori?>
                                   </option>
                                  <?php }
                                 ?>

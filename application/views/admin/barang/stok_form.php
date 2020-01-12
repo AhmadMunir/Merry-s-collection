@@ -32,56 +32,9 @@
                       <form action="<?php base_url('admin/barang/add') ?>" method="post" enctype="multipart/form-data">
                         <br>
                       <br>
-                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
-                          <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
-                            <div class="form-group">
-                              <label for="nama_barang">Nama Barang</label>
-
-                              <input class="form-control <?php echo form_error('nama_barang') ? 'is-invalid':'' ?>" type="text" name="nama_barang" placeholder="Nama barang" />
-                              <div class="invalid-feedback">
-                                <?php echo form_error('nama_barang')?>
-                              </div>
-                              <br>
-                            <div class="form-group">
-                              <label for="id_kategori">Pilih Kategori</label>
-                              <select class="form-control <?php form_error('nama_kategori')? 'is-invalid':'' ?>"
-                                name="id_kategori" onchange="cek_kategori()" id="id_kategori">
-
-                                  <option class="form-control" value='' selected="">
-                                  ----------Pilih Kategori----------</option>
-                                  <?php
-                                  foreach ($tabel_kategori as $kei) {?>
-                                     <option class="form-control" value='<?php echo $kei->id_kategori ?>'><?php echo $kei->nama_kategori?>
-                                  </option>
-                                 <?php }
-                                ?>
-                                </select>
-                            </div>
-
-                             <div class="form-group">
-                              <label for="harga">Harga</label>
-
-                              <input class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>" type="number" name="harga" placeholder="Harga" />
-                              <div class="invalid-feedback">
-                                <?php echo form_error('harga')?>
-                              </div>
-                              <br>
-                              <div class="form-group">
-                              <label for="deskripsi">Deskripsi</label>
-
-                              <input class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>" type="text" name="deskripsi" placeholder="Deskripsi" />
-                              <div class="invalid-feedback">
-                                <?php echo form_error('deskripsi')?>
-                             </div>
-
-                        </div>
-                      </div>
-
-                    </div>
-                          </div>
-                      </div>
-
-                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                       
+                             <input class="form-control <?php echo form_error('id_barang') ? 'is-invalid':'' ?>"  name="id_barang" value="<?php echo $tabel_gambar->id_barang?>" type="">
+                     
                       
                                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
                                  <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
