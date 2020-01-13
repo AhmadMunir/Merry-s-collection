@@ -26,7 +26,15 @@
               </div>
             <?php endif;?>
                 <div class="row">
-                
+                 <br>
+                 <br>
+                 <br>
+                 <br>
+                          <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                          <a href="<?php echo site_url('admin/kategori/add') ?>" class="btn btn-warning"> Add New </a>
+                        </div>
+                        </div>
                   <br>
                  <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
@@ -43,7 +51,7 @@
                         <div class="sparkline13-list">
                             <div class="sparkline13-hd">
                                 <div class="main-sparkline13-hd">
-                                    <h1>Tabel <span class="table-project-n">Data</span> Pelanggan</h1>
+                                    <h1>Tabel <span class="table-project-n">Data</span> Kategori</h1>
                                 </div>
                             </div>
                             <div class="sparkline13-graph">
@@ -56,35 +64,43 @@
                                         <thead>
                                 <tr>
                                   <th>No</th>
-                                  <th>Nama Anggota</th>
-                                  <th>Email</th>
-                                  <th>Status Email</th>
-                                  <th>No Telepon</th>
-                                  <th>Riwayat Transaksi</th>
+                                  <th>Nama User</th>
+                                  <th>Ukuran</th>
+                                  <th>Jumlah</th>
+                                  <th>Harga</th>
+                                  <th>Subtotal</th>
+                                  <th>Pajak</th>
+                                  <th>Tanggal</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <?php $i=1 ?>
-                                <?php foreach ($tabel_user as $user): ?>
+                                <?php foreach ($view_detail_transaksi as $trans): ?>
                                 
                                   <tr>
                                     <td width="5">
                                       <?php echo $i++?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $user->nama_user ?>
+                                      <?php echo $trans->nama_barang ?>
                                     </td>
                                     <td width="150">
-                                      <?php echo $user->email ?>
+                                      <?php echo $trans->size ?>
                                     </td>
                                     <td>
-                                      <?php echo $user->status_email ?>
+                                      <?php echo $trans->qty ?>
                                     </td>
-                                    <td width="150">
-                                      <?php echo $user->no_telp ?>
+                                    <td>
+                                      <?php echo $trans->harga ?>
                                     </td>
-                                    <td width="50">
-                                    <a href="<?php echo site_url('admin/pelanggan/user/'.$user->id_user)?>" class="btn btn-success">Lihat</a>
+                                    <td>
+                                      <?php echo $trans->subtotal ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $trans->tax ?>
+                                    </td>
+                                    <td>
+                                      <?php echo $trans->tanggal ?>
                                     </td>
                                   </tr>
                                 <?php endforeach; ?>

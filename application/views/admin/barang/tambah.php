@@ -39,7 +39,7 @@
 
                                   <?php
                                   foreach ($tabel_barang as $kei) {?>
-                                     <input class="text  <?php echo form_error('id_barang') ? 'is-invalid':'' ?>" id="id_barang" name="id_barang" value='<?php echo $kei->id_barang?>' type="">
+                                     <input class="text  <?php echo form_error('id_barang') ? 'is-invalid':'' ?>" id="id_barang" name="id_barang" value='<?php echo $kei->id_barang?>' type="hidden">
                                         <?php echo form_error('id_barang')?>
                                  <?php }
                                 ?>

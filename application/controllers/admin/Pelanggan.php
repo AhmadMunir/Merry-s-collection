@@ -1,7 +1,7 @@
 <?php
   defined ('BASEPATH') OR exit('No direct script access allowed');
 
-  class pelanggan extends CI_Controller
+  class Pelanggan extends CI_Controller
   {
   	public function __construct()
   	{
@@ -28,26 +28,21 @@
 
   	public function index()
   	{
-      $id = $this->uri->segment('4');
-      $where = array('id_barang'=> $id);
-      $table = "tabel__pelanggan";
-
-      $data['tabel__pelanggan'] = $this->pelanggan_model->getAll($where,$table)->result();
-  		// $data["tabel_pelanggan"] = $this->pelanggan_model->getAll();
-  		 $this->load->view("admin/barang/pelanggan_list",$data);
-      // print_r($data);
+      $data["tabel_user"] = $this->pelanggan_model->getAll();
+      $this->load->view("admin/pelanggan/list",$data);
+    }
 
   	}
 
     public function pelanggan()
     {
       $id = $this->uri->segment('4');
-      $where = array('id_barang'=> $id);
-      $table = "tabel__pelanggan";
+      $where = array('id_user'=> $id);
+      $table = "view_detail_transaksi";
 
-      $data['tabel__pelanggan'] = $this->pelanggan_model->getAll($where,$table)->result();
-      // $data["tabel_pelanggan"] = $this->pelanggan_model->getAll();
-       $this->load->view("admin/barang/pelanggan_list",$data);
+      $data['view_detail_transaksi'] = $this->pelanggan_model->getSemua($where,$table)->result();
+      // $data["tabel_user"] = $this->user_model->getAll();
+       $this->load->view("admin/pelanggan/detail_pelanggan",$data);
       // print_r($data);
 
     }
