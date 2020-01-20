@@ -32,7 +32,7 @@
       $this->load->view("admin/pelanggan/list",$data);
     }
 
-  	}
+  	
 
     public function pelanggan()
     {

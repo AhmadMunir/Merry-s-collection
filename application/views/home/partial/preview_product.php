@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             <div class="product-attributes clearfix">
-                                <div class="pull-left text-uppercase pb-30" id="btn-add" >
+                                <div class="pull-left text-uppercase pb-30 btn-add" >
 
                                 </div>
                             </div>

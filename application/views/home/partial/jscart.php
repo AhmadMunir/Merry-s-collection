@@ -306,7 +306,7 @@ var taxs;
               'a3':$('#city_int').val(),
               'a4':$('#provice_int').val(),
               'a5':$('#zip').val(),
-              'a6':'ID',},
+              'a6':'US',},
             });
             document.getElementById("paypal-button-container").style.pointerEvents = "auto";
             grand_tot();

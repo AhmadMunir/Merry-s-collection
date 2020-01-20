@@ -80,7 +80,7 @@
   	}
 
     public function detail(){
-      $id_barang = decrypt_url($this->input->post('id_barang'));
+      $id_barang = $this->input->post('id_barang');
 
       $where = array('id_barang' => $id_barang);
       $detail = $this->barang_model->detail($where);

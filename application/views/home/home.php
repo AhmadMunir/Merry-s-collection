@@ -102,46 +102,7 @@
                     <div class="row">
                         <div class="product-list tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="arrival">
-                                <?php foreach ($new_arrival as $new): ?>
-                                  <script type="text/javascript">
-                                    var user = '<?=$this->session->userdata('id')?>'
-                                    var url = '<?=base_url();?>'
-                                  </script>
-                                  <div class="col-md-3 col-sm-4">
-                                      <div class="single-product mb-40">
-                                          <div class="product-img-content mb-20">
-                                              <div class="product-img">
-                                                      <img class="imga" src="<?php echo base_url('img/barang/'.$new->pic)?>" alt="">
-                                                  </a>
-                                              </div>
-                                              <!-- diskon -->
-                                              <!-- <span class="new-label text-uppercase">-30%</span> -->
-                                              <input  value="<?php echo $new->id_barang ?>" type="hidden" readonly disabled>
-                                              <div class="product-action text-center">
-                                                  <a href="javascript:void(0);" class="prev_product" data-id="<?php echo encrypt_url($new->id_barang); ?>"><i class="zmdi zmdi-eye"></i></i></a>
-                                                  <a href="javascript:void(0);" class="add_cart" data-id="<?php echo encrypt_url($new->id_barang); ?>"><i class="zmdi zmdi-shopping-cart"></i></i></a>
 
-                                                  <a href="#" title="Add to Wishlist">
-                                                      <i class="zmdi zmdi-favorite"></i>
-                                                  </a>
-                                              </div>
-                                          </div>
-                                          <div class="product-content text-center text-uppercase">
-                                              <a href="product-details.html" title="Ripcurl Furry Fleece"><?php echo $new->nama_barang; ?></a>
-                                              <div class="rating-icon">
-                                                  <i class="zmdi zmdi-star"></i>
-                                                  <i class="zmdi zmdi-star"></i>
-                                                  <i class="zmdi zmdi-star"></i>
-                                                  <i class="zmdi zmdi-star-half"></i>
-                                                  <i class="zmdi zmdi-star-half"></i>
-                                              </div>
-                                              <div class="product-price">
-                                                  <span class="new-price">USD <?php echo $new->harga;?></span>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                <?php endforeach; ?>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="sale">
                                 <div class="col-md-3 col-sm-4">
@@ -880,6 +841,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <?php $this->load->view('home/partial/jquery') ?>
     <?php $this->load->view('home/partial/jshome') ?>
+    <?php $this->load->view('home/partial/directadd') ?>
     <?php $this->load->view('home/partial/pusher') ?>
 
     <!-- <script type="text/javascript">
