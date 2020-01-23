@@ -6,7 +6,7 @@
                             <div class="footer-widget">
                                 <div class="footer-widget-img pb-30">
                                     <a href="#">
-                                        <img src="images/logo/logo-2.png" alt="">
+                                        <img src="<?php echo base_url('img/logo1.png'); ?>" alt="">
                                     </a>
                                 </div>
                                 <ul class="toggle-footer text-white">
@@ -78,7 +78,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="footer-img">
-                                <img src="images/payment.png" alt="">
+                                <img src="<?php echo base_url(); ?>img/user/payment.png" alt="">
                             </div>
                         </div>
                     </div>

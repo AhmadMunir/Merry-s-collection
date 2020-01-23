@@ -172,7 +172,10 @@
 
       public function registeradminloh()
       {
+        $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code = substr(str_shuffle($set), 0, 3);
         $register = array(
+            'id_admin' => $code,
             'nama_admin'      => $this->input->post("nama"),
             'email_admin'   => $this->input->post("email"),
             'username'  => $this->input->post("username"),

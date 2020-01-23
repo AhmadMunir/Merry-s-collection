@@ -316,8 +316,12 @@ var taxs;
 
         //grand_total
         function grand_tot(){
-          gr = parseInt(tot)+parseInt(taxs)+parseInt(omkir);
-          $('#grand_total').html(gr);
+          if (parseInt(tot)>0) {
+            gr = parseInt(tot)+parseInt(taxs)+parseInt(omkir);
+            $('#grand_total').html(gr);
+          }else {
+            $('#grand_total').html(0);
+          }
         }
 
         //input detail address
@@ -342,13 +346,14 @@ var taxs;
                     var count = 1;
                     var i;
                     var sum = 'USD ';
-                    sum += data.data[0].total;
-                    tot = data.data[0].total;
 
-                    $('#result').text(sum);
+
+                    // $('#result').text(sum);
 
                     if (data.status == 'gagal') {
+                      $('#result').text('-');
                       html += "Nothing here";
+                      document.getElementById("checkout").style.pointerEvents = "none";
                     }else {
                       for(i=0; i<data.data.length; i++){
                         html += '<tr>'+
@@ -374,6 +379,10 @@ var taxs;
                                   '<td>'+
                                 '</tr>';
                     }
+                    sum += data.data[0].total;
+                    tot = data.data[0].total;
+                    document.getElementById("checkout").style.pointerEvents = "auto";
+                    $('#result').text(sum);
                     }
                     $('.show_cart').html(html);
                 }
