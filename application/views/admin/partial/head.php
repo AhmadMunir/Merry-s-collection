@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
-    
+
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
@@ -55,3 +55,5 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="<?php echo base_url('js/admin/vendor/modernizr-2.8.3.min.js') ?>"></script>
+
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>

@@ -156,7 +156,7 @@
                         <div class="col-md-12">
                             <nav id="primary-menu">
                                 <ul class="main-menu text-center">
-                                    <li><a href="<?php echo base_url('home') ?>">Home</a></li>
+                                    <li><a href="<?php echo base_url('home')?>">Home</a></li>
                                     <li><a href="<?php echo base_url('user/About') ?>">About</a></li>
                                     <li><a href="shop-full.html">CATEGORY</a></li>
                                     <li><a href="<?php echo base_url('user/custom') ?>">CUSTOM</a></li>
@@ -184,7 +184,7 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul>
-                                <<li><a href="<?php echo base_url('home') ?>">Home</a></li>
+                                <li><a href="<?php echo base_url('home') ?>">Home</a></li>
                                 <li><a href="<?php echo base_url('user/About') ?>">About</a></li>
                                 <li><a href="shop-full.html">men</a></li>
                                 <li><a href="<?php echo base_url('user/custom') ?>">CUSTOM</a></li>

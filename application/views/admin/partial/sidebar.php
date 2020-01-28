@@ -32,11 +32,18 @@
                             </ul>
                         </li>
                         <li>
+                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa fa-file-text-o fa-1x"></i> <span class="mini-click-non">Custom</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="laporan bulanan" href="<?php echo base_url('admin/custom') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Custom</span></a></li>
+                                <li><a title="laporan bulanan" href="<?php echo base_url('admin/custom') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Buat Custom Invoice</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa fa-user fa-1x"></i> <span class="mini-click-non">Pelanggan</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="about us" href="<?php echo base_url('admin/pelanggan') ?>"><i class="fa fa-file-text-o fa-1x"></i> <span class="mini-sub-pro">Data Pelanggan</span></a></li>
                             </ul>
-                            
+
                         </li>
                     </ul>
                 </nav>

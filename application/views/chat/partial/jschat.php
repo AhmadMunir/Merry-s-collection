@@ -3,7 +3,7 @@
       loadchat();
 
       // Pusher
-      Pusher.logToConsole = true;
+      // Pusher.logToConsole = true;
 
       var pusher = new Pusher('47980f8443159a27e646', {
         cluster: 'ap1',
@@ -30,7 +30,7 @@
       // data  : {message : msgText},
       success : function(msg){
         if (msg.status == 0) {
-          alert('tidak ada chat');
+          // alert('tidak ada chat');
         }else if (msg.status == 1) {
           for (var i = 0; i < msg.msg.length; i++) {
             if (msg.msg[i].sender == 1) {
@@ -87,7 +87,7 @@
 
     }
   });
-  appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+  // appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
   msgerInput.value = "";
 
   // botResponse();
