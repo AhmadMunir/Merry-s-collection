@@ -17,6 +17,8 @@ class M_chat extends CI_Model{
     $this->db->where($where);
     return $this->db->get($table);
   }
-  public function in
+  public function insertpic($where){
+    $this->db->insert('tabel_gambar_custom', $where);
+  }
 }
 ?>

@@ -35,9 +35,15 @@
           $msge = "$msg"."+mrr+"."+img+";
         }
 
+
         $penerima = $this->input->post('penerima');
         $pengirim = $this->session->userdata('id');
 
+
+        $insertimg = array('id_user'=>$pengirim,'gambar'=>$img);
+        if ($img!='') {
+          $this->m_chat->insertpic($insertimg);
+        }
         $where = array(
             'id' => $id,
             'id_pengirim' => $pengirim,
