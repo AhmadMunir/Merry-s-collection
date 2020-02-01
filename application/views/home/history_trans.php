@@ -96,7 +96,7 @@
                                                                             <td> <?php echo $key->resi; ?></td>
                                                                              <td><a href="javascript:detail('<?php echo $key->id_transaksi; ?>')"<button class="btn btn-primary" id="detail">Detail</button></td>+
                                                                             </tr>
-                                                          <?  } ?>
+                                                          <?php  } ?>
 
                                                           </tbody>
                                                       </table>

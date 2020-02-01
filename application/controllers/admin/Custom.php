@@ -54,13 +54,36 @@
                 $stts = '';
               }
 
+              $psn = explode('+mrr+',$kay->message);
+              if ($psn[0]!='+msg+') {
+                $psn2 = $psn[0];
+              }else {
+                $psn2 = '';
+              }
+
+              if ($psn[1]!='+img+') {
+                $img2=$kay->nama_user.' mengirimkan gambar' ;
+              }else {
+                $img2='';
+              }
+
+              if ($psn2 == '') {
+                $msg2 = $img2;
+              }elseif ($img2=='') {
+                $msg2 = $psn2;
+              }elseif ($psn2 != '' && $img2!= '') {
+                $msg2 = $psn2 . ' ' . $img2;
+              }else {
+                $msg2 = 'error';
+              }
+
               array_push($un, $stts);
 
               array_push($inbx, array(
                 'id_chat' => $kay->id,
                 'id_pengirim' => $kay->id_pengirim,
                 'nama_user' => $kay->nama_user,
-                'message' => $kay->message,
+                'message' => $msg2,
                 'status' => $stts,
                 'waktu' => $tgl[2].'-'.$tgl[1].'-'.$tgl[0],
               ));
@@ -103,6 +126,8 @@
 
           $cek_user = $this->m_custom->get_user('username',array('id_admin'=> $key->id_pengirim), 'tabel_admin')->num_rows();
 
+          $psn = explode('+mrr+',$key->message);
+
           if ($cek_user>0) {
             $a = $this->m_custom->get_user('username',array('id_admin'=> $key->id_pengirim), 'tabel_admin')->result();
               $sender = 1;
@@ -116,7 +141,8 @@
 
           array_push($msg, array(
             'sender' => $sender,
-            'message' => $key->message,
+            'message' => $psn[0],
+            'gambar' => $psn[1],
             'status' => $key->status,
             'time' => $jam[0].':'.$jam[1],
             'date' => $tgl[2].'-'.$tgl[1].'-'.substr($tgl[0],2),
