@@ -39,5 +39,12 @@ class M_custom extends CI_Model{
   public function send($where){
     $this->db->insert('tabel_chat', $where);
   }
+
+  public function setread($user){
+    $where = array('id_pengirim'=>$user);
+    $this->db->where($where);
+    $data = array('status'=>1);
+    $this->db->update('tabel_chat', $data);
+  }
 }
 ?>

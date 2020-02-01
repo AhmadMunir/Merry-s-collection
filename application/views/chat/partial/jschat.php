@@ -34,13 +34,27 @@
         }else if (msg.status == 1) {
           for (var i = 0; i < msg.msg.length; i++) {
             if (msg.msg[i].sender == 1) {
-              if (msg.msg[i].status == 0) {
-                appendMessageunread(PERSON_NAME, PERSON_IMG, "right", msg.msg[i].message, msg.msg[i].time, msg.msg[i].date);
-              }else if (msg.msg[i].status == 1) {
-                appendMessageread(PERSON_NAME, PERSON_IMG, "right", msg.msg[i].message, msg.msg[i].time, msg.msg[i].date);
-              }else {
-                alert('Error, Please Reload Page');
+              if (msg.msg[i].message != '+msg+') {
+                if (msg.msg[i].status == 0) {
+                  appendMessageunread(PERSON_NAME, PERSON_IMG, "right", msg.msg[i].message, msg.msg[i].time, msg.msg[i].date);
+                }else if (msg.msg[i].status == 1) {
+                  appendMessageread(PERSON_NAME, PERSON_IMG, "right", msg.msg[i].message, msg.msg[i].time, msg.msg[i].date);
+                }else {
+                  alert('Error, Please Reload Page');
+                }
               }
+
+              if (msg.msg[i].gambar != '+img+') {
+                if (msg.msg[i].status == 0) {
+                  appendgambarunread(PERSON_NAME, PERSON_IMG, "right", msg.msg[i].gambar, msg.msg[i].time, msg.msg[i].date);
+                }else if (msg.msg[i].status == 1) {
+                  appendgambarread(PERSON_NAME, PERSON_IMG, "right", msg.msg[i].gambar, msg.msg[i].time, msg.msg[i].date);
+                }else {
+                  alert('Error, Please Reload Page');
+                }
+              }
+
+
               msgerInput.value = "";
             }else {
               appendMessageadmin(msg.msg[i].pembalas[0].username, PERSON_IMG, "left", msg.msg[i].message, msg.msg[i].time);
@@ -75,20 +89,29 @@
   event.preventDefault();
 
   const msgText = msgerInput.value;
-  if (!msgText) return;
+  if (!msgText && $('#imgupload').val() == 0) return;
+
+  var file_data = $('#imgupload').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        form_data.append('message', $('#pesan').val());
 
 
   $.ajax({
     url : '<?php echo base_url("chat/chat/send")?>',
     type : 'POST',
-    dataType  : 'json',
-    data  : {message : msgText},
+    contentType: false,
+    cache: false,
+    processData:false,
+    data  : form_data,
     success : function(option){
 
     }
   });
   // appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
   msgerInput.value = "";
+  $('#pesan').attr("placeholder",'Enter your message...');
+  $('#imgupload').value = ""
 
   // botResponse();
   });
@@ -165,6 +188,71 @@
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
   }
+
+
+  function appendgambarunread(name, img, side, gmbr, time, date) {
+  //   Simple solution for small apps
+  const msgHTML = `
+    <div class="msg ${side}-msg">
+      <div class="msg-img" style="background-image: url(${img})"></div>
+
+      <div class="msg-bubble">
+        <div class="msg-info">
+          <div class="msg-info-name">${name}</div>
+          <div class="msg-info-time">${time}</div>
+        </div>
+
+        <div class="msg-text"><a href="<?php echo base_url(); ?>/img/custom/${gmbr}" target= "_blank"><img style="height:25%; width:25%;" src="<?php echo base_url(); ?>/img/custom/${gmbr}"></a></div>
+        <div class="status">
+          <span class="msg-info-time">${date}</span>
+          <i class="zmdi zmdi-check"></i>
+        </div>
+      </div>
+    </div>
+  `;
+
+  msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+  msgerChat.scrollTop += 500;
+  }
+
+  function appendgambarread(name, img, side, gmbr, time, date) {
+  //   Simple solution for small apps
+  const msgHTML = `
+    <div class="msg ${side}-msg">
+      <div class="msg-img" style="background-image: url(${img})"></div>
+
+      <div class="msg-bubble">
+        <div class="msg-info">
+          <div class="msg-info-name">${name}</div>
+          <div class="msg-info-time">${time}</div>
+        </div>
+
+        <div class=""><a href="<?php echo base_url(); ?>/img/custom/${gmbr}" target= "_blank"><img style="height:25%; width:25%;" src="<?php echo base_url(); ?>/img/custom/${gmbr}"></a></div>
+        <div class="status">
+          <span class="msg-info-time">${date}</span>
+          <i class="zmdi zmdi-check"></i>
+        </div>
+      </div>
+    </div>
+  `;
+
+  msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+  msgerChat.scrollTop += 500;
+  }
+
+// image
+  $('#imageupload').click(function(){ $('#imgupload').trigger('click'); });
+
+  $('input[type="file"]').change(function(e){
+
+    var fileName = e.target.files[0].name;
+
+    // alert('The file "' + fileName +  '" has been selected.');
+    $('#pesan').attr("placeholder",'The file "' + fileName +  '" has been selected.');
+
+    });
+// end of image
+
   function appendMessageread(name, img, side, text, time, date) {
   //   Simple solution for small apps
   const msgHTML = `

@@ -6,6 +6,7 @@
       public function __construct()
       {
         parent::__construct();
+          $this->load->helper(array('form', 'url'));
           $this->load->model("chat/m_chat");
           $this->load->model('m_login');
           if ($this->session->userdata('status') != "login") {
@@ -21,8 +22,19 @@
         $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $code = substr(str_shuffle($set), 0, 3);
 
+
         $id = $code;
+        $img = $this->imageupload();
         $msg = $this->input->post('message');
+        // $msg = $img;
+        if ($img && $msg) {
+          $msge = $msg."+mrr+".$img;
+        }elseif ($img && $msg == '') {
+          $msge = "+msg+"."+mrr+".$img;
+        }elseif ($msg && $img == '') {
+          $msge = "$msg"."+mrr+"."+img+";
+        }
+
         $penerima = $this->input->post('penerima');
         $pengirim = $this->session->userdata('id');
 
@@ -30,7 +42,7 @@
             'id' => $id,
             'id_pengirim' => $pengirim,
             'id_penerima' => $penerima,
-            'message' => $msg
+            'message' => $msge
         );
 
         $this->m_chat->send($where);
@@ -51,6 +63,24 @@
             $response = $pusher->trigger('chat-channel', 'chat', $data);
 
         echo json_encode(array('status'=>'success'));
+      }
+
+      private function imageupload(){
+        $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code2 = substr(str_shuffle($set), 0, 3);
+
+        $config['upload_path']          = './img/custom/';
+		    $config['allowed_types']        = 'gif|jpg|png';
+		    $config['file_name']        = $code2;
+		    $config['max_size']             = 5000;
+
+        $this->load->library('upload', $config);
+          if ($this->upload->do_upload('file')) {
+              return $this->upload->data("file_name");
+            }else {
+              return '';
+            }
+
       }
 
       public function get_msg(){
@@ -74,6 +104,8 @@
             $jam = explode(':',substr($key->waktu, 11));
             $tgl = explode('-',substr($key->waktu, 0,-9));
 
+            $psn = explode('+mrr+',$key->message);
+
             $cek_user = $this->m_chat->get_user('username',array('id_admin'=> $key->id_pengirim), 'tabel_admin')->num_rows();
 
             if ($cek_user>0) {
@@ -87,7 +119,8 @@
 
             array_push($msg, array(
               'sender' => $sender,
-              'message' => $key->message,
+              'message' => $psn[0],
+              'gambar' => $psn[1],
               'status' => $key->status,
               'time' => $jam[0].':'.$jam[1],
               'date' => $tgl[2].'-'.$tgl[1].'-'.substr($tgl[0],2),

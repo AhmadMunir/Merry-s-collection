@@ -19,6 +19,10 @@ html {
   box-sizing: inherit;
 }
 
+#imageupload{
+  margin: 2px;
+}
+
 #chat{
   display: flex;
   justify-content: center;
@@ -200,8 +204,7 @@ html {
     <div class="msg right-msg">
       <div
        class="msg-img"
-       style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
-      ></div>
+       style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"></div>
 
       <div class="msg-bubble">
         <div class="msg-info">
@@ -217,8 +220,11 @@ html {
     </div>
   </main>
 
-  <form class="msger-inputarea" action="<?php echo base_url("chat/chat/send"); ?>" method="post">
-    <input type="text" class="msger-input" name="message" placeholder="Enter your message...">
+  <form class="msger-inputarea" action="<?php echo base_url("chat/chat/send"); ?>" method="post" enctype="multipart/form-data">
+    <input type="file" id="imgupload" style="display:none" accept=".jpeg,.jpg,.png"/>
+    <i  id="imageupload"class="zmdi zmdi-image"></i>
+    <textarea  class="msger-input" id="pesan" name="message" placeholder="Enter your message..."></textarea>
+    <!-- <input type="text" class="msger-input" id="pesan" name="message" placeholder="Enter your message..."> -->
     <button type="submit" class="msger-send-btn">Send</button>
   </form>
 </section>

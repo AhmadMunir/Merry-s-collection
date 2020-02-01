@@ -30,6 +30,10 @@
   		$this->load->view("admin/custom/custom-chat");
   	}
 
+    public function create_custom(){
+      $this->load->view("admin/custom/custom-create");
+    }
+
     public function get_dftrchat(){
       $cht = $this->m_custom->get_idsidechat();
 
@@ -66,12 +70,18 @@
           }
         }
       }
-      $unread = array_count_values($un);
-      echo json_encode(array('status'=>$status, 'inbox' => $inbx, 'unread' =>$unread['unread']));
+      if ($status=='sukses') {
+        $ur = 0;
+      }else {
+        $unread = array_count_values($un);
+        $ur = $unread['unread'];
+      }
+      echo json_encode(array('status'=>$status, 'inbox' => $inbx, 'unread' => $ur));
     }
 
     public function get_msg(){
       $user = $this->input->post('id');
+      $this->m_custom->setread($user);
       $where = "id_penerima='$user' or id_pengirim='$user' ORDER BY waktu ASC";
 
       $chat = $this->m_custom->get($where);
