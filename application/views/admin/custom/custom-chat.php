@@ -186,47 +186,21 @@
                                 <ul class="mailbox-list">
                                     <li class="active">
                                         <a href="javascript:loadinbox()">
-												<span class="pull-right unreada" ></span>
-												<i class="fa fa-envelope"></i> Inbox
-											</a>
+                  												<span class="pull-right unreada" ></span>
+                  												<i class="fa fa-envelope"></i> Inbox
+                  											</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fa fa-paper-plane"></i> Sent</a>
+                                        <a href="#"><i class="fa fa-pencil"></i> Buat Custom</a>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <a href="#"><i class="fa fa-pencil"></i> Draft</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fa fa-trash"></i> Trash</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
-                                <hr>
-                                <ul class="mailbox-list">
-                                    <li>
-                                        <a href="#"><i class="fa fa-plane text-danger"></i> Travel</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-bar-chart text-warning"></i> Finance</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-users text-info"></i> Social</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-tag text-success"></i> Promos</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-flag text-primary"></i> Updates</a>
-                                    </li>
-                                </ul>
-                                <hr>
-                                <ul class="mailbox-list">
-                                    <li>
-                                        <a href="#"><i class="fa fa-gears"></i> Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-info-circle"></i> Support</a>
-                                    </li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -395,6 +369,9 @@
                                       <div class="msger-header-title">
                                         <i class="fas fa-comment-alt"></i> <span id="nama_customer"></span>
                                       </div>
+                                      <div class="msger-header-options">
+                                        <span id="buat_custom"></span>
+                                      </div>
 
                                     </header>
 
@@ -414,264 +391,7 @@
                                 <div class="table-responsive inbox-all">
                                     <table class="table table-hover table-mailbox">
                                         <tbody id="chat">
-                                            <!-- <tr class="unread">
-                                                <td class="">
-                                                    <div class="checkbox checkbox-single checkbox-success">
-                                                        <input type="checkbox" checked>
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Jeremy Massey</a></td>
-                                                <td><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-                                                </td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Tue, Nov 25</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Marshall Horne</a></td>
-                                                <td><a href="#">Praesent nec nisl sed neque ornare maximus at ac enim.</a>
-                                                </td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Wed, Jan 13</td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Grant Franco</a> <span class="label label-warning">Finance</span></td>
-                                                <td><a href="#">Etiam maximus tellus a turpis tempor mollis.</a></td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Mon, Oct 19</td>
-                                            </tr>
-                                            <tr class="unread active">
-                                                <td class="">
-                                                    <div class="checkbox checkbox-single">
-                                                        <input type="checkbox" checked>
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Ferdinand Meadows</a></td>
-                                                <td><a href="#">Aenean hendrerit ligula eget augue gravida semper.</a></td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Sat, Aug 29</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox checkbox-single">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Ivor Rios</a> <span class="label label-info">Social</span>
-                                                </td>
-                                                <td><a href="#">Sed quis augue in nunc venenatis finibus.</a></td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Sat, Dec 12</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Maxwell Murphy</a></td>
-                                                <td><a href="#">Quisque eu tortor quis justo viverra cursus.</a></td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Sun, May 17</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Henry Patterson</a></td>
-                                                <td><a href="#">Aliquam nec justo interdum, ornare mi non, elementum lacus.</a></td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Thu, Aug 06</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Brent Rasmussen</a></td>
-                                                <td><a href="#">Nam nec turpis sed quam tristique sodales.</a></td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Sun, Nov 15</td>
-                                            </tr>
-                                            <tr class="unread">
-                                                <td class="">
-                                                    <div class="checkbox checkbox-single checkbox-success">
-                                                        <input type="checkbox" checked>
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Joseph Hurley</a></td>
-                                                <td><a href="#">Nullam tempus leo id urna sagittis blandit.</a></td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Sun, Aug 10</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Alan Matthews</a></td>
-                                                <td><a href="#">Quisque quis turpis ac quam sagittis scelerisque vel uturna.</a></td>
-                                                  <td></td>
-                                                <td class="text-right mail-date">Sun, Mar 27</td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Colby Lynch</a> <span class="label label-danger">Travel</span></td>
-                                                <td><a href="#">Donec non enim pulvinar, ultrices metus eget, 	mi.</a></td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Thu, Dec 31</td>
-                                            </tr>
-                                            <tr class="unread">
-                                                <td class="">
-                                                    <div class="checkbox checkbox-single checkbox-success">
-                                                        <input type="checkbox" checked>
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Jeremy Massey</a></td>
-                                                <td><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
-                                                </td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Tue, Nov 25</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Marshall Horne</a></td>
-                                                <td><a href="#">Praesent nec nisl sed neque ornare maximus at ac enim.</a>
-                                                </td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Wed, Jan 13</td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Grant Franco</a> <span class="label label-warning">Finance</span></td>
-                                                <td><a href="#">Etiam maximus tellus a turpis tempor mollis.</a></td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Mon, Oct 19</td>
-                                            </tr>
-                                            <tr class="unread active">
-                                                <td class="">
-                                                    <div class="checkbox checkbox-single">
-                                                        <input type="checkbox" checked>
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Ferdinand Meadows</a></td>
-                                                <td><a href="#">Aenean hendrerit ligula eget augue gravida semper.</a></td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Sat, Aug 29</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox checkbox-single">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Ivor Rios</a> <span class="label label-info">Social</span>
-                                                </td>
-                                                <td><a href="#">Sed quis augue in nunc venenatis finibus.</a></td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Sat, Dec 12</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Maxwell Murphy</a></td>
-                                                <td><a href="#">Quisque eu tortor quis justo viverra cursus.</a></td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Sun, May 17</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Henry Patterson</a></td>
-                                                <td><a href="#">Aliquam nec justo interdum, ornare mi non, 	lacus.</a></td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Thu, Aug 06</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Brent Rasmussen</a></td>
-                                                <td><a href="#">Nam nec turpis sed quam tristique sodales.</a></td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Sun, Nov 15</td>
-                                            </tr>
-                                            <tr class="unread">
-                                                <td class="">
-                                                    <div class="checkbox checkbox-single checkbox-success">
-                                                        <input type="checkbox" checked>
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Joseph Hurley</a></td>
-                                                <td><a href="#">Nullam tempus leo id urna sagittis blandit.</a></td>
-                                                <td><i class="fa fa-paperclip"></i></td>
-                                                <td class="text-right mail-date">Sun, Aug 10</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="">
-                                                    <div class="checkbox">
-                                                        <input type="checkbox">
-                                                        <label></label>
-                                                    </div>
-                                                </td>
-                                                <td><a href="#">Alan Matthews</a></td>
-                                                <td><a href="#">Quisque quis turpis ac quam sagittis scelerisque vel 	urna.</a></td>
-                                                <td></td>
-                                                <td class="text-right mail-date">Sun, Mar 27</td>
-                                            </tr> -->
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -679,17 +399,6 @@
                             <div class="panel-footer inbox-all">
                                 <i class="fa fa-eye"> </i> <span class="unread"> </span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-copy-right">
-                            <p>Copyright &copy; 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
                         </div>
                     </div>
                 </div>

@@ -188,6 +188,72 @@
 
       echo json_encode(array('status'=>'success'));
     }
+
+    public function create($custom){
+      $select = array('nama_user', 'email', 'no_telp', 'alamat');
+      $where = array('id_user' => $custom);
+      $data['customer'] = $this->m_custom->get_user($select, $where, 'view_user')->result();
+      $this->load->view("admin/custom/custom-create", $data);
+    }
+
+    public function get_picture(){
+      $id = $this->input->post('id');
+      $where = array('id_user' => $id);
+      $countpic = $this->m_custom->get_pic($where)->num_rows();
+
+      $pict = array();
+
+      if ($countpic > 0) {
+        $status = 1;
+        $pic = $this->m_custom->get_pic($where)->result();
+
+        foreach ($pic as $key) {
+          array_push($pict, array(
+            'id_pic' => $key->id,
+            'pic' => $key->gambar
+          ));
+        }
+      }else {
+        $status = 0;
+      }
+
+      echo json_encode(array('status'=>$status, 'pic'=>$pict));
+    }
+
+    public function del_picture(){
+      $id = $this->input->post('id');
+      $where = array('id' => $id);
+
+      $del = $this->m_custom->delete($where, 'tabel_gambar_custom');
+
+      echo json_encode(array('status'=>1));
+    }
+
+    public function make_custom(){
+      $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $kode = substr(str_shuffle($set), 0, 4);
+
+      $id_user = $this->input->post('id_user');
+      $nama_barang = $this->input->post('nama_barang');
+      $harga = $this->input->post('harga');
+      $size = $this->input->post('size');
+      $deskripsi = $this->input->post('deskripsi');
+      $gambar = $this->input->post('gambar');
+
+      $data = array(
+        'id_temp_custom' => $kode,
+        'id_user' => $id_user,
+        'nama_barang' => $nama_barang,
+        'harga' => $harga,
+        'size' => $size,
+        'deskripsi' => $deskripsi,
+        'gambar' => $gambar
+      );
+
+      $this->m_custom->input_custom($data);
+
+      echo "sukses";
+    }
   }
 
  ?>

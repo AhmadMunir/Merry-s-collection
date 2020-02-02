@@ -190,9 +190,11 @@
                                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="review-tab-pro-inner">
                                       <ul id="myTab3" class="tab-review-design">
-                                        <li class="active"><a href="#description"><i class="fa fa-pencil" aria-hidden="true"></i> Custom</a></li>
+                                        <li class="active"><a href="#description"><i class="fa fa-pencil" aria-hidden="true"></i> Item</a></li>
                                         <li><a href="#reviews"><i class="fa fa-file-image-o" aria-hidden="true"></i> Pictures</a></li>
+                                        <li><a href="#customer"><i class="fa fa-user" aria-hidden="true"></i> Customer</a></li>
                                       </ul>
+                                      <form action="<?php echo base_url('admin/custom/make_custom') ?>" method="post">
                                       <div id="myTabContent" class="tab-content custom-product-edit">
                                         <div class="product-tab-list tab-pane fade active in" id="description">
                                           <div class="row">
@@ -200,15 +202,15 @@
                                               <div class="review-content-section">
                                                 <div class="input-group mg-b-pro-edt">
                                                   <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                                                  <input type="text" class="form-control" name="nama_produk" placeholder="Nama Produk">
+                                                  <input type="text" required class="form-control" name="nama_barang" placeholder="Nama Produk">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                   <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                                                  <input type="text" class="form-control" name placeholder="Harga">
+                                                  <input type="text" required class="form-control" name="harga" placeholder="Harga">
                                                 </div>
                                                 <div class="input-group mg-b-pro-edt">
                                                   <span class="input-group-addon"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></span>
-                                                  <input type="text" class="form-control" name="size" placeholder="Size">
+                                                  <input type="text" required class="form-control" name="size" placeholder="Size">
                                                 </div>
 
                                               </div>
@@ -220,176 +222,50 @@
                                               <div class="input-group mg-b-pro-edt">
 
                                                 <textarea name="deskripsi" id="deskripsi" cols="50" rows="10"></textarea>
+                                                <input type="text" id="gambar" name="gambar" >
+                                                <input type="text" name="id_user" value="<?php echo $this->uri->segment(4) ?>">
                                               </div>
                                             </div>
                                           </div>
                                           <br />
                                         </div>
                                         <div class="product-tab-list tab-pane fade" id="reviews">
-                                          <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                              <div class="review-content-section">
-                                                <div class="row">
-                                                  <div class="col-lg-4">
-                                                    <div class="pro-edt-img">
-                                                      <img src="img/new-product/5-small.jpg" alt="" />
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-lg-8">
-                                                    <div class="row">
-                                                      <div class="col-lg-12">
-                                                        <div class="product-edt-pix-wrap">
-                                                          <div class="input-group">
-                                                            <span class="input-group-addon">TT</span>
-                                                            <input type="text" class="form-control" placeholder="Label Name">
-                                                          </div>
-                                                          <div class="row">
-                                                            <div class="col-lg-6">
-                                                              <div class="form-radio">
-                                                                <form>
-                                                                  <div class="radio radiofill">
-                                                                    <label>
-                                                                      <input type="radio" name="radio"><i class="helper"></i>Largest Image
-                                                                    </label>
-                                                                  </div>
-                                                                  <div class="radio radiofill">
-                                                                    <label>
-                                                                      <input type="radio" name="radio"><i class="helper"></i>Medium Image
-                                                                    </label>
-                                                                  </div>
-                                                                  <div class="radio radiofill">
-                                                                    <label>
-                                                                      <input type="radio" name="radio"><i class="helper"></i>Small Image
-                                                                    </label>
-                                                                  </div>
-                                                                </form>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                              <div class="product-edt-remove">
-                                                                <button type="button" class="btn btn-danger waves-effect waves-light">Remove
-                                                                  <i class="fa fa-times" aria-hidden="true"></i>
-                                                                </button>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="row">
-                                                  <div class="col-lg-4">
-                                                    <div class="pro-edt-img">
-                                                      <img src="img/new-product/6-small.jpg" alt="" />
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-lg-8">
-                                                    <div class="row">
-                                                      <div class="col-lg-12">
-                                                        <div class="product-edt-pix-wrap">
-                                                          <div class="input-group">
-                                                            <span class="input-group-addon">TT</span>
-                                                            <input type="text" class="form-control" placeholder="Label Name">
-                                                          </div>
-                                                          <div class="row">
-                                                            <div class="col-lg-6">
-                                                              <div class="form-radio">
-                                                                <form>
-                                                                  <div class="radio radiofill">
-                                                                    <label>
-                                                                      <input type="radio" name="radio"><i class="helper"></i>Largest Image
-                                                                    </label>
-                                                                  </div>
-                                                                  <div class="radio radiofill">
-                                                                    <label>
-                                                                      <input type="radio" name="radio"><i class="helper"></i>Medium Image
-                                                                    </label>
-                                                                  </div>
-                                                                  <div class="radio radiofill">
-                                                                    <label>
-                                                                      <input type="radio" name="radio"><i class="helper"></i>Small Image
-                                                                    </label>
-                                                                  </div>
-                                                                </form>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                              <div class="product-edt-remove">
-                                                                <button type="button" class="btn btn-danger waves-effect waves-light">Remove
-                                                                  <i class="fa fa-times" aria-hidden="true"></i>
-                                                                </button>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="row">
-                                                  <div class="col-lg-4">
-                                                    <div class="pro-edt-img">
-                                                      <img src="img/new-product/7-small.jpg" alt="" />
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-lg-8">
-                                                    <div class="row">
-                                                      <div class="col-lg-12">
-                                                        <div class="product-edt-pix-wrap">
-                                                          <div class="input-group">
-                                                            <span class="input-group-addon">TT</span>
-                                                            <input type="text" class="form-control" placeholder="Label Name">
-                                                          </div>
-                                                          <div class="row">
-                                                            <div class="col-lg-6">
-                                                              <div class="form-radio">
-                                                                <form>
-                                                                  <div class="radio radiofill">
-                                                                    <label>
-                                                                      <input type="radio" name="radio"><i class="helper"></i>Largest Image
-                                                                    </label>
-                                                                  </div>
-                                                                  <div class="radio radiofill">
-                                                                    <label>
-                                                                      <input type="radio" name="radio"><i class="helper"></i>Medium Image
-                                                                    </label>
-                                                                  </div>
-                                                                  <div class="radio radiofill">
-                                                                    <label>
-                                                                      <input type="radio" name="radio"><i class="helper"></i>Small Image
-                                                                    </label>
-                                                                  </div>
-                                                                </form>
-                                                              </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                              <div class="product-edt-remove">
-                                                                <button type="button" class="btn btn-danger waves-effect waves-light">Remove
-                                                                  <i class="fa fa-times" aria-hidden="true"></i>
-                                                                </button>
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
+                                          <div id="pic_cs"></div>
+                                        </div>
+                                        <div class="product-tab-list tab-pane fade" id="customer">
+                                          <!-- <div class="row">
+                                            <?php //foreach ($customer as $key): ?>
+                                              <div class="form-group col-lg-6">
+                                                  <label>Nama Customer</label>
+                                                  <input disabled type="text" value="<?php echo $key->nama_user ?>" name="nm_cs" class="form-control">
                                               </div>
-                                            </div>
-                                          </div>
+                                              <div class="form-group col-lg-6">
+                                                  <label>Alamat</label>
+                                                  <input disabled type="text" value="<?php echo $key->alamat ?>" name="al_cs" class="form-control">
+                                              </div>
+                                              <div class="form-group col-lg-6">
+                                                  <label>Email</label>
+                                                  <input disabled type="email" value="<?php echo $key->email ?>" name="em_cs" class="form-control">
+                                              </div>
+                                              <div class="form-group col-lg-6">
+                                                  <label>Nomor Telepon</label>
+                                                  <input disabled type="text" value="<?php echo $key->no_telp ?>" name="tl_cs" class="form-control">
+                                              </div>
+                                            <?php// endforeach; ?>
+                                          </div> -->
+
                                         </div>
 
                                         <div class="row">
                                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="text-center mg-b-pro-edt custom-pro-edt-ds">
-                                              <button type="button" class="btn btn-primary waves-effect waves-light m-r-10">Save</button>
-                                              <button type="button" class="btn btn-warning waves-effect waves-light">Cancel</button>
+                                              <input type="submit" class="btn btn-primary waves-effect waves-light m-r-10" value="Save">
+                                              <button onclick="goBack()" type="button" class="btn btn-warning waves-effect waves-light">Cancel</button>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
+                                      </form>
                                     </div>
                                   </div>
                                 </div>
@@ -416,7 +292,7 @@
 
     <?php $this->load->view('admin/partial/modal') ?>
     <?php $this->load->view('admin/partial/jquery') ?>
-    <?php $this->load->view('admin/custom/jscustom') ?>
+    <?php $this->load->view('admin/custom/jscustomcr') ?>
 </body>
 
 </html>

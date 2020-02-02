@@ -46,5 +46,18 @@ class M_custom extends CI_Model{
     $data = array('status'=>1);
     $this->db->update('tabel_chat', $data);
   }
+
+  public function get_pic($where){
+    $this->db->where($where);
+    return $this->db->get('tabel_gambar_custom');
+  }
+
+  public function delete($where, $table){
+    $this->db->delete($table, $where);
+  }
+
+  public function input_custom($data){
+    $this->db->insert('tabel_temp_custom', $data);
+  }
 }
 ?>

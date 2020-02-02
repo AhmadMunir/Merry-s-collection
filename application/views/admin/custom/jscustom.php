@@ -75,6 +75,11 @@ $(function() {
 
  function loadchat(id){
    $('.msger-chat').html('');
+
+  var bc = '';
+   bc+='<a href="<?php echo base_url() ?>admin/custom/create/'+id+'">Buat Custom</a>';
+
+   $('#buat_custom').html(bc);
    $.ajax({
      type : 'POST',
      url : '<?php echo base_url("admin/custom/get_msg")?>',
