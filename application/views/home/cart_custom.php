@@ -188,7 +188,7 @@
                                           <div class="panel-heading" role="tab" id="headingkurir">
                                               <h4 class="panel-title text-uppercase">
                                                   <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsekurir" aria-expanded="false" aria-controls="collapseTwo">
-                                                      Sipping method
+                                                      Shipping method
                                                   </a>
                                               </h4>
                                           </div>
@@ -214,7 +214,7 @@
                                       <h5><strong>payment method</strong></h5>
                                   </div>
                                   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                      <div class="panel panel-default">
+                                      <!-- <div class="panel panel-default">
                                           <div class="panel-heading" role="tab" id="headingOne">
                                               <h4 class="panel-title text-uppercase">
                                                   <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -241,7 +241,7 @@
                                                   Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
                                               </div>
                                           </div>
-                                      </div>
+                                      </div> -->
                                       <div class="panel panel-default">
                                           <div class="panel-heading" role="tab" id="headingThree">
                                               <h4 class="panel-title text-uppercase">
@@ -260,9 +260,6 @@
                                           </div>
                                       </div>
                                   </div>
-                                  <a title="Add to Cart" href="#" class="button extra-small">
-                                      <span>place order</span>
-                                  </a>
                               </div>
                           </div>
                         </div>

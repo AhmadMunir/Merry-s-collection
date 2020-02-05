@@ -2,8 +2,8 @@
 var sam = 0;
 var id_trans;
 var omkir = 0;
-var tot;
-var taxs;
+var tot = 0;
+var taxs = 0;
     $(document).ready(function(){
         // CALL FUNCTION SHOW PRODUCT
         // $('#cart_itung').html('html');
@@ -314,15 +314,6 @@ var taxs;
 
         });
 
-        //grand_total
-        function grand_tot(){
-          if (parseInt(tot)>0) {
-            gr = parseInt(tot)+parseInt(taxs)+parseInt(omkir);
-            $('#grand_total').html(gr);
-          }else {
-            $('#grand_total').html(0);
-          }
-        }
 
         //input detail address
 
@@ -409,6 +400,17 @@ var taxs;
             });
         });
         // END DELETE PRODUCT
+
+        //grand_total
+        function grand_tot(){
+          if (parseInt(tot)>0) {
+            gr = parseInt(tot)+parseInt(taxs)+parseInt(omkir);
+            $('#grand_total').html(gr);
+          }else {
+            $('#grand_total').html(0);
+          }
+        }
+
 
         // country_name
         $('#country').change(function(){
