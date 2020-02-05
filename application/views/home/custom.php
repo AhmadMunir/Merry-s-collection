@@ -26,26 +26,22 @@
                         <div class="col-sm-6">
                             <div class="single-product-image">
                                 <div id="product-img-content">
-                                    <div id="my-tab-content" class="tab-content mb-30">
-                                        <div class="tab-pane b-img active" id="view1">
-                                            <a class="venobox" href="images/product/product-details/1.jpg" data-gall="gallery" title=""><img src="images/product/product-details/1.jpg" alt=""></a>
-                                        </div>
-                                        <div class="tab-pane b-img" id="view2">
-                                            <a class="venobox" href="images/product/product-details/2.jpg" data-gall="gallery" title=""><img src="images/product/product-details/2.jpg" alt=""></a>
-                                        </div>
-                                        <div class="tab-pane b-img" id="view3">
-                                            <a class="venobox" href="images/product/product-details/3.jpg" data-gall="gallery" title=""><img src="images/product/product-details/3.jpg" alt=""></a>
-                                        </div>
-                                        <div class="tab-pane b-img" id="view4">
-                                            <a class="venobox" href="images/product/product-details/4.jpg" data-gall="gallery" title=""><img src="images/product/product-details/4.jpg" alt=""></a>
-                                        </div>
-                                    </div>
-                                    <div id="viewproduct" class="nav nav-tabs product-view bxslider" data-tabs="tabs">
-                                        <div class="pro-view b-img active"><a href="#view1" data-toggle="tab"><img src="images/product/product-details/s-1.jpg" alt=""></a></div>
-                                        <div class="pro-view b-img"><a href="#view2" data-toggle="tab"><img src="images/product/product-details/s-2.jpg" alt=""></a></div>
-                                        <div class="pro-view b-img"><a href="#view3" data-toggle="tab"><img src="images/product/product-details/s-3.jpg" alt=""></a></div>
-                                        <div class="pro-view b-img"><a href="#view4" data-toggle="tab"><img src="images/product/product-details/s-4.jpg" alt=""></a></div>
-                                    </div>
+                                    <h3>Your Custom</h3>
+                                      <div class="wishlist-table table-responsive p-30 text-uppercase">
+                                          <table id="mytable">
+                                              <thead>
+                                                  <tr>
+                                                      <!-- <th class="product-thumbnail"></th> -->
+                                                      <th class="product-name"><span class="nobr"><center>Product</center></span></th>
+                                                      <th class="product-prices"><span class="nobr"> Total</span></th>
+                                                      <th class="product-stock-stauts"><span class="nobr"> Created </span></th>
+                                                      <th class="product-remove"><span class="nobr">Remove</span></th>
+                                                  </tr>
+                                              </thead>
+                                              <tbody class="show_cartcustom">
+                                              </tbody>
+                                          </table>
+                                      </div>
                                 </div>
                             </div>
                         </div>
@@ -62,6 +58,7 @@
         <!-- End page content -->
         <!-- Start footer area -->
         <?php $this->load->view('home/partial/footer2') ?>
+        <?php $this->load->view('home/partial/jscustom') ?>
 
         <!-- End footer area -->
     </div>

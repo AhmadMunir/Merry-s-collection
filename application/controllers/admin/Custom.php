@@ -252,6 +252,22 @@
 
       $this->m_custom->input_custom($data);
 
+      $this->load->view('/vendor/autoload.php');
+        $options = array(
+            'cluster' => 'ap1',
+            'useTLS' => true
+          );
+          $pusher = new Pusher\Pusher(
+            '47980f8443159a27e646',
+            '70e4e200051728975830',
+            '913455',
+            $options
+          );
+
+          $data['status'] = 'success';
+          $response = $pusher->trigger('custom', 'custom', $data);
+
+
       echo "sukses";
     }
   }
