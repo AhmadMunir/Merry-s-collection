@@ -21,23 +21,23 @@
                <?php if
               ($this->session->flashdata('success')): ?>
               <div class="alert alert-success" role="alert">
-                <?php echo 
+                <?php echo
                 $this->session->flashdata('success'); ?>
               </div>
             <?php endif;?>
                 <div class="row">
-                
+
                   <br>
                  <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
 
-                      
-                        
-                        
+
+
+
                           <br>
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
-                          
+
                           <div class="row">
                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="sparkline13-list">
@@ -49,7 +49,7 @@
                             <div class="sparkline13-graph">
                                 <div class="datatable-dashv1-list custom-datatable-overright">
                                     <div id="toolbar">
-                                        
+
                                     </div>
                                     <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
                                         data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
@@ -66,7 +66,7 @@
                               <tbody>
                                 <?php $i=1 ?>
                                 <?php foreach ($tabel_user as $user): ?>
-                                
+
                                   <tr>
                                     <td width="5">
                                       <?php echo $i++?>
@@ -84,16 +84,16 @@
                                       <?php echo $user->no_telp ?>
                                     </td>
                                     <td width="50">
-                                    <a href="<?php echo site_url('admin/pelanggan/user/'.$user->id_user)?>" class="btn btn-success">Lihat</a>
+                                    <a href="<?php echo site_url('admin/pelanggan/pelanggan/'.$user->id_user)?>" class="btn btn-success">Lihat</a>
                                     </td>
                                   </tr>
                                 <?php endforeach; ?>
                               </tbody>
                             </table>
                           </div>
-                        
-                     
-                    
+
+
+
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,7 @@
               </div>
               </div>
 
-        
+
     </div>
 
     <!-- jquery
