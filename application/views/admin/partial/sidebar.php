@@ -29,6 +29,8 @@
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa fa-file-text-o fa-1x"></i> <span class="mini-click-non">Laporan</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="laporan bulanan" href="<?php echo base_url('admin/laporan') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Laporan Bulanan</span></a></li>
+                                <li><a title="laporan bulanan" href="<?php echo base_url('admin/transaksi_diterima') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Laporan Transaksi Diterima</span></a></li>
+                                <li><a title="laporan bulanan" href="<?php echo base_url('admin/transaksi_dikirim') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Laporan Transaksi Dikirim</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -36,6 +38,9 @@
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="laporan bulanan" href="<?php echo base_url('admin/custom') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Custom</span></a></li>
                                 <li><a title="laporan bulanan" href="<?php echo base_url('admin/custom/create_custom') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Buat Custom Invoice</span></a></li>
+                                 <li><a title="laporan bulanan" href="<?php echo base_url('admin/custompelanggan_diterima') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Laporan Custom Pelanggan Diterima</span></a></li>
+                                  <li><a title="laporan bulanan" href="<?php echo base_url('admin/custompelanggan_dibuat') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Laporan Custom Pelanggan Dibuat</span></a></li>
+                                 <li><a title="laporan bulanan" href="<?php echo base_url('admin/custompelanggan_dikirim') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Laporan Custom Pelanggan Dikirim</span></a></li>
                             </ul>
                         </li>
                         <li>
