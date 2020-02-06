@@ -47,6 +47,34 @@
       echo json_encode(array('status'=> $status, 'custom'=>$custom));
     }
 
+    public function get_address(){
+      $id = $this->session->userdata('id');
+      $where = array('id_user'=>$id);
+      $address = $this->mtr_custom->cek_apa('tabel_alamat', $where);
+      $add = array();
+
+      if (count($address)>0) {
+        $status = 1;
+
+        foreach ($address as $key) {
+          array_push($add, array(
+            'alamat' => $key->alamat,
+            'id_kota' => $key->id_kota,
+            'kota' => $key->kota,
+            'id_prov' => $key->id_prov,
+            'provinsi' => $key->provinsi,
+            'id_neg' => $key->id_neg,
+            'negara' => $key->negara,
+            'kode_pos' => $key->kode_pos,
+          ));
+        }
+      }else {
+        $status = 0;
+      }
+
+      echo json_encode(array('status' => $status, 'address'=>$add));
+    }
+
   }
 
 ?>

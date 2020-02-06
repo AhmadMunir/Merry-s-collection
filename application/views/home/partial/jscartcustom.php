@@ -7,6 +7,7 @@ var taxs;
     $(document).ready(function(){
         // CALL FUNCTION SHOW PRODUCT
         // $('#cart_itung').html('html');
+        load_address();
         show_country();
         // show_product();
         // set_tax();
@@ -70,6 +71,49 @@ var taxs;
         //     }
         //   });
         // }
+        function load_address(){
+          $.ajax({
+            url : '<?php echo base_url("user/custom/get_address") ?>',
+            type  : 'GET',
+            dataType  : 'json',
+            success : function(address){
+              var country = '';
+              var prvince = '';
+              var city = '';
+              var detail = '';
+              if (address.status == 1) {
+                if (address.address[0].id_neg == 'idn' ) {
+                  $('.inter').hide();
+                  $('.indo').fadeIn();
+                  country = '<option value="'+address.address[0].id_neg+'">'+address.address[0].negara+'</option>';
+                  prvince = '<option value="'+address.address[0].id_prov+'">'+address.address[0].provinsi+'</option>';
+                  city = '<option value="'+address.address[0].id_kota+'">'+address.address[0].kota+'</option>';
+                  detail = address.address[0].alamat;
+
+                  $('#country').html(country);
+                  $('#province').html(prvince);
+                  $('#city').html(city);
+                  $('#detail_address').val(detail);
+                }else {
+                  $('.inter').fadeIn();
+                  $('.indo').hide();
+                  country = '<option value="'+address.address[0].id_neg+'">'+address.address[0].negara+'</option>';
+                  prvince = address.address[0].provinsi;
+                  city = address.address[0].kota;
+                  detail = address.address[0].alamat;
+
+                  $('#country').html(country);
+                  $('#province_inter').val(prvince);
+                  $('#city_inter').val(city);
+                  $('#detail_address').val(detail);
+                }
+              }else {
+
+              }
+              show_country();
+            }
+          });
+        }
 
         function show_country(){
           $.ajax({
@@ -77,8 +121,13 @@ var taxs;
             type : 'GET',
             dataType  : 'json',
             success : function(option){
+              var current = $('#country option:selected').text();
+              var currentval = $('#country').val();
               var html = '';
-              html += '<option value="&nbsp"> Select Country </option>';
+              // html += '<option value="&nbsp"> Select Country </option>';
+              if (current != '') {
+                html += '<option value="'+currentval+'">'+current+'</option>';
+              }
               html += '<option value="idn">Indonesia</option>';
               var i;
               for(i=0; i<option.length; i++){
