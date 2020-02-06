@@ -21,10 +21,12 @@
         <form method="post" action="<?php echo base_url('admin/transaksi_dikirim'); ?>">
         <!-- DataTables -->
         <br>
-        <br>
+        <br><br><br>
+         <div class="col-lg-12 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+        <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
         <div class="card mb-3">
           <div class="card-header">
-            <select id="bulan" name="bulan" required="required">Pilih Bulan
+            <select class="form-control" id="bulan" name="bulan" required="required">Pilih Bulan
               <option value="01">Januari</option>
               <option value="02">Februari</option>
               <option value="03">Maret</option>
@@ -38,22 +40,28 @@
               <option value="11">November</option>
               <option value="12">Desember</option>
             </select>
-            <select id="tahun" name="tahun" required="required">Pilih Tahun
+            <br>
+            <select class="form-control" id="tahun" name="tahun" required="required">Pilih Tahun
               <?php foreach ($transaksi as $key) {
               ?>
               <option value="<?php echo $key->tgl ?>"><?php echo $key->tgl ?></option>
               <?php } ?>              
               
             </select>
-            <button>FILTER</button>           
+            <br>
+            <button class="btn btn-danger">FILTER</button>           
       </form>
           </div>
-          <div class="card-body">
-
-            <div class="table-responsive">
-              <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
+        </div>
+      </div>
+        <br><br><br><br>
+         
+        <div class="admin-content analysis-progrebar-ctn res-mg-t-120">
+          <div class="card-body<div class="datatable-dashv1-list custom-datatable-overright">
+             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                        data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar" width="100%" cellspacing="0">
+                                        <thead>
+                              <tr>
                     <th>ID Transaksi</th> 
                     <th>ID USER</th>
                     <th>NAMA USER</th>

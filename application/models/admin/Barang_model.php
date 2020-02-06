@@ -35,7 +35,7 @@ class Barang_model extends CI_Model
 	}
 	public function getAll()
 	{
-		$this->db->order_by('time', 'desc');
+		$this->db->order_by('stok', 'asc');
 		return $this->db->get($this->_table3)->result();
 	}
 

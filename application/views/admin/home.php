@@ -44,7 +44,7 @@
                                           </div>
                                       </div>
                                   </div>
-                                  <a href="admin/desc">
+                                  <a href="admin/barang">
                                     <div class="panel-footer">
                                         <span class="pull-left">Buka Menu</span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

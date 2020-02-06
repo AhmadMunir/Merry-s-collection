@@ -40,9 +40,6 @@
                         </div>
                         <br>  
                          <div class="col-lg-12 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
-
-                      
-                        
                         <br>
                           <br>
                           <br>
@@ -70,7 +67,7 @@
                                   <th>No</th>
                                   <th>Nama Barang</th>
                                   <th>Nama Kategori</th>
-                                  <th>Harga</th>
+                                  <th>Harga Barang</th>
                                   <th>Deskripsi</th>
                                   <th>Total Stok</th>
                                   <th>Ukuran</th>
