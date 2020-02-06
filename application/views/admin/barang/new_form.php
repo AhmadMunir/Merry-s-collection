@@ -56,6 +56,9 @@
                                  <?php }
                                 ?>
                                 </select>
+                                <br>
+                                <button type="button" id="btn-t-form">Tambah Ukuran</button>
+                                <button type="button" id="btn-r-form">Reset Ukuran</button>
                             </div>
 
                              <div class="form-group">
@@ -81,7 +84,7 @@
                           </div>
                       </div>
 
-                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                       
                                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
                                  <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
@@ -111,6 +114,46 @@
                                     <hr>
                                     <button type="button" id="btn-tambah-form">Tambah Ukuran</button>
                                     <button type="button" id="btn-reset-form">Reset Ukuran</button><br><br>
+                                  <br>
+                                <input class="btn btn-success" type="submit" name="btn"value="Simpan">
+                                <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-primary">Back</a>
+                              </form>
+                              <input type="hidden" id="jumlah-form" value="1">
+                           
+                            </div>
+                               </div>
+                           </div>
+
+                             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                      
+                               <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                                 <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                               <h4>Masukkan Ukuran</h4>
+                             </div>
+                             </div>
+                             <br>
+                             <br>
+
+                             <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                               <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                                 <div class="form-group">
+                                  <br>
+                                    <b>Ukuran ke 1 :</b>
+                                    <div class="row">
+                                      <div class="col-md-3">
+                                        <input class="col-md-12" type="text" name="size[]" required placeholder="Ukuran">
+                                      </div>
+                                      <div class="col-md-6">
+                                        <input class="col-md-12" type="text" name="desk[]" required placeholder="Deskripsi Singkat">
+                                      </div>
+                                      <div class="col-md-3">
+                                        <input class="col-md-12" type="text" name="stok[]" required placeholder="Jumlah Stok">
+                                      </div>
+                                    </div>
+                                    <div id="insert-form"></div>
+                                    <hr>
+                                    <!-- <button type="button" id="btn-tambah-form">Tambah Ukuran</button>
+                                    <button type="button" id="btn-reset-form">Reset Ukuran</button><br><br> -->
                                   <br>
                                 <input class="btn btn-success" type="submit" name="btn"value="Simpan">
                                 <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-primary">Back</a>

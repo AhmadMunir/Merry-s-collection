@@ -26,6 +26,19 @@
               </div>
             <?php endif;?>
                 <div class="row">
+                  <br>  
+                  <br>  
+                  <br>  
+                  <br>
+                  <?php $coi = '';?>
+                   <div class="col-lg-12 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:3px;">
+                            <div class="admin-content analysis-progrebar-ctn res-mg-t-100">
+                               <?php foreach ($tabel_detail_stok as $stok) :?>
+                                  <?php $coi = $stok->id_barang;?>
+                                <?php endforeach; ?> 
+                           <a href="<?php echo site_url('admin/stok/tambah/'.$coi)?>" class="btn btn-info">Tambah Stok</a>
+                        </div>
+                        </div>
                    
                   <br>
                  <br>
@@ -66,6 +79,7 @@
                                 </td>
                                 <td width="150">
                                     <a href="<?php echo site_url('admin/stok/edit/'.$stok->id_detail_stok)?>" class="btn btn-info">Edit</a>
+
                                 
                                   <a onclick="deleteConfirm('<?php echo site_url('admin/stok/delete/'.$stok->id_detail_stok)?>')"
                                     href="#!" class="btn btn-primary">Hapus</a></td>
@@ -76,12 +90,21 @@
                              <a href="<?php echo site_url('admin/barang') ?>" class="btn btn-danger">Kembali Ke Menu</a>
                           </div>
 
+                         
+
 
 
 
                     </div>
+     
+                        
+                    
+
                   </div>
+
                 </div>
+
+               
               </div>
               </div>
               </div>

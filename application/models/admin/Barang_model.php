@@ -55,6 +55,11 @@ class Barang_model extends CI_Model
 		return $this->db->insert_batch('tabel_detail_stok', $data);
 	}
 
+	public function save_batch_kat($data)
+	{
+		return $this->db->insert_batch('tabel_detail_stok', $data);
+	}
+
 	public function save()
 	{
 		$post = $this->input->post();
@@ -67,6 +72,19 @@ class Barang_model extends CI_Model
 
 		$this->harga = $post["harga"];
 		$this->deskripsi = $post["deskripsi"];
+
+		// $id_kategori = $post['id_kategori'];
+
+		// $data = array();
+
+		// $index = 0;
+
+		// foreach ($kategori as $kat) {
+		// 	# code...
+		// 	array_push($data, array(
+		// 		'id_kategori'
+		// 	))
+		// }
 		// Stok
 		$size = $_POST['size'];
 		$desk = $_POST['desk'];
@@ -89,6 +107,7 @@ class Barang_model extends CI_Model
 		// echo json_encode($data);
 		$this->db->insert($this->_table,$this);
 		$this->save_batch_size($data);
+		// $this->save_batch_kat($data);
 
 	}
 

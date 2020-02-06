@@ -61,6 +61,25 @@
   		$this->load->view("admin/barang/stok_edit",$data);
   	}
 
+    public function tambah($id = null)
+
+        {
+          if (!isset($id)) redirect('admin/stok');
+          $stok = $this->stok_model;
+          $validation = $this->form_validation;
+          $validation->set_rules($stok->rules());
+
+          if ($validation->run()){
+            $stok->tambah();
+            $this->session->set_flashdata('success','Berhasil Disimpan');
+            redirect(site_url("admin/stok/index/$stok->id_barang"));
+          }
+          $data["tabel_detail_stok"] = $stok->get($id);
+          if (!$data["tabel_detail_stok"]) show_404();
+
+          $this->load->view("admin/barang/stok_add",$data);
+        }
+
 
    
     public function delete($id=null)

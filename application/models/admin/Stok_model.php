@@ -9,9 +9,7 @@ class Stok_model extends CI_Model
 
 	public $id_detail_stok;
 	public $id_barang;
-	public $size;
-	public $deskripsi_ukuran;
-	public $jumlah_stok;
+
 
 
 	public function rules()
@@ -34,16 +32,18 @@ class Stok_model extends CI_Model
 	{
 		return $this->db->get_where($this->_table, ["id_detail_stok" => $id])->row();
 	}
+	public function get($id)
+	{
+
+		return $this->db->get_where($this->_table, ["id_barang" => $id])->row();
+	}
+	public function save_batch_size($data)
+	{
+		return $this->db->insert_batch('tabel_detail_stok', $data);
+	}
 
 
-	// public function save()
-	// {
-	// 	$post = $this->input->post();
-	// 	$this->id_barang = $post["id_barang"];
-	// 	$this-> = $post["id_barang"];
-	// 	$this->db->insert($this->_table,$this);
-	// }
-	public function save()
+	public function tambah()
 	{
 		$post = $this->input->post();
 
@@ -52,6 +52,7 @@ class Stok_model extends CI_Model
 		$this->id_barang = $post["id_barang"];
 		
 		// Stok
+
 		$size = $_POST['size'];
 		$desk = $_POST['desk'];
 		$stok = $_POST['stok'];
@@ -82,7 +83,7 @@ class Stok_model extends CI_Model
 		$this->id_detail_stok = $post["id"];
 		$this->id_barang 	= $post["id_barang"];
 		$this->size 		= $post["size"];
-		$this->deskripsi_ukuran 		= $post["deskripsi_ukuran"];
+		$this->deskripsi_ukuran = $post["deskripsi_ukuran"];
 		$this->jumlah_stok 		= $post["jumlah_stok"];
 		$this->db->update($this->_table, $this, array('id_detail_stok' => $post['id']));
 	}
