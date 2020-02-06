@@ -31,9 +31,13 @@
                  <br>
                     <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" style="margin-bottom:1px;">
 
+<<<<<<< HEAD
 
 
 
+=======
+                        
+>>>>>>> cb520c0645f059611215c0d06f444bb77141b597
                           <br>
                           <br>
                           <div class="admin-content analysis-progrebar-ctn res-mg-t-100">

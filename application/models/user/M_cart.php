@@ -62,6 +62,9 @@ class M_cart extends CI_Model
     $this->db->where($where);
     return $this->db->get($tabel)->result();
   }
+  public function cek_api($tabel){
+    return $this->db->get($tabel)->result();
+  }
   public function update_stok($stokbaru, $where){
     $update = array('jumlah_stok' => $stokbaru);
     $this->db->where($where);

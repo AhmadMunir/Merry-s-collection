@@ -36,7 +36,7 @@
 
     public function pelanggan()
     {
-      $id = $this->uri->segment('4');
+      $id = $this->uri->segment('5');
       $where = array('id_user'=> $id);
       $table = "view_detail_transaksi";
 

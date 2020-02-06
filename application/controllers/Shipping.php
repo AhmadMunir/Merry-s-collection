@@ -47,6 +47,20 @@
       }
     }
 
+    public function country_db(){
+      $al = $this->m_cart->cek_api('country');
+
+      $option = array();
+      foreach ($al as $key) {
+        array_push($option, array(
+          'id_country' => $key->id,
+          'country' => $key->negara,
+          'code' => $key->kode
+        ));
+      }
+      echo json_encode($option);
+    }
+
     public function country(){
       $curl = curl_init();
 

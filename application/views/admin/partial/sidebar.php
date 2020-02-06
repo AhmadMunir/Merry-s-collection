@@ -32,9 +32,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa fa-file-text-o fa-1x"></i> <span class="mini-click-non">Custom</span></a>
+                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="fa fa-pencil fa-1x"></i> <span class="mini-click-non">Custom</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="laporan bulanan" href="<?php echo base_url('admin/custom') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Custom</span></a></li>
+                                <li><a title="laporan bulanan" href="<?php echo base_url('admin/custom') ?>"><i class="fa fa-pencil-square-o fa-1x"></i> <span class="mini-sub-pro">Custom</span></a></li>
                                 <li><a title="laporan bulanan" href="<?php echo base_url('admin/custom/create_custom') ?>"><i class="fa fa-list-alt fa-1x"></i> <span class="mini-sub-pro">Buat Custom Invoice</span></a></li>
                             </ul>
                         </li>
