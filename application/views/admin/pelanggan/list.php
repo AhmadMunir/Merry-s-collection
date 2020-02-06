@@ -84,7 +84,7 @@
                                       <?php echo $user->no_telp ?>
                                     </td>
                                     <td width="50">
-                                    <a href="<?php echo site_url('admin/pelanggan/user/'.$user->id_user)?>" class="btn btn-success">Lihat</a>
+                                    <a href="<?php echo site_url('admin/pelanggan/pelanggan/'.$user->id_user)?>" class="btn btn-success">Lihat</a>
                                     </td>
                                   </tr>
                                 <?php endforeach; ?>
