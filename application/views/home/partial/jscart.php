@@ -72,7 +72,7 @@ var taxs = 0;
 
         function show_country(){
           $.ajax({
-            url : '<?php echo site_url("shipping/country")?>',
+            url : '<?php echo site_url("shipping/country_db")?>',
             type : 'GET',
             dataType  : 'json',
             success : function(option){

@@ -117,7 +117,7 @@ var taxs;
 
         function show_country(){
           $.ajax({
-            url : '<?php echo site_url("shipping/country")?>',
+            url : '<?php echo site_url("shipping/country_db")?>',
             type : 'GET',
             dataType  : 'json',
             success : function(option){
@@ -131,7 +131,7 @@ var taxs;
               html += '<option value="idn">Indonesia</option>';
               var i;
               for(i=0; i<option.length; i++){
-                html += '<option value="'+option[i].id_country+'">'+option[i].country+'</option>';
+                html += '<option value="'+option[i].id_country+'-'+option[i].code+'">'+option[i].country+'</option>';
               }
               $('#country').html(html);
             }
