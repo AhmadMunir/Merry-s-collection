@@ -8,6 +8,21 @@
   		parent::__construct();
   		$this->load->model("admin/barang_model");
   		$this->load->library('form_validation');
+   //    $this->load->model('m_login');
+   // if($this->session->userdata('status') != "login"){
+   //
+   //       redirect(base_url("login"));
+   //   }else{
+   //     $where = array(
+   //       'username' => $this->session->userdata('nama'));
+   //     // $cekadmin2 = $this->m_login->cek_user("tabel_admin", $where)->result();
+   //     $cekadmin = $this->m_login->cek_user("tabel_admin", $where)->num_rows();
+   //     // echo $cekadmin;
+   //        if($cekadmin <=0){
+   //           // echo"anda bukan admin";
+   //           redirect(base_url("login"));
+   //       }
+   //   }
   	}
 
   	public function index()
@@ -65,7 +80,7 @@
   	}
 
     public function detail(){
-      $id_barang = decrypt_url($this->input->post('id_barang'));
+      $id_barang = $this->input->post('id_barang');
 
       $where = array('id_barang' => $id_barang);
       $detail = $this->barang_model->detail($where);

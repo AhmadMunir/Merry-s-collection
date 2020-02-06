@@ -2,8 +2,8 @@
 var sam = 0;
 var id_trans;
 var omkir = 0;
-var tot;
-var taxs;
+var tot = 0;
+var taxs = 0;
     $(document).ready(function(){
         // CALL FUNCTION SHOW PRODUCT
         // $('#cart_itung').html('html');
@@ -15,11 +15,22 @@ var taxs;
         // $('#paypal-button-container').hide();
 
         //Pusher
-        Pusher.logToConsole = true;
+        // Pusher.logToConsole = true;
 
         var pusher = new Pusher('47980f8443159a27e646', {
           cluster: 'ap1',
           forceTLS: true
+        });
+
+        var trasi = pusher.subscribe('transaksi');
+        trasi.bind('my-event', function(data){
+          if (data.stts == 'trans_sukses') {
+            // alert(data.message);
+            // location.reload(true);
+            $('#cartt').hide();
+            $('#afterpay').fadeIn();
+            $('#status_pembayaran').html('Tansaction success, go to profile to check your history transaction.');
+          }
         });
 
         var channel = pusher.subscribe('notif-cart');
@@ -82,6 +93,11 @@ var taxs;
           if (cn === 'idn') {
             $('.indo').fadeIn();
             $('.inter').hide();
+            $('#provice_int').val("");
+            $('#city_int').val("");
+            $('#zip').val("");
+            $('#detail_address').val("");
+
             show_province();
             var html ="";
             html += '<select name="kurir" id="kurir">'+
@@ -97,6 +113,11 @@ var taxs;
           }else {
             $('.indo').hide();
             $('.inter').fadeIn();
+            $('#provice_int').val("");
+            $('#city_int').val("");
+            $('#zip').val("");
+            $('#detail_address').val("");
+
             var html ="";
             html += '<select name="kurir" id="kurir">'+
                     '<option value="" selected > select Courier</option>'+
@@ -155,13 +176,10 @@ var taxs;
         //cek ongkir
         $('#kurir').change(function(){
 
+          var cn = $('#country').val();
+          if (cn === 'idn') {
           var kurir = $('#kurir').val();
           var city = $('#city').val();
-          // if ($('#city').val() == null) {
-          //   var city = document.getElementById('default_city').value;
-          // } else {
-          //   var city = $('#city').val();
-          // }
 
           $.ajax({
             type  : 'POST',
@@ -179,6 +197,32 @@ var taxs;
               $('#service').html(html);
             }
           });
+        }else {
+
+            $.ajax({
+              type  : 'POST',
+              url : '<?php echo site_url("shipping/ongkir_in")?>',
+              dataType  : 'json',
+              data  : {'dest' : cn},
+              success : function(ongkir){
+                var html = '';
+                html += '<option value="&nbsp"> Select Service </option>';
+
+                var i;
+                for(i=0; i<ongkir.length; i++){
+                  html +='<option value="'+ongkir[i].cost+'">'+ongkir[i].service+'&nbsp;-&nbsp; USD '+ongkir[i].cost+'</option>';
+                }
+                $('#service').html(html);
+              }
+            });
+        }
+          // if ($('#city').val() == null) {
+          //   var city = document.getElementById('default_city').value;
+          // } else {
+          //   var city = $('#city').val();
+          // }
+
+
         });
 
         $('#service').change(function(){
@@ -198,11 +242,13 @@ var taxs;
               'method':$('#kurir option:selected').text()+'-'+$('#service option:selected').text(),
               'a1':document.getElementById('detail_address').value,
               // 'a2':'Sukosari',
-              'a3':$('#city').val(),
-              'a4':$('#province').val(),
+              'a3':$('#city option:selected').text(),
+              'a4':$('#province option:selected').text(),
               'a5':$('#zip').val(),
               'a6':'ID',},
             });
+            document.getElementById("paypal-button-container").style.pointerEvents = "auto";
+            grand_tot();
           }else {
             $.ajax({
               type  : 'POST',
@@ -217,15 +263,57 @@ var taxs;
               'a5':$('#zip').val(),
               'a6':'US',},
             });
+            document.getElementById("paypal-button-container").style.pointerEvents = "auto";
+            grand_tot();
+          }
+
+
+        });
+
+        $('#detail_address').on('keyup', function(){
+          var html;
+          var ship = 'USD '
+          ship += $('#service').val();
+          $('#shipping').html(ship);
+          omkir = $('#service').val();
+
+          var cn = $('#country').val();
+          if (cn === 'idn') {
+            $.ajax({
+              type  : 'POST',
+              url : '<?php echo base_url("shipping/set_ship_session");?>',
+              dataType  : 'json',
+              data  : {'cost':$('#service').val(),
+              'method':$('#kurir option:selected').text()+'-'+$('#service option:selected').text(),
+              'a1':document.getElementById('detail_address').value,
+              // 'a2':'Sukosari',
+              'a3':$('#city option:selected').text(),
+              'a4':$('#province option:selected').text(),
+              'a5':$('#zip').val(),
+              'a6':'ID',},
+            });
+            document.getElementById("paypal-button-container").style.pointerEvents = "auto";
+            grand_tot();
+          }else {
+            $.ajax({
+              type  : 'POST',
+              url : '<?php echo base_url("shipping/set_ship_session");?>',
+              dataType  : 'json',
+              data  : {'cost':$('#service').val(),
+              'method':$('#kurir option:selected').text()+'-'+$('#service option:selected').text(),
+              'a1':document.getElementById('detail_address').value,
+              // 'a2':'Sukosari',
+              'a3':$('#city_int').val(),
+              'a4':$('#provice_int').val(),
+              'a5':$('#zip').val(),
+              'a6':'US',},
+            });
+            document.getElementById("paypal-button-container").style.pointerEvents = "auto";
+            grand_tot();
           }
 
         });
 
-        //grand_total
-        function grand_tot(){
-          gr = tot+taxs+omkir;
-          $('#grand_total').html(gr);
-        }
 
         //input detail address
 
@@ -233,7 +321,7 @@ var taxs;
           $('#detail_address').css("backgrounColor", "green");
           $('#address_from_db').hide();
           html = 'The package will deliver to '+document.getElementById('detail_address').value+
-                  ', '+$('#city option:selected').text()+', '+$('#province option:selected').text();
+                  ', '+$('#city option:selected').text()+$('#city_int').val()+', '+$('#province option:selected').text()+$('#provice_int').val();
           $('#address_from_this').html(html);
         });
 
@@ -249,13 +337,14 @@ var taxs;
                     var count = 1;
                     var i;
                     var sum = 'USD ';
-                    sum += data.data[0].total;
-                    tot = data.data[0].total;
 
-                    $('#result').text(sum);
+
+                    // $('#result').text(sum);
 
                     if (data.status == 'gagal') {
+                      $('#result').text('-');
                       html += "Nothing here";
+                      document.getElementById("checkout").style.pointerEvents = "none";
                     }else {
                       for(i=0; i<data.data.length; i++){
                         html += '<tr>'+
@@ -281,6 +370,10 @@ var taxs;
                                   '<td>'+
                                 '</tr>';
                     }
+                    sum += data.data[0].total;
+                    tot = data.data[0].total;
+                    document.getElementById("checkout").style.pointerEvents = "auto";
+                    $('#result').text(sum);
                     }
                     $('.show_cart').html(html);
                 }
@@ -307,6 +400,17 @@ var taxs;
             });
         });
         // END DELETE PRODUCT
+
+        //grand_total
+        function grand_tot(){
+          if (parseInt(tot)>0) {
+            gr = parseInt(tot)+parseInt(taxs)+parseInt(omkir);
+            $('#grand_total').html(gr);
+          }else {
+            $('#grand_total').html(0);
+          }
+        }
+
 
         // country_name
         $('#country').change(function(){

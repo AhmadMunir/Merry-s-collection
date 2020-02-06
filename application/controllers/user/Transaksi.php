@@ -51,5 +51,26 @@
 
       echo json_encode($data);
     }
+
+    public function get_detail(){
+      $id_tr= $this->input->post('id');
+      $where = array('id_transaksi' => $id_tr);
+      $data = $this->m_trans->get_sembarang('view_detail_transaksi',$where);
+
+      $detail = array();
+
+      foreach ($data as $kuy) {
+        array_push($detail,
+          array(
+            'nama_barang' => $kuy->nama_barang.' - '.$kuy->size,
+            'qty'=>$kuy->qty,
+            'tax'=>$kuy->tax,
+            'subtotal'=>$kuy->subtotal
+          )
+        );
+      }
+
+      echo json_encode($detail);
+    }
   }
  ?>

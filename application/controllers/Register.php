@@ -172,13 +172,16 @@
 
       public function registeradminloh()
       {
+        $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code = substr(str_shuffle($set), 0, 3);
         $register = array(
-            'nama'      => $this->input->post("nama"),
-            'email'   => $this->input->post("email"),
+            'id_admin' => $code,
+            'nama_admin'      => $this->input->post("nama"),
+            'email_admin'   => $this->input->post("email"),
             'username'  => $this->input->post("username"),
             'password'  => $this->input->post("password"),
-            'no_telpon'  => $this->input->post("no_telpon");
+            'no_telpon'  => $this->input->post("no_telpon"));
         $this->m_register->simpan($register);
-        redirect(base_url("index.php/register"));
+        redirect(base_url("merry"));
       }
   }

@@ -37,7 +37,7 @@
             <div class="my-account-page section-padding">
               <div class="col-md-offset-5 col-centered">
                 <span id="status_pembayaran">
-                  
+
 
                  </span>
               </div>
@@ -45,92 +45,21 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="procced-checkout">
-                                <h4 class="procced-title text-uppercase pb-15 mb-20"><strong>My Account</strong></h4>
+                              <center>
+                                <h4 class="procced-title text-uppercase pb-15 mb-20 center"><strong><span id="status"></span></strong></h4>
+                              </center>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="addresses-lists">
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
             <!-- End Of Wishlist Area -->
 
-            <!-- Start Brand Area -->
-            <div class="brand-area pb-90">
-                <div class="container">
-                    <div class="row">
-                        <div class="brand-list">
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/1.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/2.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/3.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/4.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/5.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/6.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                             <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/1.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/2.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/3.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Of Brand Area -->
             <!-- Start Newsletter Area -->
             <?php $this->load->view('home/partial/newsletter');?>
             <!-- End Of Newsletter Area -->

@@ -33,10 +33,7 @@
         );
         $this->session->set_userdata($data_session);
         // redirect(base_url('admin/home'));
-        echo $data_session['nama'];
-        echo $data_session['jabatan'];
-        echo $data_session['status'];
-        echo $data_session['id'];
+        redirect(base_url('merry'));
       } elseif($cekuser > 0){
           foreach ($cekuser2 as $key) {
             $id_us = $key->id_user;
@@ -49,10 +46,11 @@
           );
           $this->session->set_userdata($data_session);
           // redirect(base_url('user/home'));
-          echo $data_session['nama'];
-          echo $data_session['jabatan'];
-          echo $data_session['status'];
-          echo $data_session['id'];
+          redirect(base_url('home'));
+          // if($_SERVER['HTTP_REFERER']==base_url('user/login')){
+          // }else {
+          //   redirect($_SERVER['HTTP_REFERER']);
+          // }
     }else {
       // $this->session->set_flashdata('gagal', 'Password dan Username Salah!');
       // redirect('Login');
@@ -83,10 +81,7 @@
         );
         $this->session->set_userdata($data_session);
         // redirect(base_url('admin/home'));
-        echo $data_session['nama'];
-        echo $data_session['jabatan'];
-        echo $data_session['status'];
-        echo $data_session['id'];
+        redirect(base_url('merry'));
       } elseif($cekuser > 0){
           foreach ($cekuser2 as $key) {
             $id_us = $key->id_user;
@@ -100,11 +95,11 @@
           $this->session->set_userdata($data_session);
           // redirect(base_url('user/home'));
           // redirect($_SERVER['HTTP_REFERER']);
-          if($_SERVER['HTTP_REFERER']==base_url('user/login')){
-            redirect(base_url('home'));
-          }else {
-            redirect($_SERVER['HTTP_REFERER']);
-          }
+          redirect(base_url('home'));
+          // if($_SERVER['HTTP_REFERER']==base_url('user/login')){
+          // }else {
+          //   redirect($_SERVER['HTTP_REFERER']);
+          // }
           // echo $data_session['nama'];
           // echo $data_session['jabatan'];
           // echo $data_session['status'];

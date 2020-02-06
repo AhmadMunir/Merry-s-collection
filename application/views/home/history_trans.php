@@ -78,6 +78,7 @@
                                                                   <th data-field="tgl" data-editable="true">DATE</th>
                                                                   <th data-field="address" data-editable="true">Ship to</th>
                                                                   <th data-field="total" data-editable="true">total</th>
+                                                                  <th data-field="resi" data-editable="true">resi</th>
                                                                   <th data-field="Details" data-editable="true">Detail</th>
                                                                   <!-- <th data-field="email" data-editable="true">Total Sales</th>
                                                                   <th data-field="action">Action</th> -->
@@ -92,9 +93,10 @@
                                                                            <td><?php echo $key->tanggal; ?> </td>
                                                                             <td> <?php echo $key->alamat_pengiriman; ?></td>
                                                                             <td> <?php echo $key->total; ?></td>
-                                                                             <td><button class="btn btn-primary" id="detail">Detail</button></td>+
+                                                                            <td> <?php echo $key->resi; ?></td>
+                                                                             <td><a href="javascript:detail('<?php echo $key->id_transaksi; ?>')"<button class="btn btn-primary" id="detail">Detail</button></td>+
                                                                             </tr>
-                                                          <?  } ?>
+                                                          <?php  } ?>
 
                                                           </tbody>
                                                       </table>
@@ -137,93 +139,7 @@
         </section>
         <!-- End page content -->
         <!-- Start footer area -->
-        <footer id="footer" class="footer-area">
-            <div class="footer-top-area gray-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer-widget">
-                                <div class="footer-widget-img pb-30">
-                                    <a href="#">
-                                        <img src="images/logo/logo-2.png" alt="">
-                                    </a>
-                                </div>
-                                <ul class="toggle-footer text-white">
-                                    <li class="mb-30 pl-45">
-                                        <i class="zmdi zmdi-pin"></i>
-                                        <p>House No 08, Road No 08, <br>
-                                        Din Bari, Dhaka, Bangladesh</p>
-                                    </li>
-                                    <li class="mb-30 pl-45">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <p>Username@gmail.com <br>
-                                        Damo@gmail.com</p>
-                                    </li>
-                                    <li class="pl-45">
-                                        <i class="zmdi zmdi-phone"></i>
-                                        <p>+660 256 24857<br>
-                                        +660 256 24857</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="text-white footer-information">
-                                <h4 class="pb-40 m-0 text-uppercase">information</h4>
-                                <ul class="footer-menu">
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Hot Sale</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>best Seller</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Suppliers</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Our Store</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Deal of The Day</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="text-white footer-account">
-                                <h4 class="pb-40 m-0 text-uppercase">MY ACCOUNT</h4>
-                                <ul class="footer-menu">
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>My Account</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Personal Information</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Discount</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Orders History</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Payment</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="text-white footer-about-us">
-                                <h4 class="pb-40 m-0 text-uppercase">about us</h4>
-                                <p>Lorem ipsum dolor sit amet, consecteir our adipisicing elit, sed do eiusmod tempor the incididunt ut labore et dolore magnaa liqua. Ut enim minimn.</p>
-                                <ul class="footer-social-icon">
-                                    <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-rss"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom black-bg ptb-15">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="copyright text-white">
-                                <p>Copyright <i class="fa fa-copyright"></i> 2018 <a href="https://freethemescloud.com/" target="_blank" >Free Themes Cloud.</a> All rights reserved. </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="footer-img">
-                                <img src="images/payment.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php $this->load->view('home/partial/footer2') ?>
         <!-- End footer area -->
     </div>
     <!-- Body main wrapper end -->
@@ -246,6 +162,45 @@
             <input type="hidden" name="id_detail_temp_transaksi" class="id_detail_temp_transaksi">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
             <button type="button" class="btn btn-primary btn-delete">Yes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal fade" id="Modaldetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete item</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="alert alert-info">
+                <div id="detail_trans">
+                  <table id="table" data-toggle="table" data-pagination="false" data-search="false" data-show-columns="false" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="false" data-cookie="false"
+                      data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="false" data-toolbar="#toolbar">
+                      <thead>
+                          <tr>
+                              <!-- <th data-field="state" data-checkbox="false"></th> -->
+                              <th data-field="id">No</th>
+                              <th data-field="Item" data-editable="true">Item</th>
+                              <th data-field="qty" data-editable="true">QTY</th>
+                              <th data-field="tax" data-editable="true">TAX</th>
+                              <th data-field="subtotal" data-editable="true">Subtotal</th>
+                              <!-- <th data-field="email" data-editable="true">Total Sales</th>
+                              <th data-field="action">Action</th> -->
+                          </tr>
+                      </thead>
+                      <tbody id="show_dtrans">
+
+                      </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+
         </div>
         </div>
     </div>
@@ -296,6 +251,30 @@
             // }
 
           });
+        function detail(id){
+          var html = '';
+          var count =1;
+          $.ajax({
+            type  : 'POST',
+            url : '<?php echo site_url("user/transaksi/get_detail")?>',
+            dataType  : 'json',
+            data  : {id : id},
+            success : function(data){
+              for (var i = 0; i < data.length; i++) {
+                html += '<tr><td>'+count++ +'</td>'+
+                        '<td>'+data[i].nama_barang +'</td>'+
+                        '<td>'+data[i].qty +'</td>'+
+                        '<td>'+data[i].tax +'</td>'+
+                        '<td>'+data[i].subtotal +'</td>'+
+                        '<tr>';
+              }
+
+              $('#show_dtrans').html(html);
+            }
+          });
+          $('#Modaldetail').modal('show');
+        }
+
     </script>
 <!-- /opt/lampp/htdocs/merrys/js/general/data-table -->
 

@@ -46,7 +46,7 @@
                         </div>
                         <div class="col-md-5 col-sm-12 col-xs-12">
                             <div class="img-element b-img">
-                                <img src="images/about/ab.jpg" alt="">
+                                <img src="<?php echo base_url('img/merrys-team.jpg');?>" alt="">
                             </div>
                         </div>
                     </div>
@@ -63,11 +63,11 @@
                                 <div class="team-info">
                                     <div class="team-img mb-10">
                                         <center>
-                                            <img class="mx-auto rounded-circle" src="../img/about/own.jpg" alt="" width="175px" height="175px">
+                                            <img class="mx-auto rounded-circle" src="<?php echo base_url('img/merrys-team.jpg')?>" alt="" width="175px" height="175px">
                                         </center>
                     <!-- <a href="../img/about/own.jpg" class="btn gallery-img">See More +</a> -->
-                                        <h4>Orang Tua</h4>
-                                        <p class="text-muted">Lead Developer and Produk Owner</p>
+                                        <h4>Mariyanto</h4>
+                                        <p class="text-muted">Founder</p>
                                     </div>
                                 </div>
                             </div>
@@ -77,11 +77,11 @@
                                 <div class="team-info">
                                     <div class="team-img mb-10">
                                         <center>
-                                            <img class="mx-auto rounded-circle" src="../img/about/own.jpg" alt="" width="175px" height="175px">
+                                            <img class="mx-auto rounded-circle" src="<?php echo base_url('img/hans.PNG')?>" alt="" width="175px" height="175px">
                                         </center>
                     <!-- <a href="../img/about/own.jpg" class="btn gallery-img">See More +</a> -->
-                                        <h4>Orang Tua</h4>
-                                        <p class="text-muted">Lead Developer and Produk Owner</p>
+                                        <h4>HanS</h4>
+                                        <p class="text-muted">Co-Founder</p>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                             <div class="col-12 col-lg-8">
                                 <div class="video-box bg-overlay-black">
                                     <iframe width="1100" height="350" src="https://www.youtube.com/embed/4e_hgBrgBHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -113,101 +113,15 @@
                             </div>
                         </div>
                     </div>
-                </section> 
+                </section>
             <!-- End Of Newsletter Area -->
         </section>
         <!-- End page content -->
         <!-- Start footer area -->
-        <footer id="footer" class="footer-area">
-            <div class="footer-top-area gray-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer-widget">
-                                <div class="footer-widget-img pb-30">
-                                    <a href="#">
-                                        <img src="images/logo/logo-2.png" alt="">
-                                    </a>
-                                </div>
-                                <ul class="toggle-footer text-white">
-                                    <li class="mb-30 pl-45">
-                                        <i class="zmdi zmdi-pin"></i>
-                                        <p>House No 08, Road No 08, <br>
-                                            Din Bari, Dhaka, Bangladesh</p>
-                                    </li>
-                                    <li class="mb-30 pl-45">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <p>Username@gmail.com <br>
-                                            Damo@gmail.com</p>
-                                    </li>
-                                    <li class="pl-45">
-                                        <i class="zmdi zmdi-phone"></i>
-                                        <p>+660 256 24857<br>
-                                            +660 256 24857</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="text-white footer-information">
-                                <h4 class="pb-40 m-0 text-uppercase">information</h4>
-                                <ul class="footer-menu">
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Hot Sale</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>best Seller</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Suppliers</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Our Store</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Deal of The Day</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="text-white footer-account">
-                                <h4 class="pb-40 m-0 text-uppercase">MY ACCOUNT</h4>
-                                <ul class="footer-menu">
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>My Account</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Personal Information</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Discount</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Orders History</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Payment</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="text-white footer-about-us">
-                                <h4 class="pb-40 m-0 text-uppercase">about us</h4>
-                                <p>Lorem ipsum dolor sit amet, consecteir our adipisicing elit, sed do eiusmod tempor the incididunt ut labore et dolore magnaa liqua. Ut enim minimn.</p>
-                                <ul class="footer-social-icon">
-                                    <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-rss"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom black-bg ptb-15">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="copyright text-white">
-                                <p>Copyright <i class="fa fa-copyright"></i> 2018 <a href="https://freethemescloud.com/" target="_blank">Free Themes Cloud.</a> All rights reserved. </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="footer-img">
-                                <img src="images/payment.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php $this->load->view('home/partial/footer2') ?>
         <!-- End footer area -->
     </div>
-    z
+
 
 </body>
 

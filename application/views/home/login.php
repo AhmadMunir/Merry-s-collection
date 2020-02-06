@@ -40,7 +40,7 @@
                                         <p>If you have an account with us, Please log in.</p>
                                         <input type="text" placeholder="Username" required="" value="" name="usernameL" id="usernameL" class="form-control">
                                         <input type="password" placeholder="Password" required="" value="" name="passwordL" id="passwordL" class="form-control">
-                                        <p><small><a href="#">Forgot our password?</a></small></p>
+                                        <p><small><a href="<?php echo base_url('lupapass') ?>">Forgot our password?</a></small></p>
                                         <button type="submit" class="submit-btn">login</button>
                                     </div>
                                 </form>
@@ -117,79 +117,7 @@
             </div>
             <!-- End Of Wishlist Area -->
 
-            <!-- Start Brand Area -->
-            <div class="brand-area pb-90">
-                <div class="container">
-                    <div class="row">
-                        <div class="brand-list">
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/1.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/2.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/3.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/4.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/5.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/6.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/1.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/2.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="single-brand text-center">
-                                    <a href="#">
-                                        <img src="images/brand/3.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Of Brand Area -->
+
             <!-- Start Newsletter Area -->
             <div class="newsletter-area">
                 <div class="container">
@@ -216,7 +144,7 @@
         </section>
         <!-- End page content -->
         <!-- Start footer area -->
-        <footer id="footer" class="footer-area">
+        <!-- <footer id="footer" class="footer-area">
             <div class="footer-top-area gray-bg">
                 <div class="container">
                     <div class="row">
@@ -302,7 +230,8 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> -->
+        <?php $this->load->view('home/partial/footer2') ?>
         <!-- End footer area -->
     </div>
     <!-- Body main wrapper end -->

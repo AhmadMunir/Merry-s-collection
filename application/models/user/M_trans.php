@@ -28,5 +28,9 @@ class M_trans extends CI_Model
   public function get_transaksi($where){
     return $this->db->get_where('view_transaksi', $where)->result();
   }
+
+  // public function get_dtransaksi($where){
+  //   return $this->db->get_where('view_detail_ transaksi', $where)->result();
+  // }
 }
 ?>

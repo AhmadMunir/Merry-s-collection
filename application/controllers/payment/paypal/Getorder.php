@@ -12,6 +12,7 @@ class Getorder extends CI_Controller
   public function __construct(){
     parent::__construct();
     $this->load->model('user/m_trans');
+    $this->load->model('user/m_cart');
   }
   // 2. Set up your server to receive a call from the client
   /**
@@ -54,7 +55,7 @@ class Getorder extends CI_Controller
      $order = json_decode($data, true);
      // print_r($order);
      // echo count($order['purchase_units'][0]['items']);
-
+       $stok ='';
      // shipping method
      $mtd = $_SESSION['ship_session']['method'];
      $method = explode('-',$mtd);
@@ -64,7 +65,7 @@ class Getorder extends CI_Controller
      $tr = array(
        'id_transaksi' => $order['id'],
        // 'id_user' => $this->session->userdata('id'),
-       'id_user' => 1,
+       'id_user' => $this->session->userdata('id'),
        'status' => 'Order Accepted',
        'total' => $order['purchase_units'][0]['amount']['breakdown']['item_total']['value'],
        'tax_total' => $order['purchase_units'][0]['amount']['breakdown']['tax_total']['value'],
@@ -138,7 +139,7 @@ class Getorder extends CI_Controller
            $qt0 = array(
              'id_detail_transaksi' => $order['purchase_units'][0]['items'][$i]['sku'],
              'id_transaksi' => $order['id'],
-             'id_user' => 1,
+             'id_user' => $this->session->userdata('id'),
              'id_barang' => $idba[0],
              'size' => $idba[2],
              'qty' => $order['purchase_units'][0]['items'][$i]['quantity'],
@@ -148,6 +149,34 @@ class Getorder extends CI_Controller
 
            $this->m_trans->insert_trans('tabel_detail_transaksi',$qt0);
            $this->m_trans->delete_temp('tabel_temp_detail_transaksi', $id_temp_tr);
+
+           $wheresize = array('id_barang'=>$idba[0],'size'=>$idba[2]);
+           $ukuran = $this->m_cart->cek_apa('tabel_detail_stok', $wheresize);
+
+           foreach ($ukuran as $detailstok) {
+             $stok = $detailstok->jumlah_stok;
+           }
+
+           //kurangistok
+           $stokbaru = $stok-$order['purchase_units'][0]['items'][$i]['quantity'];
+
+           $this->m_cart->update_stok($stokbaru, $wheresize);
+
+           $this->load->view('/vendor/autoload.php');
+             $options = array(
+                 'cluster' => 'ap1',
+                 'useTLS' => true
+               );
+               $pusher = new Pusher\Pusher(
+                 '47980f8443159a27e646',
+                 '70e4e200051728975830',
+                 '913455',
+                 $options
+               );
+
+               $tras['stts'] = 'trans_sukses';
+               $tras['message'] = 'TRANSAKSI SUCCESS';
+               $response = $pusher->trigger('transaksi', 'my-event', $tras);
          }elseif ($qt>0) {
            $tmp_dt = $this->m_trans->get_sembarang('tabel_temp_detail_transaksi', $id_temp_tr);
            foreach ($tmp_dt as $dtr) {
@@ -168,7 +197,7 @@ class Getorder extends CI_Controller
            $qt1 = array(
              'id_detail_transaksi' => $order['purchase_units'][0]['items'][$i]['sku'],
              'id_transaksi' => $order['id'],
-             'id_user' => 1,
+             'id_user' => $this->session->userdata('id'),
              'id_barang' => $idba[0],
              'size' => $idba[2],
              'qty' => $order['purchase_units'][0]['items'][$i]['quantity'],
@@ -177,6 +206,33 @@ class Getorder extends CI_Controller
            );
            $this->m_trans->insert_trans('tabel_detail_transaksi',$qt1);
 
+           $wheresize = array('id_barang'=>$idba[0],'size'=>$idba[2]);
+           $ukuran = $this->m_cart->cek_apa('tabel_detail_stok', $wheresize);
+
+           foreach ($ukuran as $detailstok) {
+             $stok = $detailstok->jumlah_stok;
+           }
+
+           //kurangistok
+           $stokbaru = $stok - $order['purchase_units'][0]['items'][$i]['quantity'];
+
+           $this->m_cart->update_stok($stokbaru, $wheresize);
+
+           $this->load->view('/vendor/autoload.php');
+             $options = array(
+                 'cluster' => 'ap1',
+                 'useTLS' => true
+               );
+               $pusher = new Pusher\Pusher(
+                 '47980f8443159a27e646',
+                 '70e4e200051728975830',
+                 '913455',
+                 $options
+               );
+
+               $tras['stts'] = 'trans_sukses';
+               $tras['message'] = 'TRANSAKSI SUCCESS';
+               $response = $pusher->trigger('notif-cart', 'my-event', $tras);
            // echo "yang kurang :";
            // print_r($qt1);
          }else {
@@ -194,6 +250,7 @@ class Getorder extends CI_Controller
 
      if ($count_tdtr == 0) {
        $this->m_trans->delete_temp('tabel_temp_transaksi', $where);
+
      };
 
      // print_r($temp_dtl);

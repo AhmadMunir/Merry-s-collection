@@ -48,7 +48,7 @@
             <div class="wishlist-area section-padding">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" id="cartt">
                             <div class="wishlist-content">
                                 <form action="#">
                                     <div class="wishlist-table table-responsive p-30 text-uppercase">
@@ -67,7 +67,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="row">
+                                    <div class="row" id="checkout" style="pointer-events:none;">
                                         <div class="cart-requerment mt-50 clearfix">
                                             <div class="col-md-4 col-sm-6 clearfix">
                                                 <div class="cart-title text-uppercase">
@@ -81,7 +81,7 @@
                                                                 <option value="" selected >Country</option>
                                                               </select>
                                                             </div>
-                                                            <div class="cart-show-label show-label mt-15 indo" style="display:none">
+                                                            <div class="cart-show-label show-label mt-15 indo" id="city_id" style="display:none;">
                                                               <select name="city" id="city">
                                                                 <option value="" selected >CITY</option>
                                                               </select>
@@ -91,7 +91,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <div class="cart-show-label show-label indo" style="display:none">
+                                                            <div class="cart-show-label show-label indo" id="province_id" style="display:none;">
                                                                 <select name="province" id="province">
                                                                   <option value="" selected >Province</option>
                                                                 </select>
@@ -153,13 +153,13 @@
                                                       if ($al == null && $kota == null && $provinsi == null && $negara == null && $kode_pos == null) {
                                                         ?>
                                                         <center>
-                                                          <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
+                                                          <h5 id="address_from_this" style="color : red;">Complete your address on profile or fill the shipping form</h5>
                                                         </center>
                                                         <?php
                                                       }elseif ($al == null or $kota == null or $provinsi == null or $negara == null or $kode_pos == null) {
                                                         ?>
                                                         <center>
-                                                          <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
+                                                          <h5 id="address_from_this" style="color : red;">Complete your address on profile or fill the shipping form</h5>
                                                         </center>
                                                         <?php
                                                       }else {
@@ -204,28 +204,11 @@
                                                         </tbody>
                                                     </table>
                                                     <div id="payment">
-                                                      <?php
-                                                        if ($al == null && $kota == null && $provinsi == null && $negara == null && $kode_pos == null) {
-                                                          ?>
-                                                          <!-- <center>
-                                                            <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
-                                                          </center> -->
-                                                          <?php
-                                                        }elseif ($al == null or $kota == null or $provinsi == null or $negara == null or $kode_pos == null) {
-                                                          ?>
-                                                          <!-- <center>
-                                                            <h5 style="color : red;">Complete your address on profile or fill the shipping form</h5>
-                                                          </center> -->
-                                                          <?php
-                                                        }else {
-                                                          ?>
+
                                                           <script
                                                           src="https://www.paypal.com/sdk/js?client-id=AS6yMkPP1YEQ_1RPmSItB_hnP8uthx2dEREmoMSg9MMLiKebZ4VFRYbiOnKhR4nFoBYlr25YKcEiWgXl"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
                                                           </script>
-                                                          <div id="paypal-button-container"></div>
-                                                        <?php }
-                                                       ?>
-
+                                                          <div id="paypal-button-container" style="pointer-events:none;"></div>
                                                     </div>
 
                                                 </div>
@@ -234,6 +217,12 @@
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                        <div class="col-md-offset-5 col-centered" id="afterpay" style="display:none">
+                          <span id="status_pembayaran">
+
+
+                           </span>
                         </div>
                     </div>
                 </div>
@@ -265,93 +254,7 @@
         </section>
         <!-- End page content -->
         <!-- Start footer area -->
-        <footer id="footer" class="footer-area">
-            <div class="footer-top-area gray-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="footer-widget">
-                                <div class="footer-widget-img pb-30">
-                                    <a href="#">
-                                        <img src="images/logo/logo-2.png" alt="">
-                                    </a>
-                                </div>
-                                <ul class="toggle-footer text-white">
-                                    <li class="mb-30 pl-45">
-                                        <i class="zmdi zmdi-pin"></i>
-                                        <p>House No 08, Road No 08, <br>
-                                        Din Bari, Dhaka, Bangladesh</p>
-                                    </li>
-                                    <li class="mb-30 pl-45">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <p>Username@gmail.com <br>
-                                        Damo@gmail.com</p>
-                                    </li>
-                                    <li class="pl-45">
-                                        <i class="zmdi zmdi-phone"></i>
-                                        <p>+660 256 24857<br>
-                                        +660 256 24857</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="text-white footer-information">
-                                <h4 class="pb-40 m-0 text-uppercase">information</h4>
-                                <ul class="footer-menu">
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Hot Sale</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>best Seller</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Suppliers</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Our Store</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Deal of The Day</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="text-white footer-account">
-                                <h4 class="pb-40 m-0 text-uppercase">MY ACCOUNT</h4>
-                                <ul class="footer-menu">
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>My Account</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Personal Information</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Discount</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Orders History</a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-chevron-right"></i>Payment</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="text-white footer-about-us">
-                                <h4 class="pb-40 m-0 text-uppercase">about us</h4>
-                                <p>Lorem ipsum dolor sit amet, consecteir our adipisicing elit, sed do eiusmod tempor the incididunt ut labore et dolore magnaa liqua. Ut enim minimn.</p>
-                                <ul class="footer-social-icon">
-                                    <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-rss"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
-                                    <li><a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom black-bg ptb-15">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="copyright text-white">
-                                <p>Copyright <i class="fa fa-copyright"></i> 2018 <a href="https://freethemescloud.com/" target="_blank" >Free Themes Cloud.</a> All rights reserved. </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="footer-img">
-                                <img src="images/payment.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php echo base_url('home/partial/footer2') ?>
         <!-- End footer area -->
     </div>
     <!-- Body main wrapper end -->

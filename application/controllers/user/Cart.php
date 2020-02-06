@@ -213,7 +213,7 @@
         "id_barang" => $id_barang,
         "size" => $siz,
         "qty" => $qty,
-        "subtotal" => $harga
+        "subtotal" => $harga*$qty
       );
       //cart jika temp sudah ada
       $cart2 = array(
@@ -223,7 +223,7 @@
         "id_barang" => $id_barang,
         "size" => $siz,
         "qty" => $qty,
-        "subtotal" => $harga
+        "subtotal" => $harga*$qty
       );
       if ($cek_cart>0) {
         echo "pesanan ada";
@@ -242,11 +242,13 @@
               );
             $this->m_cart->update_qty($where_detail, $qty4);
             $this->hitung_cart();
+            $this->pusher_pesananmasuk();
             echo "masuk";
         }else {
           echo "-masuk detail baru";
           $this->m_cart->insert_cart($cart2, 'tabel_temp_detail_transaksi');
           $this->hitung_cart();
+          $this->pusher_pesananmasuk();
           echo "asd";
           // echo $cek;
         }
@@ -276,6 +278,22 @@
         echo $id;
     }
 
+    public function pusher_pesananmasuk(){
+      $this->load->view('/vendor/autoload.php');
+        $options = array(
+            'cluster' => 'ap1',
+            'useTLS' => true
+          );
+          $pusher = new Pusher\Pusher(
+            '47980f8443159a27e646',
+            '70e4e200051728975830',
+            '913455',
+            $options
+          );
+
+          $data['status'] = 'success';
+          $response = $pusher->trigger('home', 'my-event', $data);
+    }
 
     public function hitung_cart(){
 

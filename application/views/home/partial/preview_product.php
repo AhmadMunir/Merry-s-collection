@@ -48,11 +48,11 @@
                             <div class="product-attributes clearfix">
                                 <div class="pull-left text-uppercase pb-30" id="quantity-wanted" >
                                     <h4 class="product-details-tilte text-uppercase pb-10">quantity</h4>
-                                    <input type="number" value="1" min="1" id="qty" max="3">
+                                    <input type="number" value="1" min="1" id="qty" max="1" onkeydown="return false">
                                 </div>
                             </div>
                             <div class="product-attributes clearfix">
-                                <div class="pull-left text-uppercase pb-30" id="btn-add" >
+                                <div class="pull-left text-uppercase pb-30 btn-add" >
 
                                 </div>
                             </div>

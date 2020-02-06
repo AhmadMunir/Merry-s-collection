@@ -198,7 +198,7 @@ class Createorder extends CI_Controller
              'intent' => 'CAPTURE',
              'application_context' =>
                  array(
-                     'return_url' => 'https://example.com/return',
+                     'return_url' => base_url('user/afterpay'),
                      'cancel_url' => 'https://example.com/cancel',
                      'brand_name' => 'EXAMPLE INC',
                      'locale' => 'en-US',

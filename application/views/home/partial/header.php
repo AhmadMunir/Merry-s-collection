@@ -26,10 +26,10 @@
                                 <div class="header-top-down header-top-hover pl-15 lh-35">
                                     <ul>
                                         <li><a href="#">USD</a></li>
-                                        <li><a href="#">Uero</a></li>
+                                        <!-- <li><a href="#">Uero</a></li>
                                         <li><a href="#">Taka</a></li>
                                         <li><a href="#">Pound</a></li>
-                                        <li><a href="#">Rupi</a></li>
+                                        <li><a href="#">Rupi</a></li> -->
                                     </ul>
                                 </div>
                             </li>
@@ -37,11 +37,11 @@
                                 <a href="#" class="prl-20 text-uppercase">ENG</a>
                                 <div class="header-top-down header-top-hover header-top-down-lang pl-15 lh-35 lh-35">
                                     <ul>
-                                        <li><a href="#">Bengali</a></li>
+                                        <!-- <li><a href="#">Bengali</a></li> -->
                                         <li><a href="#">English</a></li>
-                                        <li><a href="#">French</a></li>
+                                        <!-- <li><a href="#">French</a></li>
                                         <li><a href="#">German</a></li>
-                                        <li><a href="#">Spanish</a></li>
+                                        <li><a href="#">Spanish</a></li> -->
                                     </ul>
                                 </div>
                             </li>
@@ -50,8 +50,8 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="header-logo text-center">
-                        <a href="index.html">
-                            <img alt="" src="<?php echo base_url('img/user/')?>logo/logo.png">
+                        <a href="<?php base_url('home') ?>">
+                            <img width="150" height="48" alt="" src="<?php echo base_url('img/')?>logo.png">
                         </a>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                                     <i class="zmdi zmdi-shopping-cart"></i>
                                     <span><div id="cart_itung">0</div></span>
                                 </a>
-                                <div class="mini-cart-inner header-top-down p-20">
+                                <!-- <div class="mini-cart-inner header-top-down p-20">
                                     <ul class="cart-list">
                                         <li class="p-10 mb-15">
                                             <a href="#" class="product-image">
@@ -140,7 +140,7 @@
                                             </a>
                                         </p>
                                     </div>
-                                </div>
+                                </div> -->
                             </li>
                         </ul>
                     </div>
@@ -156,7 +156,7 @@
                         <div class="col-md-12">
                             <nav id="primary-menu">
                                 <ul class="main-menu text-center">
-                                    <li><a href="<?php echo base_url('home') ?>">Home</a></li>
+                                    <li><a href="<?php echo base_url('home')?>">Home</a></li>
                                     <li><a href="<?php echo base_url('user/About') ?>">About</a></li>
                                     <li><a href="shop-full.html">CATEGORY</a></li>
                                     <li><a href="<?php echo base_url('user/custom') ?>">CUSTOM</a></li>
@@ -184,7 +184,7 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul>
-                                <<li><a href="<?php echo base_url('home') ?>">Home</a></li>
+                                <li><a href="<?php echo base_url('home') ?>">Home</a></li>
                                 <li><a href="<?php echo base_url('user/About') ?>">About</a></li>
                                 <li><a href="shop-full.html">men</a></li>
                                 <li><a href="<?php echo base_url('user/custom') ?>">CUSTOM</a></li>

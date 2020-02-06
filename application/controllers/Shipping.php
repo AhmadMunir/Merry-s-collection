@@ -256,7 +256,7 @@
           CURLOPT_POSTFIELDS => "origin=152&destination=108&weight=1400&courier=pos",
           CURLOPT_HTTPHEADER => array(
             "content-type: application/x-www-form-urlencoded",
-            "key: your-api-key"
+            "key: $this->api_key"
           ),
         ));
 
@@ -264,13 +264,26 @@
         $err = curl_error($curl);
 
         curl_close($curl);
+        $ongkir = array();
 
         if ($err) {
           echo "cURL Error #:" . $err;
         } else {
-          echo $response;
+          // echo $response;
+          $data = json_decode($response, true);
+          for ($i=0; $i < count($data['rajaongkir']['results'][0]['costs']); $i++) {
+            $usd = $this->convert();
+            $cos = $data['rajaongkir']['results'][0]['costs'][$i]['cost'];
+            $cas = $usd*$cos;
+            array_push($ongkir, array(
+              'service' => $data['rajaongkir']['results'][0]['costs'][$i]['service'],
+              'cost' => number_format($cas)
+             )
+           );
         }
+        echo json_encode($ongkir);
     }
+  }
     public function cek_ongkir(){
 
        $kurir = $this->input->post('kurir');
@@ -324,11 +337,11 @@
           )
         );
        }
-       echo json_encode($ongkir);;
+       echo json_encode($ongkir);
      }
 
     }
-  
+
 
     public function convert(){
       $ch = curl_init();

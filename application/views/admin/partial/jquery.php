@@ -30,21 +30,13 @@
 		============================================ -->
     <script src="<?php echo base_url('js/admin/metisMenu/metisMenu.min.js') ?>"></script>
     <script src="<?php echo base_url('js/admin/metisMenu/metisMenu-active.js') ?>"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="<?php echo base_url('js/admin/morrisjs/raphael-min.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/morrisjs/morris.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/morrisjs/morris-active.js') ?>"></script>
-    <!-- morrisjs JS
-		============================================ -->
+
+
     <script src="<?php echo base_url('js/admin/sparkline/jquery.sparkline.min.js') ?>"></script>
     <script src="<?php echo base_url('js/admin/sparkline/jquery.charts-sparkline.js') ?>"></script>
     <!-- calendar JS
 		============================================ -->
-    <script src="<?php echo base_url('js/admin/calendar/moment.min.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/calendar/fullcalendar.min.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/calendar/fullcalendar-active.js') ?>"></script>
-
+  
     <!-- data table JS
         ============================================ -->
     <script src="<?php echo base_url('js/admin/data-table/bootstrap-table.js') ?>"></script>
@@ -57,13 +49,7 @@
     <script src="<?php echo base_url('js/admin/data-table/bootstrap-table-export.js') ?>"></script>
     <!--  editable JS
         ============================================ -->
-    <script src="<?php echo base_url('js/admin/editable/jquery.mockjax.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/editable/mock-active.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/editable/select2.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/editable/moment.min.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/editable/bootstrap-datetimepicker.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/editable/bootstrap-editable.js') ?>"></script>
-    <script src="<?php echo base_url('js/admin/editable/xediable-active.js') ?>"></script>
+
     <!-- Chart JS
         ============================================ -->
     <script src="<?php echo base_url('js/admin/chart/jquery.peity.min.js') ?>"></script>

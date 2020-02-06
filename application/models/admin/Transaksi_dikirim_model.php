@@ -5,10 +5,12 @@ class Transaksi_dikirim_model extends CI_Model
 
 	function getview_transaksi()
 	{
+		$this->db->where('status',  'dikirim');
 		return $this->db->get('view_transaksi')->result();
 	}
 	function getview_transaksi_bulan($bulan,$tahun)
 	{
+		$this->db->where('status',  'dikirim');
 		$this->db->where('Month(tanggal)', $bulan);
 		$this->db->where('Year(tanggal)', $tahun);
 		return $this->db->get('view_transaksi')->result();
