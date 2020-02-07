@@ -50,19 +50,38 @@
       $prov_name = $this->input->post("prov_name");
       $country = $this->input->post("country");
       $country_name = $this->input->post("country_name");
+      $country_id = $this->input->post("country_id");
+      $country_code = $this->input->post("country_code");
+      $city_inter = $this->input->post("city_inter");
+      $province_inter = $this->input->post("province_inter");
 
       $where = array('id_user' => $id);
 
-      $data = array(
-        'alamat' => $address,
-        'id_kota' => $city,
-        'kota' => $city_name,
-        'id_prov' => $province,
-        'provinsi' => $prov_name,
-        'id_neg' => $country,
-        'negara' => $country_name,
-        'kode_pos' => $zip
-      );
+      if ($country_id == 'idn') {
+        $data = array(
+          'alamat' => $address,
+          'id_kota' => $city,
+          'kota' => $city_name,
+          'id_prov' => $province,
+          'provinsi' => $prov_name,
+          'id_neg' => 'idn',
+          'negara' => $country_name,
+          'kode_neg' => 'ID',
+          'kode_pos' => $zip
+        );
+      }else {
+        $data = array(
+          'alamat' => $address,
+          'id_kota' => '',
+          'kota' => $city_inter,
+          'id_prov' => '',
+          'provinsi' => $province_inter,
+          'id_neg' => $country_id,
+          'negara' => $country_name,
+          'kode_neg' => $country_code,
+          'kode_pos' => $zip
+        );
+      }
       $this->M_profile->update($where, $data, 'tabel_alamat');
       $this->session->set_flashdata('success','success');
       redirect('user/profile');

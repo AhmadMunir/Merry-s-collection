@@ -268,7 +268,7 @@
           $response = $pusher->trigger('custom', 'custom', $data);
 
 
-      echo "sukses";
+      redirect(base_url('admin/custom'));
     }
   }
 

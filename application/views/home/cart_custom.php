@@ -150,7 +150,7 @@
                                               </select>
                                             </br>
                                             </br class="inter" style="display:none;">
-                                            <input type="text" id="province_inter" class="inter" placeholder="Add your province" style="display:none;">
+                                            <input type="text" id="province_int" class="inter" placeholder="Add your province" style="display:none;">
                                             <!-- </br> -->
                                               <!-- <div class="cart-show-label show-label indo" id="province_id" style="display:none;"> -->
                                                   <select name="province" id="province" class="indo">
@@ -158,7 +158,7 @@
                                                   </select>
                                                 </br class="inter" style="display:none;">
                                                 </br>
-                                                <input type="text" id="city_inter" class="inter" placeholder="Add your city" style="display:none;">
+                                                <input type="text" id="city_int" class="inter" placeholder="Add your city" style="display:none;">
                                                 <!-- </br> -->
 
                                               <!-- <div class="cart-show-label show-label mt-15 indo" id="city_id" style="display:none;"> -->
@@ -180,6 +180,9 @@
                                           </div>
                                           <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                               <div class="panel-body">
+                                                <input type="text" id="zip"  placeholder="Add your zippostal code" >
+                                              </br>
+                                              </br>
                                                 <textarea id="detail_address" placeholder="Input your detail adress"></textarea>
                                               </div>
                                           </div>

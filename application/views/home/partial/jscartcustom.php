@@ -81,28 +81,32 @@ var taxs;
               var prvince = '';
               var city = '';
               var detail = '';
+              var zip = '';
               if (address.status == 1) {
                 if (address.address[0].id_neg == 'idn' ) {
                   $('.inter').hide();
                   $('.indo').fadeIn();
-                  country = '<option value="'+address.address[0].id_neg+'">'+address.address[0].negara+'</option>';
+                  country = '<option value="'+address.address[0].id_neg+'-'+address.address[0].kode_neg+'">'+address.address[0].negara+'</option>';
                   prvince = '<option value="'+address.address[0].id_prov+'">'+address.address[0].provinsi+'</option>';
                   city = '<option value="'+address.address[0].id_kota+'">'+address.address[0].kota+'</option>';
+
                   detail = address.address[0].alamat;
 
                   $('#country').html(country);
                   $('#province').html(prvince);
                   $('#city').html(city);
+                  $('#zip').val(address.address[0].kode_pos);
                   $('#detail_address').val(detail);
                 }else {
                   $('.inter').fadeIn();
                   $('.indo').hide();
-                  country = '<option value="'+address.address[0].id_neg+'">'+address.address[0].negara+'</option>';
+                  country = '<option value="'+address.address[0].id_neg+'-'+address.address[0].kode_neg+'">'+address.address[0].negara+'</option>';
                   prvince = address.address[0].provinsi;
                   city = address.address[0].kota;
                   detail = address.address[0].alamat;
 
                   $('#country').html(country);
+                  $('#zip').val(address.address[0].kode_pos);
                   $('#province_inter').val(prvince);
                   $('#city_inter').val(city);
                   $('#detail_address').val(detail);
@@ -128,7 +132,7 @@ var taxs;
               if (current != '') {
                 html += '<option value="'+currentval+'">'+current+'</option>';
               }
-              html += '<option value="idn">Indonesia</option>';
+              html += '<option value="idn-ID">Indonesia</option>';
               var i;
               for(i=0; i<option.length; i++){
                 html += '<option value="'+option[i].id_country+'-'+option[i].code+'">'+option[i].country+'</option>';
@@ -140,7 +144,7 @@ var taxs;
 
         $('#country').change(function(){
           var cn = $('#country').val();
-          if (cn === 'idn') {
+          if (cn === 'idn-ID') {
             $('.indo').fadeIn();
             $('.inter').hide();
             $('#provice_int').val("");
@@ -171,7 +175,7 @@ var taxs;
             var html ="";
             html += '<select name="kurir" id="kurir">'+
                     '<option value="" selected > select Courier</option>'+
-                    '<option value="jne" > JNE </option>'+
+                    '<option value="jne" > International SHIPPING</option>'+
                     '</select>';
             $('#kurir').html(html);
             var ht = ''
@@ -227,7 +231,7 @@ var taxs;
         $('#kurir').change(function(){
 
           var cn = $('#country').val();
-          if (cn === 'idn') {
+          if (cn === 'idn-ID') {
           var kurir = $('#kurir').val();
           var city = $('#city').val();
 
@@ -281,8 +285,11 @@ var taxs;
           ship += $('#service').val();
           $('#shipping').html(ship);
           omkir = $('#service').val();
+          var myStr = $('#country').val();
+          var strArray = myStr.split("-");
 
-          var cn = $('#country').val();
+          var cn = strArray[0];
+          // alert(strArray[0]);
           if (cn === 'idn') {
             $.ajax({
               type  : 'POST',
@@ -311,7 +318,7 @@ var taxs;
               'a3':$('#city_int').val(),
               'a4':$('#province_int').val(),
               'a5':$('#zip').val(),
-              'a6':'US',},
+              'a6':strArray[1],},
             });
             document.getElementById("paypal-button-container").style.pointerEvents = "auto";
             grand_tot();
@@ -327,7 +334,10 @@ var taxs;
           $('#shipping').html(ship);
           omkir = $('#service').val();
 
-          var cn = $('#country').val();
+          var myStr = $('#country').val();
+          var strArray = myStr.split("-");
+
+          var cn = strArray[0];
           if (cn === 'idn') {
             $.ajax({
               type  : 'POST',
@@ -356,7 +366,7 @@ var taxs;
               'a3':$('#city_int').val(),
               'a4':$('#provice_int').val(),
               'a5':$('#zip').val(),
-              'a6':'US',},
+              'a6':strArray[1],},
             });
             document.getElementById("paypal-button-container").style.pointerEvents = "auto";
             grand_tot();

@@ -64,6 +64,7 @@
             'id_prov' => $key->id_prov,
             'provinsi' => $key->provinsi,
             'id_neg' => $key->id_neg,
+            'kode_neg' => $key->kode_neg,
             'negara' => $key->negara,
             'kode_pos' => $key->kode_pos,
           ));

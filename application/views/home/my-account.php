@@ -263,6 +263,7 @@
 
     <?php $this->load->view('home/partial/jquery') ?>
     <?php $this->load->view('home/partial/modals') ?>
+    <?php $this->load->view('home/partial/jsprofile') ?>
 
 </body>
 
