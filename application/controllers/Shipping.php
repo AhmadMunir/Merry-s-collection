@@ -6,7 +6,7 @@
       $this->load->model('user/m_cart');
     }
 
-    private $api_key = 'ec5ac9d3c347270853a915782f25979a';
+    private $api_key = 'cari api key ya ? wkwkwkw';
 
     public function province(){
 
